@@ -1,0 +1,32 @@
+{
+  "current": "formation",
+  "updated": "2026-11-16",
+  "note": "The project is in formation. We're preparing the public home, the docs, and the consent process. Recording has not opened yet.",
+  "stages": [
+    {
+      "id": "formation",
+      "label": "Formation",
+      "summary": "Establish the project, its ideals, consent process, and public home."
+    },
+    {
+      "id": "recording",
+      "label": "Recording",
+      "summary": "Volunteers sign consent and record the shared Santa script."
+    },
+    {
+      "id": "dataset",
+      "label": "Dataset",
+      "summary": "Review, quality-check, and publish consented recordings as an open dataset."
+    },
+    {
+      "id": "training",
+      "label": "Training",
+      "summary": "Train a high-quality blended classic American Santa voice."
+    },
+    {
+      "id": "release",
+      "label": "Release",
+      "summary": "Release the free, open Santa voice for anyone to use."
+    }
+  ]
+}

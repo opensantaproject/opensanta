@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it works — OpenSanta Project</title>
+  <meta name="description" content="How OpenSanta consent, recording, and submission will work once the project is open.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/tracker.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="index.html" aria-label="OpenSanta Project home">
+        <img src="assets/logo/opensanta-icon.png" alt="" width="56" height="56">
+        <span class="wordmark-text">
+          <span class="brand-name" aria-hidden="true"><span class="brand-open">Open</span><span class="brand-santa">Santa</span></span>
+          <span class="brand-project" aria-hidden="true">Project</span>
+          <span class="logo-note">Draft logo · final vector coming later</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html" aria-current="page">How it works</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="licenses.html">Licenses</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+    <p class="kicker">Consent and process</p>
+    <h1>How it works</h1>
+    <p class="lede">Volunteers record a shared script of short Santa lines. Each person signs a consent form and records a spoken consent clip. Reviewed recordings may be published as an open dataset and used to train a public Santa voice.</p>
+
+    <section>
+      <h2>The path, once submissions open</h2>
+      <ol class="steps">
+        <li>
+          <span class="n">Step 1 · Sign up</span>
+          <strong>A short sign-up form</strong> (no file upload, no Google sign-in) at <span class="placeholder">[SIGNUP FORM LINK]</span>.
+          A maintainer emails you a contributor ID, a line pack, and your personal upload link.
+          <em>This form is not live yet.</em>
+        </li>
+        <li>
+          <span class="n">Step 2 · Consent</span>
+          Read the full <a href="CONSENT.md">consent form</a>, fill in the signature block, and record a short spoken consent clip in your normal voice — not your Santa voice. We need both. If any part of the form doesn't sit right with you, don't contribute. That's completely fine.
+        </li>
+        <li>
+          <span class="n">Step 3 · Record</span>
+          Record the 25-line core set plus one assigned pack of about 42 lines — roughly 67 short clips, usually 20–40 minutes of recording plus setup. A phone is fine if you follow the tips in the <a href="AUDIO-SPEC.md">audio spec</a>.
+        </li>
+        <li>
+          <span class="n">Step 4 · Check and submit</span>
+          Run the quality-check script, zip your folder, and upload it through your personal form at <span class="placeholder">[FORM LINK]</span>. The upload form will need a Google sign-in. Details are in the <a href="CONTRIBUTING.md">contribution guide</a>.
+        </li>
+      </ol>
+    </section>
+
+    <section class="prose">
+      <h2>Who can contribute</h2>
+      <ul>
+        <li><strong>18 or older.</strong> Age is self-declared. There's no parent or guardian path, and we don't accept recordings of anyone under 18.</li>
+        <li><strong>Your own voice,</strong> recorded for this project. (A narrow exception for audio you fully own, with the speaker's written consent, is in the consent form.)</li>
+        <li><strong>General American accents for v1,</strong> so the blend sounds like one classic American Santa. This isn't a judgment of any accent. We may decline submissions or leave them out of v1, and we'll tell you if we do.</li>
+      </ul>
+
+      <h2>What we will not accept</h2>
+      <ul>
+        <li>Scraped or ripped audio from YouTube, TV, films, podcasts, audiobooks, games, social media, or any website.</li>
+        <li>Santa-hotline, call-in, voicemail, or phone-call recordings.</li>
+        <li>Stock or “royalty-free” site audio (for example Pixabay, Uppbeat, Envato). Those terms often forbid AI training.</li>
+        <li>Someone else's voice without their written consent.</li>
+        <li>Impersonations of real people, including celebrities, actors, or well-known Santa performers.</li>
+        <li>AI-generated or voice-cloned audio of any kind.</li>
+      </ul>
+
+      <h2>What you're agreeing to</h2>
+      <p>The signed form and the spoken clip cover the same ground. In short:</p>
+      <ul>
+        <li>Your recordings may be used to train, test, and improve speech and TTS models.</li>
+        <li>They may be published under <a href="licenses.html">CC BY 4.0</a>, which lets anyone reuse them, including commercially, if they give credit.</li>
+        <li>We may release a public voice model trained partly on your recordings. <strong>That model's voice may sound like yours.</strong></li>
+        <li>Once released, anyone may use the dataset and model for any lawful purpose, including commercially. We can't control each use.</li>
+        <li>This is volunteer work: no payment, and no royalties.</li>
+        <li>You can be credited by name or nickname, or stay anonymous under the group credit “OpenSanta contributors.”</li>
+      </ul>
+      <p>Please read the <a href="CONSENT.md">full consent form</a> before you record. It's the official document. This page is only a guide.</p>
+
+      <h2>Your privacy</h2>
+      <p>We keep your contact details, signed form, and spoken consent clip private. They are not part of the public dataset and are never used for training. Reviewed script clips may later be published, tagged with a contributor ID and, if you chose it, your credit name.</p>
+
+      <h2>Changing your mind</h2>
+      <p>You can withdraw at any time by contacting <span class="placeholder">[PROJECT CONTACT]</span> with your contributor ID. We'll take your recordings out of future dataset versions and future training runs, and we can remove your credit name from future releases if you ask. Versions already released can't be recalled. Other people may already have copies, and those copies can keep being used.</p>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p><strong>OpenSanta Project</strong> · Free Santa voice for the masses</p>
+      <p>Currently in formation. Contact: <span class="placeholder">[PROJECT CONTACT]</span></p>
+      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
