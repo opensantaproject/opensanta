@@ -1,28 +1,49 @@
 /* OpenSanta Project — site styles
-   Warm, festive, clean. System fonts only. No trackers, no remote assets. */
+   Warm, festive, clean. Palette sampled from the official logo (logo-A-v9).
+   Headings use self-hosted Nunito (SIL Open Font License 1.1, see assets/fonts/OFL.txt).
+   No trackers, no remote assets, no external fonts.
+   Logo files in assets/logo/ are referenced by stable names; replacing those
+   files is a drop-in (CSS sizes the images by height/width with object-fit). */
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito-Variable.woff2") format("woff2"),
+       url("../assets/fonts/Nunito-Variable.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --pine: #1B5E3A;
-  --pine-deep: #123D26;
-  --pine-mid: #247A4C;
+  /* Sampled from logo-A-v9.jpg (interior pixels of each region) */
+  --os-green: #487D4B;       /* "Open" */
+  --os-red: #E11221;         /* "Santa" (hat is nearly the same, #DF091B) */
+  --os-gold: #E5B562;        /* soft matte gold of the beard bars (outlines match) */
+
+  /* Accessible / derived shades (same hue, adjusted lightness) */
+  --os-gold-text: #8C6117;   /* gold text on white/cream, WCAG AA 4.5:1 (5.47 / 4.83) */
+  --os-gold-line: #AF7A1D;   /* matte gold dividers on cream/white, 3:1 UI contrast */
+  --os-green-text: #3F6E42;  /* links and small green text on cream (5.27:1) */
+  --os-green-mid: #3C683E;
+  --os-green-deep: #2D4E2F;  /* headings */
+  --os-green-dark: #223A23;  /* tracker, footer, current-nav, table headers */
+
   --cream: #f7f0e4;
   --cream-dark: #efe4d0;
   --parchment: #ffffff;
   --ink: #1c1917;
   --ink-soft: #3f3a34;
-  --gold: #C9A227;
-  --gold-bright: #C9A227;
-  --gold-line: #d4bc6a;
-  --gold-text: #6e5810; /* darkened gold, for text contrast on cream */
-  --berry: #D62828;
   --muted: #6b645b;
   --line: #d9cbb3;
-  --focus: #1B5E3A;
-  --ok: #1B5E3A;
   --white: #ffffff;
+  --focus: var(--os-green-text);
+  --ok: var(--os-green);
   --max: 68rem;
   --radius: 12px;
-  --shadow: 0 1px 2px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(27, 94, 58, 0.08);
+  --shadow: 0 1px 2px rgba(28, 25, 23, 0.06), 0 8px 24px rgba(34, 58, 35, 0.10);
+
+  --os-sans: "Nunito", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --os-serif: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
 }
 
 *,
@@ -48,7 +69,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--cream);
-  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-family: var(--os-serif);
   font-size: 1.125rem;
   line-height: 1.65;
   min-height: 100vh;
@@ -64,13 +85,13 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    radial-gradient(ellipse at top, rgba(196, 163, 90, 0.09), transparent 55%),
+    radial-gradient(ellipse at top, rgba(229, 181, 98, 0.09), transparent 55%),
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 3px,
-      rgba(26, 60, 47, 0.015) 3px,
-      rgba(26, 60, 47, 0.015) 4px
+      rgba(34, 58, 35, 0.015) 3px,
+      rgba(34, 58, 35, 0.015) 4px
     );
 }
 
@@ -79,11 +100,13 @@ body::before {
   left: 0.75rem;
   top: -4rem;
   z-index: 20;
-  background: var(--pine);
+  background: var(--os-green-dark);
   color: var(--cream);
   padding: 0.5rem 0.9rem;
   border-radius: 0 0 6px 6px;
   text-decoration: none;
+  font-family: var(--os-sans);
+  font-weight: 700;
 }
 
 .skip-link:focus {
@@ -91,17 +114,18 @@ body::before {
 }
 
 a {
-  color: var(--pine);
+  color: var(--os-green-text);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
 }
 
 a:hover {
-  color: var(--berry);
+  color: var(--os-red);
 }
 
 a:focus-visible,
 button:focus-visible,
+.btn:focus-visible,
 .site-nav a:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
@@ -112,10 +136,10 @@ button:focus-visible,
   position: relative;
   z-index: 2;
   background: var(--white);
-  color: var(--pine);
-  border-top: 6px solid var(--pine);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 1px 0 rgba(27, 94, 58, 0.04);
+  color: var(--os-green-deep);
+  border-top: 6px solid var(--os-green);
+  border-bottom: 4px solid var(--os-gold-line);
+  box-shadow: 0 1px 0 rgba(34, 58, 35, 0.04);
 }
 
 .header-inner {
@@ -135,14 +159,17 @@ button:focus-visible,
   align-items: center;
   gap: 0.7rem;
   text-decoration: none;
-  color: var(--pine);
+  color: var(--os-green-deep);
 }
 
+/* Sized by height so a replacement icon of a different aspect ratio drops in cleanly. */
 .wordmark img {
   display: block;
   height: 3.4rem;
   width: auto;
-  max-width: 3.4rem;
+  max-width: 4.5rem;
+  object-fit: contain;
+  object-position: center left;
 }
 
 .wordmark-text {
@@ -153,26 +180,27 @@ button:focus-visible,
 }
 
 .brand-name {
-  font-weight: 700;
+  font-family: var(--os-sans);
+  font-weight: 800;
   font-size: 1.45rem;
   letter-spacing: -0.02em;
 }
 
-.brand-open { color: var(--pine); }
-.brand-santa { color: var(--berry); }
+.brand-open { color: var(--os-green); }
+.brand-santa { color: var(--os-red); }
 .brand-project {
   display: block;
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--pine);
+  color: var(--os-gold-text);
   margin-top: 0.12rem;
 }
 
 .logo-note {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.65rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -187,12 +215,12 @@ button:focus-visible,
   list-style: none;
   margin: 0;
   padding: 0;
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.95rem;
 }
 
 .site-nav a {
-  color: var(--pine);
+  color: var(--os-green-text);
   text-decoration: none;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
@@ -201,17 +229,16 @@ button:focus-visible,
 
 .site-nav a:hover {
   background: var(--cream);
-  color: var(--pine-deep);
+  color: var(--os-green-deep);
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--pine);
+  background: var(--os-green-dark);
   color: var(--white);
   font-weight: 600;
 }
 
-
-/* Hero logo (draft) */
+/* Hero logo — width-capped, height follows the file so a new lockup is a drop-in. */
 .hero-logo {
   margin: 0 0 1.4rem;
   max-width: 22rem;
@@ -221,10 +248,11 @@ button:focus-visible,
   display: block;
   width: min(100%, 22rem);
   height: auto;
+  object-fit: contain;
 }
 
 .hero-logo figcaption {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.78rem;
   color: var(--muted);
   margin-top: 0.45rem;
@@ -246,18 +274,19 @@ main {
 }
 
 .kicker {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-text);
+  color: var(--os-gold-text);
   margin: 0 0 0.6rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1, h2, h3, h4 {
+  font-family: var(--os-sans);
   line-height: 1.2;
-  color: var(--pine-deep);
+  color: var(--os-green-deep);
   font-weight: 700;
 }
 
@@ -265,6 +294,7 @@ h1 {
   font-size: clamp(2.1rem, 5vw, 3.15rem);
   margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 .tagline {
@@ -282,8 +312,8 @@ h1 {
 
 hr.rule {
   border: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-line), transparent);
+  height: 2px;
+  background: var(--os-gold-line);
   margin: 2rem 0;
 }
 
@@ -329,27 +359,27 @@ p, ul, ol {
 .ideals li {
   background: var(--parchment);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--pine);
+  border-left: 4px solid var(--os-green);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 0.9rem 1.1rem;
   box-shadow: var(--shadow);
 }
 
 .ideals li:first-child {
-  border-left-color: var(--gold);
-  background: linear-gradient(90deg, rgba(196, 163, 90, 0.14), var(--parchment) 40%);
+  border-left-color: var(--os-gold-line);
 }
 
 .ideals strong {
   display: block;
-  color: var(--pine-deep);
+  color: var(--os-green-deep);
+  font-family: var(--os-sans);
   font-size: 1.05rem;
   margin-bottom: 0.2rem;
 }
 
 /* Progress tracker */
 .tracker-wrap {
-  background: var(--pine);
+  background: var(--os-green-dark);
   color: var(--cream);
   border-radius: calc(var(--radius) + 4px);
   padding: 1.35rem 1.25rem 1.2rem;
@@ -362,7 +392,7 @@ p, ul, ol {
 }
 
 .tracker-note {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.95rem;
   color: var(--cream-dark);
   margin-bottom: 1.15rem;
@@ -387,7 +417,7 @@ p, ul, ol {
   position: relative;
   text-align: center;
   padding: 0 0.35rem;
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.85rem;
   font-weight: 600;
   color: rgba(247, 240, 228, 0.55);
@@ -403,15 +433,15 @@ p, ul, ol {
   height: 2rem;
   margin: 0 auto 0.55rem;
   border-radius: 50%;
-  border: 2px solid rgba(196, 163, 90, 0.45);
-  background: var(--pine-deep);
+  border: 2px solid rgba(229, 181, 98, 0.45);
+  background: var(--os-green-deep);
   color: rgba(247, 240, 228, 0.7);
   font-size: 0.85rem;
   position: relative;
   z-index: 1;
 }
 
-/* Connector line */
+/* Connector line — matte gold, no gloss */
 .tracker li:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -419,7 +449,7 @@ p, ul, ol {
   left: calc(50% + 1.05rem);
   width: calc(100% - 2.1rem);
   height: 2px;
-  background: rgba(196, 163, 90, 0.35);
+  background: rgba(229, 181, 98, 0.4);
 }
 
 .tracker li.is-done {
@@ -428,14 +458,14 @@ p, ul, ol {
 
 .tracker li.is-done::before {
   content: "✓";
-  background: var(--pine-mid);
-  border-color: var(--gold-bright);
+  background: var(--os-green-mid);
+  border-color: var(--os-gold);
   color: var(--cream);
 }
 
 .tracker li.is-done:not(:last-child)::after,
 .tracker li.is-current:not(:last-child)::after {
-  background: var(--gold-bright);
+  background: var(--os-gold);
 }
 
 .tracker li.is-current {
@@ -443,10 +473,10 @@ p, ul, ol {
 }
 
 .tracker li.is-current::before {
-  background: var(--gold-bright);
-  border-color: var(--cream);
-  color: var(--pine-deep);
-  box-shadow: 0 0 0 3px var(--pine), 0 0 0 5px var(--gold-bright);
+  background: var(--os-gold);
+  border-color: var(--os-gold);
+  color: var(--ink);
+  box-shadow: none;
 }
 
 .tracker .stage-label {
@@ -468,7 +498,7 @@ p, ul, ol {
 
 .badge {
   display: inline-block;
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -486,10 +516,33 @@ p, ul, ol {
   font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.92em;
   background: var(--cream-dark);
-  border: 1px dashed var(--gold);
+  border: 1px dashed var(--os-gold-line);
   padding: 0.05em 0.35em;
   border-radius: 4px;
   color: var(--ink);
+}
+
+/* Buttons — matte gold, ink text for contrast, no gloss or glow */
+button,
+.btn {
+  font-family: var(--os-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--os-gold);
+  color: var(--ink);
+  border: 2px solid var(--os-gold);
+  border-radius: 999px;
+  padding: 0.5rem 1.15rem;
+  box-shadow: none;
+  background-image: none;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--os-gold-text);
+  border-color: var(--os-gold-text);
+  color: var(--white);
 }
 
 /* Cards / steps */
@@ -509,14 +562,18 @@ p, ul, ol {
 }
 
 .steps .n {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-text);
+  color: var(--os-gold-text);
   font-weight: 700;
   display: block;
   margin-bottom: 0.2rem;
+}
+
+.steps li strong {
+  font-family: var(--os-sans);
 }
 
 /* Timeline */
@@ -524,7 +581,7 @@ p, ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 3px solid var(--gold-line);
+  border-left: 3px solid var(--os-gold-line);
 }
 
 .timeline li {
@@ -540,24 +597,25 @@ p, ul, ol {
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
-  background: var(--pine);
+  background: var(--os-gold-line);
   border: 2px solid var(--cream);
-  box-shadow: 0 0 0 2px var(--pine);
+  box-shadow: 0 0 0 2px var(--os-gold-line);
 }
 
 .timeline .when {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-text);
+  color: var(--os-gold-text);
   margin: 0 0 0.2rem;
 }
 
 .timeline strong {
   display: block;
-  color: var(--pine-deep);
+  font-family: var(--os-sans);
+  color: var(--os-green-deep);
   margin-bottom: 0.2rem;
 }
 
@@ -576,8 +634,9 @@ p, ul, ol {
 
 .faq summary {
   cursor: pointer;
+  font-family: var(--os-sans);
   font-weight: 700;
-  color: var(--pine-deep);
+  color: var(--os-green-deep);
   padding: 0.75rem 0;
 }
 
@@ -611,9 +670,9 @@ th, td {
 }
 
 th {
-  background: var(--pine);
+  background: var(--os-green-dark);
   color: var(--cream);
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -623,11 +682,11 @@ th {
 .site-footer {
   position: relative;
   z-index: 1;
-  background: var(--pine-deep);
+  background: var(--os-green-dark);
   color: var(--cream-dark);
   margin-top: auto;
-  border-top: 4px solid var(--gold-bright);
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border-top: 4px solid var(--os-gold);
+  font-family: var(--os-sans);
   font-size: 0.9rem;
 }
 
@@ -650,7 +709,7 @@ th {
 /* Utilities */
 .muted { color: var(--muted); }
 .small {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--os-sans);
   font-size: 0.9rem;
 }
 
@@ -708,7 +767,7 @@ th {
 
   .wordmark img {
     height: 2.8rem;
-    max-width: 2.8rem;
+    max-width: 3.6rem;
   }
 
   .brand-name {
@@ -723,6 +782,12 @@ th {
 
   main {
     padding-top: 1.5rem;
+  }
+
+  .kicker,
+  .steps .n,
+  .timeline .when {
+    letter-spacing: 0.22em;
   }
 }
 
