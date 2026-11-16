@@ -199,15 +199,6 @@ button:focus-visible,
   margin-top: 0.12rem;
 }
 
-.logo-note {
-  font-family: var(--os-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 0.15rem;
-}
-
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -249,13 +240,6 @@ button:focus-visible,
   width: min(100%, 22rem);
   height: auto;
   object-fit: contain;
-}
-
-.hero-logo figcaption {
-  font-family: var(--os-sans);
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-top: 0.45rem;
 }
 
 /* Main */

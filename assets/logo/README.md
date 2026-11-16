@@ -1,15 +1,16 @@
-# Logo (draft)
+# Logo
 
-The current mark is a **draft**. Gav picked it for the site while a final vector version is still to come. Do not treat these files as the finished logo.
+Official OpenSanta Project mark. The lockup is the hat, gold sound-wave beard, and “OpenSanta PROJECT” wordmark. The icon is the hat and beard bars on a solid green circle.
 
-## Source
+Source art (crop, scale, and export only; the artwork itself is unchanged):
 
-- `logo-A-v4-white-gold.jpg` — the chosen draft (white background, red Santa hat, gold sound-wave beard, “OpenSanta PROJECT” wordmark). Copied from the local design folder; 1024×1024 JPEG.
+- Lockup: `v18-concept-polish.png` (1024×1024), trimmed to the artwork with an even 48px white margin and saved 900px wide.
+- Icon: `icon-concept-v2-beard-down.png` (1024×1024), circularly masked with a transparent background outside the circle.
 
-## Derived files (for the site)
+## Site files
 
-- `opensanta-logo.png` — the same lockup, trimmed and saved as PNG, used as the home-page hero image.
-- `opensanta-icon.png` — a crop of the hat and beard only, used in the site header.
-- `favicon-32.png`, `favicon-16.png`, `favicon.ico`, `apple-touch-icon.png` — favicons cropped from that same icon.
+- `opensanta-logo.png` — lockup, used as the home-page hero image (900×1006).
+- `opensanta-icon.png` — 512×512 circular icon with a transparent background, used in the site header.
+- `favicon-32.png`, `favicon-16.png`, `favicon.ico` (16/32/48), `apple-touch-icon.png` (180×180 solid square) — favicons derived from the circular icon.
 
-When a final vector arrives, replace these files (keep the same names if you can, so the HTML does not have to change) and update this note.
+Keep these file names if you replace the art, so the HTML does not have to change.

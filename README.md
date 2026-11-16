@@ -62,7 +62,7 @@ python3 -m http.server 8080
 
 Then open <http://localhost:8080/>.
 
-When this repo is published, GitHub Pages can be set to serve from the root of the default branch. The site uses a **draft logo** (hat, gold sound-wave beard, and the OpenSanta Project wordmark) in [`assets/logo/`](assets/logo/). A final vector version is still to come.
+When this repo is published, GitHub Pages can be set to serve from the root of the default branch. The official logo (hat, gold sound-wave beard, and the OpenSanta Project wordmark) and a circular icon are in [`assets/logo/`](assets/logo/).
 
 ## License
 
