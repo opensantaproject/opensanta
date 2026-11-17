@@ -8,7 +8,7 @@ This repository holds the project's public docs and a simple website (GitHub Pag
 
 ## Current status: Formation
 
-We are establishing the project, its ideals, the consent process, and this public home. Voice submissions are **not open**. The sign-up form, upload form, and project email still need to be created.
+We are establishing the project, its ideals, the consent process, and this public home. Voice submissions are **not open**. The project email is support@opensanta.org. The sign-up form and upload form still need to be created.
 
 The five stages are: **Formation** (now) → Recording → Dataset → Training → Release.
 

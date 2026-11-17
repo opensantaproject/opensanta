@@ -29,7 +29,8 @@ Keep accepting careful, consented recordings rather than rushing. v1 milestone: 
 ## Still open
 
 - The [model license](LICENSE-MODEL.md). OpenRAIL-M style is recommended, with Apache-2.0 as a fallback.
-- Setting up the project email, project Google account, both forms, and the private Drive archive.
+- Project email set up: support@opensanta.org.
+- Setting up the project Google account, both forms, and the private Drive archive.
 - A lawyer's review before launch, including consent and biometric-privacy questions.
 
 Training, GPU credits, and a smaller on-device voice all wait until the recordings are in.
