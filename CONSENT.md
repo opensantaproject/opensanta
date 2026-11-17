@@ -2,7 +2,7 @@
 
 **Project:** OpenSanta Project
 **Version:** 0.4 draft (project named OpenSanta Project; CC BY 4.0 dataset license; required signed form + spoken consent clip). Not yet reviewed by a lawyer.
-**Contact for questions or withdrawal:** [PROJECT CONTACT]
+**Contact for questions or withdrawal:** support@opensanta.org
 
 ## What this project is
 
@@ -75,7 +75,7 @@ By signing, you confirm or agree to each of the following:
 
 ## 4. Withdrawing later
 
-You can withdraw at any time by contacting [PROJECT CONTACT] with your contributor ID.
+You can withdraw at any time by contacting support@opensanta.org with your contributor ID.
 
 **What withdrawal does:**
 - We'll remove your recordings from **future** releases of the dataset.

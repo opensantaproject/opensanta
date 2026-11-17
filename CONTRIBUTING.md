@@ -90,7 +90,7 @@ python tools/qc_check.py C0042 --pack P3 --write-manifest
 3. Check that your contributor ID and pack are filled in, then upload `C0042.zip` to the file question.
    - If the form says the file is too big, split the folder into two zips, `C0042_part1.zip` and `C0042_part2.zip`
      (keep the consent files and manifest in part 1), and upload both.
-   - If zip files aren't accepted for some reason, upload the individual files instead and tell us at [PROJECT CONTACT].
+   - If zip files aren't accepted for some reason, upload the individual files instead and tell us at support@opensanta.org.
 4. Submit. **Heads up:** the form records the email address of the Google account you're signed in with, along with your
    upload. We use it only to contact you about your submission. Your files go to the project's **private** Google Drive,
    which only maintainers can see.
@@ -99,5 +99,5 @@ We'll re-run the checks and listen to your core set. If something needs fixing, 
 (for example the accent rule), we'll tell you.
 
 ## Changing your mind
-You can withdraw at any time. Contact **[PROJECT CONTACT]** with your contributor ID. Your recordings come out of future
+You can withdraw at any time. Contact **support@opensanta.org** with your contributor ID. Your recordings come out of future
 dataset versions and future trainings. Versions already released can't be recalled (see CONSENT.md section 4).

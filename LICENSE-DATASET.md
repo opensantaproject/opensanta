@@ -80,5 +80,5 @@ version where you can.
 Provided "as is", without warranties. See sections 5 and 6 of the CC BY 4.0
 legal code. Patent and trademark rights are not licensed.
 
-Contact: [PROJECT CONTACT]
+Contact: support@opensanta.org
 ```

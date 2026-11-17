@@ -54,5 +54,5 @@ Base model: [NAME], licensed under [BASE LICENSE + URL]. Its terms also apply.
 Trained on the OpenSanta Dataset [version] by OpenSanta contributors ([CONTRIBUTORS URL]),
 licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Recorded by consenting adult volunteers.
 Synthetic voice. It does not represent or speak for any contributor.
-Contact: [PROJECT CONTACT]
+Contact: support@opensanta.org
 ```
