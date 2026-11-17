@@ -52,7 +52,7 @@ Placeholders such as `[SIGNUP FORM LINK]`, `[FORM LINK]`, and `[PROJECT CONTACT]
 
 ## Website
 
-The public site is plain HTML and CSS at the repository root (`index.html`, `how-it-works.html`, `roadmap.html`, `faq.html`, `licenses.html`). Headings use a self-hosted copy of Nunito (SIL Open Font License 1.1; see [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt)). No external fonts, no analytics, no trackers.
+The public site is plain HTML and CSS at the repository root (`index.html`, `how-it-works.html`, `roadmap.html`, `faq.html`, `licenses.html`, `donate.html`). The site uses a self-hosted copy of Figtree (SIL Open Font License 1.1; see [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt)). No external fonts, no analytics, no trackers.
 
 To preview locally:
 

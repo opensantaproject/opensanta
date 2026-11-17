@@ -41,6 +41,25 @@
       });
     });
 
+    var labels = {
+      formation: "Formation",
+      recording: "Recording",
+      dataset: "Dataset",
+      training: "Training",
+      release: "Release",
+    };
+    var step = currentIndex + 1;
+    var caption = "Step " + step + " of 5: " + labels[current];
+    document.querySelectorAll("[data-status-step]").forEach(function (el) {
+      el.textContent = caption;
+    });
+    document.querySelectorAll(".progress-thin").forEach(function (el) {
+      el.setAttribute("aria-valuenow", String(step));
+      el.setAttribute("aria-label", caption);
+      var fill = el.querySelector("span");
+      if (fill) fill.style.width = step * 20 + "%";
+    });
+
     if (data.note) {
       document.querySelectorAll("[data-status-note]").forEach(function (el) {
         el.textContent = data.note;

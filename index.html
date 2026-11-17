@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenSanta Project — Free Santa voice for the masses</title>
+  <title>OpenSanta Project — A free, open Santa voice</title>
   <meta name="description" content="A community project to build a free, open, high-quality classic American Santa voice, with documented consent.">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0E1110">
   <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
   <link rel="icon" href="assets/logo/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
@@ -17,82 +18,156 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="wordmark" href="index.html" aria-label="OpenSanta Project home">
-        <img src="assets/logo/opensanta-icon.png" alt="" width="56" height="56">
-        <span class="wordmark-text">
-          <span class="brand-name" aria-hidden="true"><span class="brand-open">Open</span><span class="brand-santa">Santa</span></span>
-          <span class="brand-project" aria-hidden="true">Project</span>
-        </span>
+        <img src="assets/logo/opensanta-icon.svg" width="40" height="40" alt="">
+        <span class="wordmark-name">OpenSanta</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="desktop-nav" aria-label="Primary">
         <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="how-it-works.html">How it works</a></li>
             <li><a href="roadmap.html">Roadmap</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="licenses.html">Licenses</a></li>
         </ul>
       </nav>
+      <a class="record-pill" href="#record">Record</a>
+      <details class="nav-toggle">
+        <summary>Menu</summary>
+        <nav class="mobile-nav" aria-label="Primary">
+          <ul>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="licenses.html">Licenses</a></li>
+          </ul>
+        </nav>
+      </details>
     </div>
   </header>
   <main id="content">
-        <section class="hero">
-      <figure class="hero-logo">
-        <img src="assets/logo/opensanta-logo.png" width="900" height="1006" alt="OpenSanta Project">
-      </figure>
-      <p class="kicker">A community voice project</p>
-      <h1>Free Santa voice for the masses</h1>
-      <p class="tagline">We're building a free, open, high-quality classic American Santa voice — recorded by volunteers, with documented consent, and owned by no one company.</p>
-      <p class="lede">The OpenSanta Project invites people to contribute their own Santa voice recordings. Those recordings will train a text-to-speech voice that anyone can use for stories, games, and other lawful projects, including commercial ones.</p>
-    </section>
-
-        <div class="tracker-wrap">
-          <h2>Where we are</h2>
-          <p class="tracker-note" data-status-note>The project is in formation. We're preparing the public home, the docs, and the consent process. Recording has not opened yet.</p>
-          <ol class="tracker" data-current="formation" aria-label="Project progress">
-            <li class="is-current" data-stage="formation" aria-current="step"><span class="stage-label">Formation</span></li>
-            <li class="is-upcoming" data-stage="recording"><span class="stage-label">Recording</span></li>
-            <li class="is-upcoming" data-stage="dataset"><span class="stage-label">Dataset</span></li>
-            <li class="is-upcoming" data-stage="training"><span class="stage-label">Training</span></li>
-            <li class="is-upcoming" data-stage="release"><span class="stage-label">Release</span></li>
-          </ol>
-          <p class="tracker-note tracker-updated"><span data-status-updated>Updated 2026-11-16.</span></p>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="kicker is-status">In formation</p>
+          <h1>A free Santa voice, made by volunteers.</h1>
+          <p class="lead">A classic American Santa text-to-speech voice that anyone can use, recorded with consent and owned by no one company.</p>
+          <div class="cta-row">
+            <a class="cta-btn" id="record" href="#status">
+              <span class="cta-main">Record your voice</span>
+              <span class="cta-badge">Opens Dec 26</span>
+            </a>
+          </div>
         </div>
-
-
-    <section>
-      <h2>Our ideals</h2>
-      <ul class="ideals">
-        <li>
-          <strong>Santa belongs to everyone</strong>
-          He's part of our shared holiday traditions, so his voice should belong to the people: free, open, and owned by no one company.
-        </li>
-        <li>
-          <strong>Consent comes first</strong>
-          Every contributor is an adult who signs a consent form and records a short spoken consent clip. We don't train on a voice without that.
-        </li>
-        <li>
-          <strong>Your audio, your rights</strong>
-          We only accept recordings the contributor owns, made for this project (or fully owned, with the speaker's written consent).
-        </li>
-        <li>
-          <strong>Open licenses</strong>
-          The dataset is planned for release under Creative Commons Attribution 4.0 (CC BY 4.0). The model's license is still being decided.
-        </li>
-        <li>
-          <strong>No cloning real people without consent</strong>
-          Don't imitate a famous Santa, an actor, or anyone else. Use your own Santa voice. We won't clone a real person without their consent.
-        </li>
-        <li>
-          <strong>No scraped or ripped audio</strong>
-          We never use audio taken from YouTube, TV, films, podcasts, hotlines, stock sites, or other sources that ban AI training.
-        </li>
-      </ul>
+        <figure class="hero-logo">
+          <img src="assets/logo/opensanta-logo.svg" width="432" height="432" alt="OpenSanta Project">
+        </figure>
+      </div>
     </section>
 
-    <section class="cta">
-      <h2>How to help <span class="badge">Coming soon</span></h2>
-      <p>Voice submissions aren't open yet. We're still in formation, and the sign-up form doesn't exist. When it does, this is where you'll start.</p>
-      <p>Until then, you're welcome to read ahead:</p>
+    <div class="wave-break" aria-hidden="true">
+      <svg viewBox="0 0 220 150" width="280" height="191" focusable="false">
+        <g fill="#E5B464">
+          <rect class="eq-bar" x="8" y="70" width="12" height="60" rx="6"/>
+          <rect class="eq-bar" x="32" y="46" width="12" height="84" rx="6"/>
+          <rect class="eq-bar" x="56" y="28" width="12" height="102" rx="6"/>
+          <rect class="eq-bar" x="80" y="16" width="12" height="114" rx="6"/>
+          <rect class="eq-bar" x="104" y="6" width="14" height="128" rx="7"/>
+          <rect class="eq-bar" x="130" y="16" width="12" height="114" rx="6"/>
+          <rect class="eq-bar" x="154" y="28" width="12" height="102" rx="6"/>
+          <rect class="eq-bar" x="178" y="46" width="12" height="84" rx="6"/>
+          <rect class="eq-bar" x="202" y="70" width="12" height="60" rx="6"/>
+        </g>
+      </svg>
+    </div>
+
+    <section class="wrap" id="how">
+      <div class="section-head">
+        <h2>How it works</h2>
+      </div>
+      <div class="cards cols-3">
+        <article class="card">
+          <div class="step-top">
+            <span class="step-n is-gold" aria-hidden="true">1</span>
+          </div>
+          <h3>Record</h3>
+          <p>Volunteers record their own Santa voice from a shared script.</p>
+        </article>
+        <article class="card">
+          <div class="step-top">
+            <span class="step-n is-green" aria-hidden="true">2</span>
+          </div>
+          <h3>Publish</h3>
+          <p>Reviewed recordings may be published as an open dataset under CC BY 4.0.</p>
+        </article>
+        <article class="card">
+          <div class="step-top">
+            <span class="step-n is-gold" aria-hidden="true">3</span>
+          </div>
+          <h3>Train</h3>
+          <p>Those recordings are used to train a Santa voice anyone can use.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Why it’s open</h2>
+        </div>
+        <div class="cards cols-3">
+          <article class="card">
+            <svg class="icon-accent" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <circle cx="16" cy="10" r="4" fill="currentColor"/>
+              <circle cx="7" cy="13" r="3.2" fill="currentColor" opacity="0.7"/>
+              <circle cx="25" cy="13" r="3.2" fill="currentColor" opacity="0.7"/>
+              <path d="M8 24c0-4 3.6-6.5 8-6.5S24 20 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M4.5 24c.4-2.8 2.4-4.5 5-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M27.5 24c-.4-2.8-2.4-4.5-5-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+            <h3>Santa belongs to everyone</h3>
+            <p>His voice should be free, open, and owned by no one company.</p>
+          </article>
+          <article class="card">
+            <svg class="icon-accent" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <rect x="6" y="6" width="20" height="6" rx="2" fill="currentColor"/>
+              <rect x="6" y="14" width="20" height="6" rx="2" fill="currentColor" opacity="0.75"/>
+              <rect x="6" y="22" width="20" height="6" rx="2" fill="currentColor" opacity="0.5"/>
+            </svg>
+            <h3>An open dataset</h3>
+            <p>It may be published under CC BY 4.0, including commercially, with credit.</p>
+          </article>
+          <article class="card">
+            <svg class="icon-accent" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <rect x="4" y="11" width="8" height="10" rx="1.5" fill="currentColor"/>
+              <path d="M14 11c4 2.2 4 7.8 0 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M19 8c6 4 6 12 0 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M24 5c8 5.5 8 16.5 0 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+            <h3>A public Santa voice</h3>
+            <p>A free, classic American Santa TTS voice for stories, games, and other lawful projects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="status">
+      <div class="section-head">
+        <h2>Where we are</h2>
+        <p class="tracker-note" data-status-note>The project is in formation. We're preparing the public home, the docs, and the consent process. Recording has not opened yet.</p>
+      </div>
+      <div class="status-mobile">
+        <p class="status-kicker" data-status-step>Step 1 of 5: Formation</p>
+        <div class="progress-thin" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" aria-label="Step 1 of 5: Formation"><span></span></div>
+      </div>
+      <ol class="tracker" data-current="formation" aria-label="Project progress">
+        <li class="is-current" data-stage="formation" aria-current="step"><span class="stage-label">Formation</span></li>
+        <li class="is-upcoming" data-stage="recording"><span class="stage-label">Recording</span></li>
+        <li class="is-upcoming" data-stage="dataset"><span class="stage-label">Dataset</span></li>
+        <li class="is-upcoming" data-stage="training"><span class="stage-label">Training</span></li>
+        <li class="is-upcoming" data-stage="release"><span class="stage-label">Release</span></li>
+      </ol>
+
+      <p class="tracker-note tracker-updated"><span data-status-updated>Updated 2026-11-16.</span></p>
+      <p class="small" style="margin-top:1.25rem;">Until recording opens, you’re welcome to read ahead:</p>
       <ul class="doc-links">
         <li><a href="how-it-works.html">How it works and how consent works</a></li>
         <li><a href="CONTRIBUTING.md">Contribution guide</a></li>
@@ -100,15 +175,22 @@
         <li><a href="AUDIO-SPEC.md">Recording spec</a></li>
         <li><a href="script/README.md">The recording script</a></li>
       </ul>
-      <p class="small muted">Questions: <span class="placeholder">[PROJECT CONTACT]</span> — this address hasn't been set up yet.</p>
     </section>
 
+    <section class="wrap support" id="support">
+      <h2>Support the project</h2>
+      <p>Donations from people and institutions help pay for training compute, hosting, and legal review.</p>
+      <a class="btn-donate" href="donate.html">
+        <span class="cta-main">Donate on Open Collective</span>
+        <span class="cta-badge">Coming soon</span>
+      </a>
+    </section>
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
       <p><strong>OpenSanta Project</strong> · Free Santa voice for the masses</p>
-      <p>Currently in formation. Contact: <span class="placeholder">[PROJECT CONTACT]</span></p>
-      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>.</p>
+      <p>Currently in formation. Contact: contact email coming soon</p>
+      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>. <a href="donate.html">Donate</a>.</p>
     </div>
   </footer>
 </body>

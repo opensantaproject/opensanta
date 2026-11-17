@@ -6,6 +6,7 @@
   <title>FAQ — OpenSanta Project</title>
   <meta name="description" content="Frequently asked questions about the OpenSanta Project, consent, credit, and withdrawal.">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0E1110">
   <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
   <link rel="icon" href="assets/logo/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
@@ -17,81 +18,92 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="wordmark" href="index.html" aria-label="OpenSanta Project home">
-        <img src="assets/logo/opensanta-icon.png" alt="" width="56" height="56">
-        <span class="wordmark-text">
-          <span class="brand-name" aria-hidden="true"><span class="brand-open">Open</span><span class="brand-santa">Santa</span></span>
-          <span class="brand-project" aria-hidden="true">Project</span>
-        </span>
+        <img src="assets/logo/opensanta-icon.svg" width="40" height="40" alt="">
+        <span class="wordmark-name">OpenSanta</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="desktop-nav" aria-label="Primary">
         <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="how-it-works.html">How it works</a></li>
             <li><a href="roadmap.html">Roadmap</a></li>
             <li><a href="faq.html" aria-current="page">FAQ</a></li>
             <li><a href="licenses.html">Licenses</a></li>
         </ul>
       </nav>
+      <a class="record-pill" href="index.html#record">Record</a>
+      <details class="nav-toggle">
+        <summary>Menu</summary>
+        <nav class="mobile-nav" aria-label="Primary">
+          <ul>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="faq.html" aria-current="page">FAQ</a></li>
+            <li><a href="licenses.html">Licenses</a></li>
+          </ul>
+        </nav>
+      </details>
     </div>
   </header>
   <main id="content">
-    <p class="kicker">Questions</p>
-    <h1>FAQ</h1>
-    <p class="lede">Short answers, with links to the full documents when you want more.</p>
-
-    <div class="faq">
-      <details open>
-        <summary>What is the OpenSanta Project?</summary>
-        <p>A volunteer effort to build a free, open, high-quality classic American Santa text-to-speech voice. People contribute their own Santa recordings, with documented consent. The recordings may be published as an open dataset, and used to train a voice that anyone can use for lawful projects, including commercial ones.</p>
-      </details>
-
-      <details>
-        <summary>Is it safe? What happens to my information?</summary>
-        <p>We keep your contact details, signed consent form, and spoken consent clip private, in a restricted project folder that isn't part of the public dataset and isn't used for training. The upload form will also record the Google account email you use to upload; we treat that as private contact information too. Reviewed script clips may later be published in the open dataset, tagged with a contributor ID and, if you chose it, your credit name. We don't ask for ID. Please read the <a href="CONSENT.md">consent form</a> before you record, and don't contribute if any part of it doesn't sit right with you.</p>
-      </details>
-
-      <details>
-        <summary>Will it clone me?</summary>
-        <p>The plan is one blended community Santa, not a copy of any one person. Before a public release, the training plan includes a check that the blended voice isn't too close to any single contributor. That said, you should be comfortable with this: a model trained partly on your recordings may produce a voice that sounds like yours, and once it's released, anyone may use it for any lawful purpose, including commercially. We can ask people not to impersonate contributors, but we can't guarantee everyone will follow that.</p>
-      </details>
-
-      <details>
-        <summary>How long does it take?</summary>
-        <p>About 67 or 68 short lines, plus the spoken consent clip. The finished audio is roughly 5–6 minutes; most people should plan on 20–40 minutes of recording, plus setup (a quiet room, a test clip, and a simple quality check). Extra packs are optional.</p>
-      </details>
-
-      <details>
-        <summary>Who owns it?</summary>
-        <p>The public recordings are planned for release under Creative Commons Attribution 4.0 (CC BY 4.0). Anyone can reuse them, including commercially, if they give credit as “OpenSanta Dataset by OpenSanta contributors.” You can be credited by the name or nickname you choose, or remain anonymous under the group credit. The project also plans to release the Santa voice itself freely, for any lawful use. The model's exact license is still being decided. This is volunteer work: there's no payment or royalty.</p>
-      </details>
-
-      <details>
-        <summary>Can I back out?</summary>
-        <p>Yes. Contact <span class="placeholder">[PROJECT CONTACT]</span> with your contributor ID at any time. We'll take your recordings out of future dataset versions and future training runs, and we can remove your credit name from future releases if you ask. Versions already released can't be recalled. Other people may already have copies, and those copies can keep being used.</p>
-      </details>
-
-      <details>
-        <summary>Can I record on a phone?</summary>
-        <p>Yes, if you follow the phone tips in the <a href="AUDIO-SPEC.md">audio spec</a>: export uncompressed WAV (or lossless), turn off auto gain and noise suppression where you can, and use a stand, not your hand. Headset, earbud, and laptop mics aren't accepted.</p>
-      </details>
-
-      <details>
-        <summary>What accent do you need?</summary>
-        <p>For v1, General American only, so the blend sounds like one classic American Santa. This isn't a judgment of any accent. We hope future versions can include more voices. We check by listening to your core set, and we'll tell you if your clips can't be used in v1.</p>
-      </details>
-
-      <details>
-        <summary>When can I submit?</summary>
-        <p>Not yet. The project is in formation, and the sign-up form at <span class="placeholder">[SIGNUP FORM LINK]</span> doesn't exist. The main recording window is planned for December 26, 2026 through January 2027. Check the <a href="roadmap.html">roadmap</a> for timing.</p>
-      </details>
+    <div class="wrap page-intro">
+      <p class="kicker">Questions</p>
+      <h1>FAQ</h1>
+      <p class="lede">Short answers, with links to the full documents when you want more.</p>
     </div>
 
+    <section class="wrap">
+      <div class="faq">
+        <details open>
+          <summary>What is the OpenSanta Project?</summary>
+          <p>A volunteer effort to build a free, open, high-quality classic American Santa text-to-speech voice. People contribute their own Santa recordings, with documented consent. The recordings may be published as an open dataset, and used to train a voice that anyone can use for lawful projects, including commercial ones.</p>
+        </details>
+
+        <details>
+          <summary>Is it safe? What happens to my information?</summary>
+          <p>We keep your contact details, signed consent form, and spoken consent clip private, in a restricted project folder that isn't part of the public dataset and isn't used for training. The upload form will also record the Google account email you use to upload; we treat that as private contact information too. Reviewed script clips may later be published in the open dataset, tagged with a contributor ID and, if you chose it, your credit name. We don't ask for ID. Please read the <a href="CONSENT.md">consent form</a> before you record, and don't contribute if any part of it doesn't sit right with you.</p>
+        </details>
+
+        <details>
+          <summary>Will it clone me?</summary>
+          <p>The plan is one blended community Santa, not a copy of any one person. Before a public release, the training plan includes a check that the blended voice isn't too close to any single contributor. That said, you should be comfortable with this: a model trained partly on your recordings may produce a voice that sounds like yours, and once it's released, anyone may use it for any lawful purpose, including commercially. We can ask people not to impersonate contributors, but we can't guarantee everyone will follow that.</p>
+        </details>
+
+        <details>
+          <summary>How long does it take?</summary>
+          <p>About 67 or 68 short lines, plus the spoken consent clip. The finished audio is roughly 5–6 minutes; most people should plan on 20–40 minutes of recording, plus setup (a quiet room, a test clip, and a simple quality check). Extra packs are optional.</p>
+        </details>
+
+        <details>
+          <summary>Who owns it?</summary>
+          <p>The public recordings are planned for release under Creative Commons Attribution 4.0 (CC BY 4.0). Anyone can reuse them, including commercially, if they give credit as “OpenSanta Dataset by OpenSanta contributors.” You can be credited by the name or nickname you choose, or remain anonymous under the group credit. The project also plans to release the Santa voice itself freely, for any lawful use. The model's exact license is still being decided. This is volunteer work: there's no payment or royalty.</p>
+        </details>
+
+        <details>
+          <summary>Can I back out?</summary>
+          <p>Yes. Contact the contact email (coming soon) with your contributor ID at any time. We'll take your recordings out of future dataset versions and future training runs, and we can remove your credit name from future releases if you ask. Versions already released can't be recalled. Other people may already have copies, and those copies can keep being used.</p>
+        </details>
+
+        <details>
+          <summary>Can I record on a phone?</summary>
+          <p>Yes, if you follow the phone tips in the <a href="AUDIO-SPEC.md">audio spec</a>: export uncompressed WAV (or lossless), turn off auto gain and noise suppression where you can, and use a stand, not your hand. Headset, earbud, and laptop mics aren't accepted.</p>
+        </details>
+
+        <details>
+          <summary>What accent do you need?</summary>
+          <p>For v1, General American only, so the blend sounds like one classic American Santa. This isn't a judgment of any accent. We hope future versions can include more voices. We check by listening to your core set, and we'll tell you if your clips can't be used in v1.</p>
+        </details>
+
+        <details>
+          <summary>When can I submit?</summary>
+          <p>Not yet. The project is in formation, and the sign-up form is not live yet. The main recording window is planned for December 26, 2026 through January 2027. Check the <a href="roadmap.html">roadmap</a> for timing.</p>
+        </details>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
       <p><strong>OpenSanta Project</strong> · Free Santa voice for the masses</p>
-      <p>Currently in formation. Contact: <span class="placeholder">[PROJECT CONTACT]</span></p>
-      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>.</p>
+      <p>Currently in formation. Contact: contact email coming soon</p>
+      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>. <a href="donate.html">Donate</a>.</p>
     </div>
   </footer>
 </body>

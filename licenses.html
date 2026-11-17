@@ -6,6 +6,7 @@
   <title>Licenses — OpenSanta Project</title>
   <meta name="description" content="OpenSanta dataset license (CC BY 4.0), the still-open model license, and how consent covers voice rights.">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0E1110">
   <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
   <link rel="icon" href="assets/logo/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
@@ -17,59 +18,72 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="wordmark" href="index.html" aria-label="OpenSanta Project home">
-        <img src="assets/logo/opensanta-icon.png" alt="" width="56" height="56">
-        <span class="wordmark-text">
-          <span class="brand-name" aria-hidden="true"><span class="brand-open">Open</span><span class="brand-santa">Santa</span></span>
-          <span class="brand-project" aria-hidden="true">Project</span>
-        </span>
+        <img src="assets/logo/opensanta-icon.svg" width="40" height="40" alt="">
+        <span class="wordmark-name">OpenSanta</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="desktop-nav" aria-label="Primary">
         <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="how-it-works.html">How it works</a></li>
             <li><a href="roadmap.html">Roadmap</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="licenses.html" aria-current="page">Licenses</a></li>
         </ul>
       </nav>
+      <a class="record-pill" href="index.html#record">Record</a>
+      <details class="nav-toggle">
+        <summary>Menu</summary>
+        <nav class="mobile-nav" aria-label="Primary">
+          <ul>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="licenses.html" aria-current="page">Licenses</a></li>
+          </ul>
+        </nav>
+      </details>
     </div>
   </header>
   <main id="content">
-    <p class="kicker">Licenses and rights</p>
-    <h1>Licenses</h1>
-    <p class="lede">The dataset license is decided. The model license is not. Voice and publicity rights are handled in the consent form, separately from copyright.</p>
+    <div class="wrap page-intro">
+      <p class="kicker">Licenses and rights</p>
+      <h1>Licenses</h1>
+      <p class="lede">The dataset license is decided. The model license is not. Voice and publicity rights are handled in the consent form, separately from copyright.</p>
+    </div>
 
-    <section class="prose">
+    <section class="wrap prose">
       <h2>Dataset: Creative Commons Attribution 4.0</h2>
       <p>Decided November 15, 2026. The recordings, transcripts, and metadata are planned for release under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
       <p>Anyone may copy, adapt, and reuse the dataset for any purpose, including commercially, if they give attribution. The project asks that credit go in the dataset or model card and in docs — not inside each generated audio clip. That is treated as reasonable attribution under CC BY 4.0 section 3(a)(2).</p>
       <p><strong>Credit line (use this exactly, once the contributors URL exists):</strong></p>
-      <p><span class="placeholder">OpenSanta Dataset by OpenSanta contributors ([CONTRIBUTORS URL]), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).</span></p>
-      <p>The full explanation, including the dataset notice draft, is in <a href="LICENSE-DATASET.md">LICENSE-DATASET.md</a>.</p>
+      <p class="credit-line">OpenSanta Dataset by OpenSanta contributors (contributors URL coming soon), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).</p>
+      <p>The full explanation, including the dataset notice draft, is in the <a href="LICENSE-DATASET.md">dataset license notes</a>.</p>
     </section>
 
-    <section class="prose">
-      <h2>Model license: not yet decided</h2>
-      <p>The trained voice will be a derivative of whatever base TTS model we fine-tune, so that base license limits what we can choose. The current recommendation is an <strong>OpenRAIL-M style</strong> license — free for commercial use, with rules against impersonation and fraud that travel with the model — and <strong>Apache-2.0</strong> plus a published acceptable-use request as the fallback.</p>
-      <p>This is still open. See the comparison and draft notices in <a href="LICENSE-MODEL.md">LICENSE-MODEL.md</a>.</p>
+    <section class="band">
+      <div class="wrap prose">
+        <h2>Model license: not yet decided</h2>
+        <p>The trained voice will be a derivative of whatever base TTS model we fine-tune, so that base license limits what we can choose. The current recommendation is an <strong>OpenRAIL-M style</strong> license — free for commercial use, with rules against impersonation and fraud that travel with the model — and <strong>Apache-2.0</strong> plus a published acceptable-use request as the fallback.</p>
+        <p>This is still open. See the comparison and draft notices in the <a href="LICENSE-MODEL.md">model license notes</a>.</p>
+      </div>
     </section>
 
-    <section class="prose">
+    <section class="wrap prose">
       <h2>Voice and publicity rights</h2>
       <p>CC BY 4.0 covers copyright only. It does not license personality or publicity rights (section 2(b)(1)). The <a href="CONSENT.md">consent form</a> grants voice and publicity permissions separately, so the recordings and the model can be used as the project describes.</p>
     </section>
 
-    <section class="prose">
-      <h2>The script</h2>
-      <p>All 280 lines in the recording script were written fresh for this project and will be released with the dataset under CC BY 4.0. See <a href="script/README.md">script/README.md</a>.</p>
+    <section class="band">
+      <div class="wrap prose">
+        <h2>The script</h2>
+        <p>All 280 lines in the recording script were written fresh for this project and will be released with the dataset under CC BY 4.0. See the <a href="script/README.md">recording script notes</a>.</p>
+      </div>
     </section>
-
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
       <p><strong>OpenSanta Project</strong> · Free Santa voice for the masses</p>
-      <p>Currently in formation. Contact: <span class="placeholder">[PROJECT CONTACT]</span></p>
-      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>.</p>
+      <p>Currently in formation. Contact: contact email coming soon</p>
+      <p>No analytics or third-party trackers on this site. Read the <a href="CONSENT.md">consent form</a> and <a href="licenses.html">licenses</a>. <a href="donate.html">Donate</a>.</p>
     </div>
   </footer>
 </body>
