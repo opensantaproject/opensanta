@@ -10,7 +10,7 @@ The website progress bar is driven by [`status.json`](status.json). See the READ
 2. **Recording** — Volunteers sign consent and record the shared script (core set plus one pack).
 3. **Dataset** — Review, quality-check, and publish consented recordings under CC BY 4.0.
 4. **Training** — Train a high-quality blended classic American Santa voice. Compute waits until the recordings are in.
-5. **Release** — Release the free, open Santa voice for anyone to use, for any lawful purpose, including commercially.
+5. **Release** — Release the free, open Santa voice under Apache-2.0 for anyone to use, for any lawful purpose, including commercially.
 
 ## Timeline
 
@@ -28,7 +28,6 @@ Keep accepting careful, consented recordings rather than rushing. v1 milestone: 
 
 ## Still open
 
-- The [model license](LICENSE-MODEL.md). OpenRAIL-M style is recommended, with Apache-2.0 as a fallback.
 - Project email set up: support@opensanta.org.
 - Setting up the project Google account, both forms, and the private Drive archive.
 - A lawyer's review before launch, including consent and biometric-privacy questions.

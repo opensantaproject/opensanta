@@ -1,7 +1,7 @@
 # Contributor Consent and Rights Declaration
 
 **Project:** OpenSanta Project
-**Version:** 0.4 draft (project named OpenSanta Project; CC BY 4.0 dataset license; required signed form + spoken consent clip). Not yet reviewed by a lawyer.
+**Version:** 0.5 draft (project named OpenSanta Project; CC BY 4.0 dataset license; Apache-2.0 model license; required signed form + spoken consent clip). Not yet reviewed by a lawyer.
 **Contact for questions or withdrawal:** support@opensanta.org
 
 ## What this project is
@@ -60,8 +60,9 @@ By signing, you confirm or agree to each of the following:
 4. **Public model.** We may publicly release one or more voice models trained partly on your recordings. **The model's voice may sound like yours.**
 5. **Anyone can use it.** Once released, the dataset and model can be used by anyone, anywhere, for any lawful purpose,
    including commercial products, ads, videos, and apps. We can't control or approve each use.
-   Our model license asks users not to impersonate contributors or deceive people (see LICENSE-MODEL.md),
-   but we can't guarantee everyone will follow it.
+   The model is planned for release under Apache-2.0 (see LICENSE-MODEL.md). We also publish a
+   responsible-use guideline that asks users not to impersonate contributors or deceive people
+   (see RESPONSIBLE-USE.md), but those requests are not license conditions, and we can't guarantee everyone will follow them.
 6. **Voice and publicity rights (separate from the dataset license).** CC BY 4.0 covers copyright only. Its section 2(b)(1)
    says publicity, privacy, and similar personality rights are *not* licensed. So this grant is separate: To the extent the law allows, you give permission for your voice in these recordings,
    and voices derived from it by the model, to be used as described above. You agree not to bring claims based on your
@@ -116,7 +117,7 @@ None of this private information is ever published in the dataset. Public files 
 Copy this block, fill it in, and submit it with your recordings.
 
 ```
-OPENSANTA PROJECT: CONTRIBUTOR CONSENT (v0.4)
+OPENSANTA PROJECT: CONTRIBUTOR CONSENT (v0.5)
 
 Name or handle:            ______________________________
 Contact (kept private):    ______________________________
@@ -162,7 +163,7 @@ Before your first script line, in the same session, setup, and microphone, recor
 
 > "My name is [NAME OR HANDLE], contributor ID [ID]. Today is [DATE].
 > This is my own voice, and I'm 18 or older.
-> I've read the OpenSanta consent form, version 0.4, and I agree to it.
+> I've read the OpenSanta consent form, version 0.5, and I agree to it.
 > I consent to my recordings being used for AI and text-to-speech training,
 > and to their public release, along with a voice model that may sound like me, under the project terms."
 

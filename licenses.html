@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Licenses — OpenSanta Project</title>
-  <meta name="description" content="OpenSanta dataset license (CC BY 4.0), the still-open model license, and how consent covers voice rights.">
+  <meta name="description" content="OpenSanta dataset license (CC BY 4.0), model license (Apache-2.0), website code (MIT), and how consent covers voice rights.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0E1110">
   <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
@@ -47,7 +47,7 @@
     <div class="wrap page-intro">
       <p class="kicker">Licenses and rights</p>
       <h1>Licenses</h1>
-      <p class="lede">The dataset license is decided. The model license is not. Voice and publicity rights are handled in the consent form, separately from copyright.</p>
+      <p class="lede">The dataset is planned for CC BY 4.0, the model for Apache-2.0, and the website code and tools for MIT. Voice and publicity rights are handled in the consent form, separately from copyright.</p>
     </div>
 
     <section class="wrap prose">
@@ -61,9 +61,10 @@
 
     <section class="band">
       <div class="wrap prose">
-        <h2>Model license: not yet decided</h2>
-        <p>The trained voice will be a derivative of whatever base TTS model we fine-tune, so that base license limits what we can choose. The current recommendation is an <strong>OpenRAIL-M style</strong> license — free for commercial use, with rules against impersonation and fraud that travel with the model — and <strong>Apache-2.0</strong> plus a published acceptable-use request as the fallback.</p>
-        <p>This is still open. See the comparison and draft notices in the <a href="docs/pdf/license-model.pdf">model license notes</a>.</p>
+        <h2>Model license: Apache-2.0</h2>
+        <p>Decided November 17, 2026. The trained voice and weights are planned for release under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>, an OSI-approved open-source license. Anyone may use, modify, and redistribute them, including commercially, if they keep the license and notice files.</p>
+        <p>The trained voice will still be a derivative of whatever base TTS model we fine-tune, so that base license can limit what we ship. We will only shortlist base models that allow commercial use and redistribution of fine-tuned weights under Apache-2.0 or a compatible license.</p>
+        <p>Apache-2.0 does not add use restrictions. A short, non-binding <a href="RESPONSIBLE-USE.md">responsible-use guideline</a> asks people not to impersonate real people, not to use the voice for scams, and not to harass anyone. Those requests are not license conditions. See the <a href="docs/pdf/license-model.pdf">model license notes</a>.</p>
       </div>
     </section>
 
@@ -77,6 +78,11 @@
         <h2>The script</h2>
         <p>All 280 lines in the recording script were written fresh for this project and will be released with the dataset under CC BY 4.0. See the <a href="docs/pdf/recording-script.pdf">recording script notes</a>.</p>
       </div>
+    </section>
+
+    <section class="wrap prose">
+      <h2>Website code and tools</h2>
+      <p>The website, scripts, and tools in this repository are under the <a href="LICENSE">MIT License</a>.</p>
     </section>
   </main>
   <footer class="site-footer">

@@ -60,7 +60,7 @@ DOCS = [
         "out": "consent.pdf",
         "label": "Consent and rights",
         "cover_title": "Consent and rights",
-        "cover_meta": "Version 0.4 draft",
+        "cover_meta": "Version 0.5 draft",
     },
     {
         "key": "audio-spec",
@@ -91,6 +91,7 @@ DOCS = [
         "out": "license-model.pdf",
         "label": "Model license",
         "cover_title": "Model license",
+        "cover_meta": "Apache-2.0, decided 2026-11-17",
     },
     {
         "key": "roadmap",

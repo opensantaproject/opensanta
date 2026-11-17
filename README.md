@@ -29,7 +29,7 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 1. **Santa belongs to everyone.** He's part of our shared holiday traditions, so his voice should belong to the people: free, open, and owned by no one company.
 2. **Consent comes first.** Every contributor is an adult who signs a consent form and records a short spoken consent clip. We don't train on a voice without that.
 3. **Contributor-owned audio only.** We only accept recordings the contributor owns, made for this project (or fully owned, with the speaker's written consent).
-4. **Open licenses.** The dataset is planned for release under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATASET.md). The [model license](LICENSE-MODEL.md) is still being decided.
+4. **Open licenses.** The dataset is planned for release under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATASET.md). The model is planned for release under [Apache-2.0](LICENSE-MODEL.md).
 5. **No cloning real people without consent.** Don't imitate a famous Santa, an actor, or anyone else. Use your own Santa voice.
 6. **No scraped or ripped audio.** We never use audio taken from YouTube, TV, films, podcasts, hotlines, stock sites, or other sources that ban AI training (for example Pixabay, Uppbeat, Envato).
 
@@ -43,7 +43,9 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 | [script/README.md](script/README.md) | Recording script, packs, and performance guide |
 | [script/lines.tsv](script/lines.tsv) | The 280 script lines |
 | [LICENSE-DATASET.md](LICENSE-DATASET.md) | Dataset license: CC BY 4.0 |
-| [LICENSE-MODEL.md](LICENSE-MODEL.md) | Model license options (not decided) |
+| [LICENSE-MODEL.md](LICENSE-MODEL.md) | Model license: Apache-2.0 |
+| [LICENSE-MODEL](LICENSE-MODEL) | Official Apache-2.0 license text |
+| [RESPONSIBLE-USE.md](RESPONSIBLE-USE.md) | Non-binding use requests (not license conditions) |
 | [LICENSE](LICENSE) | Website code and tools: MIT |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
 | [TRAINING-PLAN.md](TRAINING-PLAN.md) | Technical training plan for the main voice |
@@ -69,7 +71,7 @@ When this repo is published, GitHub Pages can be set to serve from the root of t
 ## License
 
 - Script lines and, when released, the dataset: [CC BY 4.0](LICENSE-DATASET.md).
-- Model weights: not decided. See [LICENSE-MODEL.md](LICENSE-MODEL.md).
+- Model weights: [Apache-2.0](LICENSE-MODEL.md). Official text: [LICENSE-MODEL](LICENSE-MODEL).
 - The consent form is a project document, not a software license.
 
 - Website code and tools: [MIT](LICENSE).

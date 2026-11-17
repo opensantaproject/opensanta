@@ -30,20 +30,18 @@ This isn't legal advice. The license findings need a lawyer's review before rele
 
 **Voice-cloning notice in the repo:** the README asks pretrained-model users to tell listeners speech is synthesized,
 or to only use voices whose speakers gave permission. **We satisfy the permission branch:** every OpenSanta speaker
-consented (CONSENT.md). Our acceptable-use policy also requires disclosure where people could think a live human is
+consented (CONSENT.md). Our responsible-use guideline also asks for disclosure where people could think a live human is
 speaking. We'll restate the upstream rule in our model card and pass it down.
 
 ### Verdict
 - **No non-commercial term was found in anything we'd ship.** Commercial release looks achievable.
 - **We must inherit:** (1) the StyleTTS2 pretrained-model disclosure rule, (2) attribution for LibriTTS (CC BY 4.0) and for the
   OpenSanta Dataset (CC BY 4.0), and (3) MIT notices for the code and components.
-- **Can we use Apache-2.0 or an OpenRAIL-M style license for our weights?** Yes, either can sit on top, as long as the inherited
-  disclosure rule and attributions go with it. A pure Apache-2.0 release would still carry that upstream rule as a notice,
-  so it isn't completely restriction-free.
-- **Recommendation: stay with an OpenRAIL-M style license** (commercial use allowed). Its short restricted-use list (no fraud
-  or deception, no impersonating contributors or real people, plus the upstream disclosure rule) matches what we must inherit
-  and what we promised contributors. If Gav wants strict OSI-style "open source" wording, use Apache-2.0 plus a NOTICE carrying
-  the upstream rule, and publish the AUP as a request.
+- **Chosen license for our weights: Apache-2.0.** Decided by Gav on 2026-11-17, so the model is OSI-approved open source.
+  Apache-2.0 can sit on top as long as the inherited disclosure rule and attributions go with it in the NOTICE and model
+  card. Those inherited notices mean a release isn't completely condition-free, even under Apache-2.0.
+- **Kind-use requests are not license conditions.** No-fraud, no-impersonation, and disclosure requests live in
+  RESPONSIBLE-USE.md as a published, non-binding guideline.
 - **Unclear, needs a lawyer:**
   - the base checkpoint has no formal license grant (README terms only)
   - the JVS-trained aligner in the base model's history (potential blocker for "truly open"; §2 has a clean option)
@@ -96,7 +94,7 @@ speaking. We'll restate the upstream rule in our model card and pass it down.
 coherent enough, do a second-pass fine-tune on the curated subset → evaluate again.
 
 **Release safeguard (experimental, decision for Gav):** a multi-speaker StyleTTS2 model can mimic voices from any reference
-clip (zero-shot adaptation is a headline feature, per the README abstract). To stay true to our consent promise and AUP,
+clip (zero-shot adaptation is a headline feature, per the README abstract). To stay true to our consent promise and responsible-use guideline,
 release a **Santa-only package**: the weights plus the fixed OpenSanta style vector(s), without the style encoder if inference
 works without it. This has to be verified technically, and it reduces cloning use but can't fully prevent it.
 
@@ -164,9 +162,9 @@ works without it. This has to be verified technically, and it reduces cloning us
   - "OpenSanta Dataset by OpenSanta contributors ([CONTRIBUTORS URL]), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
   - LibriTTS (CC BY 4.0) attribution
   - StyleTTS2 (MIT, Li et al. 2023) and PL-BERT credits
-- **License:** weights license per the decision (§1), plus the AUP from LICENSE-MODEL.md, plus the upstream StyleTTS2 disclosure rule.
+- **License:** weights under Apache-2.0 (see LICENSE-MODEL.md), plus the non-binding requests in RESPONSIBLE-USE.md, plus the upstream StyleTTS2 disclosure rule in the NOTICE and model card.
 - **Disclosure:** state clearly that all output is **AI-generated speech**. Ask users to disclose synthetic speech where listeners
-  could think a real person is speaking (matches the upstream rule and our AUP). Give demo clips a spoken or text label.
+  could think a real person is speaking (matches the upstream rule and our responsible-use guideline). Give demo clips a spoken or text label.
 - **Inference code:** a GPL-3.0 package if it bundles espeak-ng (best quality), or an MIT one with a different phonemizer (lower
   quality). Keep the weights' license separate from the inference code's.
 
@@ -182,7 +180,7 @@ such as **Piper**.
   [COMMERCIAL_USE.md](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/COMMERCIAL_USE.md) lists voices whose **whole
   fine-tuning chain** uses commercially usable data, and warns that older lessac-based voices don't qualify.
 - So a small OpenSanta Piper voice would need either a commercially clean base voice or training from scratch, with its data
-  (our synthetic clips) carrying our model's license and AUP. The engine stays GPL. Check all of this again at that time.
+  (our synthetic clips) carrying our model's Apache-2.0 license and the responsible-use guideline. The engine stays GPL. Check all of this again at that time.
 
 ---
 
@@ -194,7 +192,7 @@ We need one 80 GB GPU (A100/H100) for roughly 1–4 days per run. Everything bel
 ### Free or discounted programs
 | Program | What it gives | Who can get it | Fits a 1–4 day 80 GB training run? | Link |
 |---|---|---|---|---|
-| **AWS Cloud Credits for Open Source** | AWS promotional credits for compute and storage. Applicant requests a USD amount; credits last 1 year | Open-source *projects* with an **OSI-approved license**, active maintenance and community, not VC-funded or vendor-dominated. AWS favors projects that complement AWS. Apply with a form emailed to AWS; monthly review, **no credits issued in December** | **Possibly.** Credits cover EC2 GPUs, but the award is discretionary. Our code is MIT (OSI), but the dataset (CC BY) and model license (OpenRAIL-M) are not OSI licenses, so eligibility is unclear | [AWS blog, Mar 2025](https://aws.amazon.com/blogs/opensource/aws-cloud-credits-for-open-source-projects-affirming-our-commitment/) |
+| **AWS Cloud Credits for Open Source** | AWS promotional credits for compute and storage. Applicant requests a USD amount; credits last 1 year | Open-source *projects* with an **OSI-approved license**, active maintenance and community, not VC-funded or vendor-dominated. AWS favors projects that complement AWS. Apply with a form emailed to AWS; monthly review, **no credits issued in December** | **Possibly.** Credits cover EC2 GPUs, but the award is discretionary. Our code is MIT (OSI) and the model is planned for Apache-2.0 (OSI). The dataset is CC BY 4.0, an open content license but not an OSI software license, so eligibility may still depend on how AWS reads a mixed-license project | [AWS blog, Mar 2025](https://aws.amazon.com/blogs/opensource/aws-cloud-credits-for-open-source-projects-affirming-our-commitment/) |
 | **Modal** | Starter plan: **$30/month free compute**. **Academic grants up to $10k** in credits | Starter: anyone. Academic: "graduate students, labs, and researchers" | Starter: ~12 A100-80GB hours/month, enough for short trials only. Academic credits would cover it, if Gav qualifies (likely needs an affiliation) | [modal.com/pricing](https://modal.com/pricing) |
 | **Lightning AI free tier** | Up to 30 free credits (5 at signup + 25 with a card), "~50 GPU hours on interruptible machines" | Individuals (phone number required) | **No** for the main run: on the free tier, A100/H100 sessions are limited to **4 hours**. Fine for setup tests | [lightning.ai/pricing](https://lightning.ai/pricing) |
 | **NAIRR Pilot (US NSF)** | Free allocations on national GPU systems (A100/H100) and cloud partners, for 12 months; 3-month start-up projects | **US-based researchers and educators at US institutions**, including non-profits. Institutional email required (no Gmail). Outputs must be openly available | **Yes, technically**, but only with a US university or non-profit partner. Gav alone doesn't qualify | [nairrpilot.org](https://nairrpilot.org/nairr-pilot-proposal-instructions) |
