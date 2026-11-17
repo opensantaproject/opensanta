@@ -4,7 +4,7 @@
 
 The OpenSanta Project is a volunteer effort to build a free, open, high-quality classic American Santa text-to-speech (TTS) voice. People contribute their own Santa voice recordings, with documented consent. Those recordings will be published as an open dataset and used to train a voice that anyone can use for stories, games, and other lawful projects, including commercial ones.
 
-This repository holds the project's public docs and a simple website (GitHub Pages, once a remote exists). **Nothing here has been published yet.** The project is in formation.
+This repository holds the project's public docs and a simple website (GitHub Pages, once a remote exists). **Nothing here has been published yet.** The project is just getting started.
 
 ## Current status: Formation
 
