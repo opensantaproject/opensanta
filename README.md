@@ -44,6 +44,8 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 | [script/lines.tsv](script/lines.tsv) | The 280 script lines |
 | [LICENSE-DATASET.md](LICENSE-DATASET.md) | Dataset license: CC BY 4.0 |
 | [LICENSE-MODEL.md](LICENSE-MODEL.md) | Model license options (not decided) |
+| [LICENSE](LICENSE) | Website code and tools: MIT |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
 | [TRAINING-PLAN.md](TRAINING-PLAN.md) | Technical training plan for the main voice |
 | [ROADMAP.md](ROADMAP.md) | Public stages and timeline |
 | [tools/qc_check.py](tools/qc_check.py) | Submission quality-check script |
@@ -70,4 +72,6 @@ When this repo is published, GitHub Pages can be set to serve from the root of t
 - Model weights: not decided. See [LICENSE-MODEL.md](LICENSE-MODEL.md).
 - The consent form is a project document, not a software license.
 
-A license for the website code and remaining repo files has not been chosen yet.
+- Website code and tools: [MIT](LICENSE).
+
+Everyone taking part follows our [Code of Conduct](CODE_OF_CONDUCT.md).
