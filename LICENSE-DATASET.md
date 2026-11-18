@@ -64,7 +64,7 @@ Attribution: please credit as follows, in your dataset/model card and docs
    licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
 
 Every speaker in this dataset is an adult (18+) who recorded their own voice
-and signed the project's Contributor Consent (CONSENT.md, version [v]). That
+and agreed to the project's Contributor Consent (CONSENT.md, version [v]) by checking the boxes on the form and recording a spoken consent clip. That
 consent covers AI/TTS training, public release of the recordings, and public
 release of models that may produce voices resembling theirs, and it separately
 grants the voice and publicity permissions that CC BY 4.0 does not cover.

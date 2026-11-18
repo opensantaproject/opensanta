@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""OpenSanta Project: submission quality check.
+"""OpenSanta Project: maintainer/intake quality check (optional self-check).
+
+The project runs this on intake. Contributors do not have to run it, but may use it
+to check their own files if they want.
 
 Usage:
-  python tools/qc_check.py SUBMISSION_DIR --pack P3 [--pack P5] [--write-manifest] [--asr] [--json report.json]
+  python tools/qc_check.py SUBMISSION_DIR --pack P07 [--pack P18] [--write-manifest] [--asr] [--json report.json]
 
 SUBMISSION_DIR is named after the contributor ID (e.g. C0042/) and contains:
-  consent-C0042.txt, C0042_consent.wav, C0042_L001.wav ..., manifest-C0042.sha256
+  C0042_consent.wav, C0042_L001.wav, ...
 
-Results: FAIL blocks a submission (fix it first). WARN does NOT block: a maintainer listens to that clip and decides.
+Results: FAIL means the folder needs a fix. WARN does NOT block: a maintainer listens to that clip and decides.
 Exit code: 0 = no FAIL (warnings allowed), 1 = at least one FAIL, 2 = usage error.
 """
 from __future__ import annotations
@@ -245,7 +248,7 @@ def main(argv=None):
         epilog="FAIL blocks a submission: fix it before submitting. WARN does not block: a maintainer listens "
                "to that clip and decides. Exit code is 1 only if there's a FAIL.")
     ap.add_argument("folder", type=Path)
-    ap.add_argument("--pack", action="append", default=[], help="assigned pack(s), e.g. --pack P3")
+    ap.add_argument("--pack", action="append", default=[], help="assigned pack(s), e.g. --pack P07")
     ap.add_argument("--script", type=Path, default=Path(__file__).resolve().parent.parent / "script" / "lines.tsv")
     ap.add_argument("--contributor", help="contributor ID (default: folder name)")
     ap.add_argument("--write-manifest", action="store_true", help="(re)write manifest-<ID>.sha256")
@@ -333,8 +336,9 @@ def main(argv=None):
     # Required items
     general.add("consent_clip", "PASS" if (folder / f"{cid}_consent.wav").exists() else "FAIL",
                 f"{cid}_consent.wav" + ("" if (folder / f"{cid}_consent.wav").exists() else " missing"))
-    general.add("consent_form", "PASS" if (folder / form_name).exists() else "FAIL",
-                form_name + ("" if (folder / form_name).exists() else " missing"))
+    general.add("consent_form", "PASS" if (folder / form_name).exists() else "WARN",
+                form_name if (folder / form_name).exists()
+                else "not required; consent is recorded on the Google Form")
     core = {k for k, r in script.items() if r["pack"] == "core"}
     miss_core = sorted(core - seen_lines)
     general.add("core_set", "FAIL" if miss_core else "PASS",

@@ -1,281 +1,281 @@
 line_id	section	pack	text	direction
 L001	greetings	core	Well, hello there! Come in, come in, and get warm by the fire.	
-L002	greetings	P1	Merry Christmas, my friend. It's so good to see you again.	
-L003	greetings	P2	Happy holidays to you and everyone in your family.	
-L004	greetings	P3	Good evening! My, what a cold and snowy night it is.	
-L005	greetings	P4	Welcome to the workshop. Mind the wrapping paper on the floor.	
-L006	greetings	P5	Have you been keeping warm this winter?	
-L007	greetings	P6	Why, look at you! You've grown a whole inch since last year.	
-L008	greetings	P1	Pull up a chair and tell me all about your year.	
-L009	greetings	P2	Season's greetings from all of us up north.	
-L010	greetings	P3	It warms my heart to hear from you.	
-L011	greetings	P4	Thank you for the lovely letter. I read every single word.	
-L012	greetings	P5	Now, don't be shy. Santa doesn't bite.	
-L013	greetings	P6	I've been looking forward to this visit all week.	
-L014	greetings	P1	Good morning, sunshine! The snow is sparkling today.	
-L015	greetings	P2	Come closer, so I can hear you over the sleigh bells.	
-L016	greetings	P3	Peace on earth, and kindness to everyone you meet.	
-L017	greetings	P4	I hope your holidays are filled with laughter and good food.	
-L018	greetings	P5	Goodnight, little one. Sweet dreams, and sleep tight.	
-L019	greetings	P6	Until next year, be good, be kind, and be brave.	
-L020	greetings	P1	It's always a pleasure, my dear friend.	
-L021	greetings	P2	Wishing you a bright and happy new year.	
-L022	greetings	P3	Bundle up tight before you head back out into the snow.	
-L023	greetings	P4	Oh, you brought me a drawing? That's wonderful. I'll hang it in my office.	
-L024	greetings	P5	Tell your grandmother that Santa says hello.	
-L025	greetings	P6	Remember, the best gifts are the ones we give to others.	
-L026	phonetic	core	The quick brown fox jumped over the sleepy old dog by the barn.	
-L027	phonetic	P1	A thick fog rolled over the frozen pond just before dawn.	
-L028	phonetic	P2	She thought the thirty thin threads would hold the heavy box.	
-L029	phonetic	P3	Judge the value of the jewel by its weight, not its shine.	
-L030	phonetic	P4	The cheerful child chose a cherry cheesecake for dessert.	
-L031	phonetic	P5	Ships sail through the choppy sea when the wind shifts north.	
-L032	phonetic	core	Measure the beige fabric twice before you cut the garage curtains.	
-L033	phonetic	P6	Rows of yellow lanterns glowed along the winding river road.	
-L034	phonetic	P1	Whales and wolves were both hunting near the rocky shore.	
-L035	phonetic	P2	Please put the purple pencils back in the plastic cup.	
-L036	phonetic	P3	Big bright bubbles bounced across the bathtub.	
-L037	phonetic	P4	The teacher told ten tall tales about tiny turtles.	
-L038	phonetic	P5	Dozens of ducks dove down into the deep dark water.	
-L039	phonetic	P6	Kevin keeps the kettle in the kitchen cupboard.	
-L040	phonetic	P1	Go get the green gloves from the gray garden shed.	
-L041	phonetic	P2	Fresh fish and fried potatoes filled the little cafe.	
-L042	phonetic	P3	Vivid violets grew beside the village fountain.	
-L043	phonetic	P4	Sally sat on the sunny steps and sang a simple song.	
-L044	phonetic	P5	Zachary's zipper got stuck on the fuzzy blue jacket.	
-L045	phonetic	P6	Nine new neighbors knocked on the door at noon.	
-L046	phonetic	P1	Mice made a messy nest inside the middle drawer.	
-L047	phonetic	P2	The singer was thinking of a long, slow, ringing note.	
-L048	phonetic	P3	Lovely little lambs leaped through the lush green field.	
-L049	phonetic	P4	Red roses rambled over the rusty garden gate.	
-L050	phonetic	P5	He heard the horses hurrying home through the hail.	
-L051	phonetic	core	The boy enjoyed the noisy toy coins in the oyster shell.	
-L052	phonetic	P6	Out on the cloudy mountain, the owls were howling loudly.	
-L053	phonetic	P1	I'd like to buy a kite and fly it high in the sky.	
-L054	phonetic	P2	Wait, the train to the bay is late again today.	
-L055	phonetic	P3	Go slowly over the snowy road, and hold the rope.	
-L056	phonetic	P4	Clean the green sheets and leave them on the bean bag.	
-L057	phonetic	P5	Put the good book on the wooden hook by the door.	
-L058	phonetic	P6	Blue boots and new shoes were waiting in the room.	
-L059	phonetic	P1	The cat sat on a flat mat and had a nap.	
-L060	phonetic	P2	Bob got a hot pot of soup from the shop on top of the hill.	
-L061	phonetic	P3	Her nurse served thirty bowls of warm turnip soup.	
-L062	phonetic	P4	The fair-haired bear stared at the pear on the chair.	
-L063	phonetic	P5	Here's a clear, near view of the deer by the pier.	
-L064	phonetic	P6	Tour the moor in the morning, before the storm.	
-L065	phonetic	P1	Jack bought six exotic plants and a box of wax.	
-L066	phonetic	P2	The quiet queen quickly requested a quilted jacket.	
-L067	phonetic	P3	Squirrels scramble up the sprawling spruce tree.	
-L068	phonetic	P4	Splashing streams spread through the strange, steep valley.	
-L069	phonetic	P5	Three shrill whistles echoed through the thick forest.	
-L070	phonetic	P6	The judge's badge gleamed as he nudged the ledge.	
-L071	phonetic	P1	Months of strenuous work left the crafts expert exhausted.	
-L072	phonetic	P2	Twelve fifths of the sixth batch went to the next table.	
-L073	phonetic	P3	The usual pleasure of treasure is in the measuring.	
-L074	phonetic	P4	Gentle giants gathered gingerly at the edge of the gym.	
-L075	phonetic	P5	Crisp crackers crunched as the crowd cheered.	
-L076	phonetic	P6	Plump plums and purple grapes sat on the plate.	
-L077	phonetic	P1	A brave brown bird built a nest under the bridge.	
-L078	phonetic	P2	Flora flipped the fluffy flapjacks on the flat griddle.	
-L079	phonetic	P3	Glowing glass globes glittered in the gloomy hall.	
-L080	phonetic	P4	Through the window, the woman watched the wild white waves.	
-L081	phonetic	P5	Each evening, the eager eagle eyed the empty field.	
-L082	phonetic	P6	Oliver often orders oatmeal with orange slices.	
-L083	phonetic	P1	Under the umbrella, the uncle hummed an upbeat tune.	
-L084	phonetic	P2	Isaac's idea was to ice the entire island cake.	
-L085	phonetic	P3	The awful autumn wind tossed the awning across the lawn.	
-L086	phonetic	P4	Our hour of joy came when the choir sang out.	
-L087	phonetic	P5	A yellow yo-yo rolled under the yard's young yew tree.	
-L088	phonetic	P6	With a whoosh and a whir, the wheel spun away.	
-L089	phonetic	P1	Change the channel, then check the chimney for chips.	
-L090	phonetic	P2	The sixth sheikh's sixth sheep was sick.	
-L091	phonetic	P3	Unique antique clocks ticked quietly in the hallway.	
-L092	phonetic	P4	She seldom saw such smooth, soft, silver sand.	
-L093	phonetic	P5	A dog named Rufus guards the farm through the frosty night.	
-L094	phonetic	P6	Everybody brought something different to the potluck supper.	
-L095	phonetic	P1	Ivy climbed the old brick wall behind the library.	
-L096	questions	core	And what would you like for Christmas this year?	
-L097	questions	P2	Have you been helping out around the house?	
-L098	questions	P3	What's your favorite thing about winter?	
-L099	questions	P4	Did you remember to say thank you to your teacher?	
-L100	questions	P5	Are you ready for the big day?	
-L101	questions	P6	How old are you now? Seven? Eight?	
-L102	questions	P1	Do you know how many reindeer pull my sleigh?	
-L103	questions	P2	Would you like a candy cane before you go?	
-L104	questions	P3	What did you learn in school this week?	
-L105	questions	P4	Is that a new tooth missing? Well, how about that!	
-L106	questions	P5	Who's that hiding behind your mom's coat?	
-L107	questions	P6	Why do you think the snow is so sparkly tonight?	
-L108	questions	P1	Where would you go if you could ride in the sleigh?	
-L109	questions	P2	When do you think the first snow will fall this year?	
-L110	questions	P3	Can you keep a secret?	
-L111	questions	P4	Have you ever built a snowman taller than you?	
-L112	questions	P5	Which cookies do you think I like best?	
-L113	questions	P6	Could you leave a carrot out for the reindeer?	
-L114	questions	P1	Isn't it wonderful when the whole family is together?	
-L115	questions	P2	Do you think you can be extra kind to your little brother?	
-L116	questions	P3	What's the nicest thing someone did for you this year?	
-L117	questions	P4	How do you spell your name, so I get it just right?	
-L118	questions	P5	Shall we check the list together?	
-L119	questions	P6	Would you like to hear a story about the workshop?	
-L120	questions	P1	Are you sure that's everything on your list?	
-L121	exclamations	core	Merry Christmas to all!	
-L122	exclamations	P2	What a wonderful surprise!	
-L123	exclamations	P3	Oh my goodness, look at all that snow!	
-L124	exclamations	P4	Well, I never! That's the biggest snowman I've ever seen!	
-L125	exclamations	P5	Hooray! The sleigh is ready to fly!	
-L126	exclamations	P6	Bravo! What a beautiful song!	
-L127	exclamations	P1	Goodness gracious, these cookies are delicious!	
-L128	exclamations	P2	Oh dear, I nearly forgot my hat!	
-L129	exclamations	P3	There it is! The first star of the night!	
-L130	exclamations	P4	Splendid! Simply splendid!	
-L131	exclamations	P5	Bundle up, everyone! Here we go!	
-L132	exclamations	P6	Off we go, into the starry night!	
-L133	exclamations	P1	Whoa there, easy now!	
-L134	exclamations	P2	Oh, you made my whole year!	
-L135	exclamations	P3	Happy New Year, everyone!	
-L136	exclamations	P4	That's the spirit!	
-L137	exclamations	P5	Well done, my friend! Well done!	
-L138	exclamations	P6	Oh, how lovely!	
-L139	exclamations	P1	Look out below! Snowball coming!	
-L140	exclamations	P2	Wonderful, wonderful, wonderful!	
-L141	numbers	core	I have exactly one hundred and twenty-three letters left to read tonight.	
-L142	numbers	P3	The sleigh leaves at eleven forty-five, sharp.	
-L143	numbers	P4	Only twelve more days until Christmas!	
-L144	numbers	P5	We baked two thousand four hundred cookies this season.	
-L145	numbers	P6	Christmas Eve is on the twenty-fourth of December.	
-L146	numbers	P1	My workshop is about three thousand miles north of here.	
-L147	numbers	P2	One, two, three, four, five, six, seven, eight, nine, ten.	
-L148	numbers	P3	Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen.	
-L149	numbers	P4	Eighteen, nineteen, twenty, thirty, forty, fifty, sixty.	
-L150	numbers	P5	Seventy, eighty, ninety, one hundred, one thousand, one million.	
-L151	numbers	P6	You're the first in line, and your sister is second.	
-L152	numbers	P1	This is my third cup of cocoa, and my fourth cookie.	
-L153	numbers	P2	The fifth, sixth, and seventh gifts go under the big tree.	
-L154	numbers	P3	It's ten degrees below zero at the workshop today.	
-L155	numbers	P4	That toy train costs nineteen dollars and ninety-nine cents.	
-L156	numbers	P5	Half of the elves are wrapping, and a quarter are painting.	
-L157	numbers	P6	The year was nineteen ninety-four, and the snow was very deep.	
-L158	numbers	P1	It's twenty twenty-six, and the list is longer than ever.	
-L159	numbers	P2	Please be home by six thirty for dinner.	
-L160	numbers	P3	Room number four hundred and two is on the left.	
-L161	numbers	P4	We have a hundred percent of the presents ready.	
-L162	numbers	P5	Sixty seconds make a minute, and sixty minutes make an hour.	
-L163	numbers	P6	Seven hundred and seventy-seven bells rang at midnight.	
-L164	numbers	P1	Two plus two is four, and four plus four is eight.	
-L165	numbers	P2	The phone number is five five five, zero one nine eight.	
-L166	names	P3	Merry Christmas, Emma!	
-L167	names	P4	Hello, Liam! I got your letter.	
-L168	names	P5	Sophia, you've been very kind this year.	
-L169	names	P6	Noah, did you share your toys with your friends?	
-L170	names	P1	Ho ho ho, Aaliyah! How are you?	
-L171	names	P2	Mateo, I hear you've been practicing the piano.	
-L172	names	P3	Priya, thank you for helping your grandmother.	
-L173	names	P4	Kenji, that was a very brave thing you did.	
-L174	names	P5	Oluwaseun, I loved the drawing of the reindeer.	
-L175	names	P6	Siobhan, your letter made me laugh out loud.	
-L176	names	P1	Muhammad, Merry Christmas and happy holidays!	
-L177	names	P2	Isabella and Jacob, you two make a great team.	
-L178	names	P3	Zoe, are you still learning to ride your bike?	
-L179	names	P4	Diego, your little sister says you're the best.	
-L180	names	P5	Hana, the elves are working on something special for you.	
-L181	names	P6	Xavier, I'm proud of how hard you worked at school.	
-L182	names	P1	Chloe and Amir, don't forget to brush your teeth!	
-L183	names	P2	Nia, I can't wait to see that big smile.	
-L184	names	P3	Dmitri, thank you for shoveling your neighbor's walk.	
-L185	names	P4	Ava, Merry Christmas from the whole workshop.	
-L186	names	P5	Ethan, what a fine snow fort you built!	
-L187	names	P6	Mei, your kindness hasn't gone unnoticed.	
-L188	names	P1	Santiago, have a wonderful holiday with your cousins.	
-L189	names	P2	Leilani, your singing is lovely.	
-L190	names	P3	Tobias, keep reading those wonderful books.	
-L191	names	P4	Fatima, I wish you a happy and peaceful new year.	
-L192	names	P5	Malik, you were such a good friend this year.	
-L193	names	P6	Ingrid, I hope you enjoy the snow!	
-L194	names	P1	Jamal and Rosa, Santa is very proud of you both.	
-L195	names	P2	Aiden, Grace, and Yusuf, Merry Christmas to all three of you!	
-L196	holiday	P3	The elves have been busy in the workshop all year long.	
-L197	holiday	core	Mrs. Claus baked gingerbread and sugar cookies this morning.	
-L198	holiday	P4	The reindeer are munching on hay and resting up for the big night.	
-L199	holiday	P5	I read my list very carefully, and then I read it once more.	
-L200	holiday	P6	Our stockings are lined up along the mantel, one for each of us.	
-L201	holiday	P1	Snowflakes are falling softly on the rooftops.	
-L202	holiday	P2	The sleigh is packed with presents, ribbons, and bows.	
-L203	holiday	P3	A wreath of holly and pine hangs on the front door.	
-L204	holiday	P4	Candy canes, cocoa, and marshmallows, my favorite treats!	
-L205	holiday	P5	The Christmas tree twinkles with a thousand tiny lights.	
-L206	holiday	P6	Carolers are singing on the corner, right outside.	
-L207	holiday	P1	Mistletoe hangs above the doorway in the kitchen.	
-L208	holiday	P2	Each present is wrapped with care and a little love.	
-L209	holiday	P3	Down the chimney I go, quiet as a mouse.	
-L210	holiday	P4	I always leave a thank-you note for the cookies and milk.	
-L211	holiday	P5	The North Pole is beautiful under the northern lights.	
-L212	holiday	P6	Sleigh bells jingle as we fly across the moonlit sky.	
-L213	holiday	P1	Peppermint, cinnamon, and nutmeg fill the air.	
-L214	holiday	P2	Nice list, naughty list. I believe everyone can do better.	
-L215	holiday	P3	Toy soldiers, wooden trains, and teddy bears line the shelves.	
-L216	holiday	P4	The workshop smells like sawdust, paint, and pine.	
-L217	holiday	P5	Let's light the candles and gather around the table.	
-L218	holiday	P6	Winter is my favorite season, of course.	
-L219	holiday	P1	A warm scarf, a woolly hat, and mittens, that's all I need.	
-L220	holiday	P2	Christmas Eve is the busiest night of my whole year.	
-L221	everyday	core	The weather forecast says it will rain later this afternoon.	
-L222	everyday	P3	Please remember to turn off the lights when you leave the room.	
-L223	everyday	P4	Your appointment has been moved to Thursday morning.	
-L224	everyday	P5	The library closes early on Sundays.	
-L225	everyday	P6	Take the second exit at the roundabout, then turn right.	
-L226	everyday	P1	Water the plants once a week, and don't forget the ones on the porch.	
-L227	everyday	P2	The package should arrive sometime between noon and four.	
-L228	everyday	P3	I usually take a short walk after lunch.	
-L229	everyday	P4	Mix the flour and the butter, then add a pinch of salt.	
-L230	everyday	P5	The bus was crowded, so I stood near the back.	
-L231	everyday	P6	Thank you for calling. Someone will be with you shortly.	
-L232	everyday	P1	Your battery is running low. Please plug in your device.	
-L233	everyday	P2	The museum has a new exhibit about ancient Egypt.	
-L234	everyday	P3	Let's meet at the park near the big fountain.	
-L235	everyday	P4	Turn the oven down a little and let it bake for ten more minutes.	
-L236	everyday	P5	The meeting starts at nine, so please be on time.	
-L237	everyday	P6	He fixed the leaky faucet with a wrench and some tape.	
-L238	everyday	P1	The garden needs weeding before the tomatoes ripen.	
-L239	everyday	P2	I left my umbrella on the train again.	
-L240	everyday	P3	Remember to drink plenty of water today.	
-L241	everyday	P4	The children played tag until it got dark.	
-L242	everyday	P5	Our neighbors adopted a puppy named Biscuit.	
-L243	everyday	P6	The bridge is closed for repairs until next month.	
-L244	everyday	P1	She painted the fence a cheerful shade of blue.	
-L245	everyday	P2	Could you pass the salt and pepper, please?	
-L246	everyday	P3	Every morning, I read the news with a cup of coffee.	
-L247	everyday	P4	The concert was postponed because of the storm.	
-L248	everyday	P5	Fold the towels and put them in the hall closet.	
-L249	everyday	P6	Science helps us understand how the world works.	
-L250	everyday	P1	Kindness costs nothing, but it means everything.	
-L251	stories	P2	Long ago, on a night so cold that the stars seemed to shiver, a small elf named Pip decided to build the finest toy the workshop had ever seen.	
-L252	stories	core	Every winter, when the first snow covers the hills, I take a long walk through the forest and listen to the quiet crunch of my boots.	
-L253	stories	P3	The reindeer love to race across the frozen lake in the morning, their breath puffing out like little clouds behind them.	
-L254	stories	P4	Mrs. Claus says that the secret to a good cookie is patience, a pinch of cinnamon, and a whole lot of love stirred into the bowl.	
-L255	stories	P5	When I was a young man, I could carry a sack of toys over each shoulder and still have room to tuck a teddy bear under my arm.	
-L256	stories	P6	Some nights the wind howls so loudly around the workshop that the elves sing their songs twice as loud just to hear themselves.	
-L257	stories	P1	If you ever wake up on Christmas morning and find a little soot on the carpet, just know that I tried my very best to be tidy.	
-L258	stories	P2	There once was a girl who wrote me a letter asking for nothing at all, except that her friend across the street would feel better soon.	
-L259	stories	P3	After the last present is delivered, I like to sit for a moment on a quiet rooftop and watch the sun rise over the sleeping town.	
-L260	stories	P4	The workshop never truly sleeps, because somewhere an elf is always painting a wheel, sanding a block, or tying one more ribbon.	
-L261	stories	P5	I keep every letter I've ever received in a giant wooden cabinet, and on snowy afternoons I like to read a few of the old ones again.	
-L262	stories	P6	It's not the size of the gift that matters, my friend, but the thought and the kindness that come wrapped up inside it.	
-L263	stories	P1	Far beyond the mountains, past the frozen river and the tall dark pines, there's a little cabin with a light that is always on.	
-L264	stories	P2	On the way home last year, we flew so close to the moon that one of the reindeer tried to take a bite of it, thinking it was cheese.	
-L265	stories	P3	So close your eyes, take a deep breath, and remember that tomorrow is a brand new day full of wonderful things.	
+L002	greetings	P04	Merry Christmas, my friend. It's so good to see you again.	
+L003	greetings	P28	Happy holidays to you and everyone in your family.	
+L004	greetings	P31	Good evening! My, what a cold and snowy night it is.	
+L005	greetings	P44	Welcome to the workshop. Mind the wrapping paper on the floor.	
+L006	greetings	P43	Have you been keeping warm this winter?	
+L007	greetings	P36	Why, look at you! You've grown a whole inch since last year.	
+L008	greetings	P37	Pull up a chair and tell me all about your year.	
+L009	greetings	P02	Season's greetings from all of us up north.	
+L010	greetings	P17	It warms my heart to hear from you.	
+L011	greetings	P41	Thank you for the lovely letter. I read every single word.	
+L012	greetings	P38	Now, don't be shy. Santa doesn't bite.	
+L013	greetings	P11	I've been looking forward to this visit all week.	
+L014	greetings	P40	Good morning, sunshine! The snow is sparkling today.	
+L015	greetings	P33	Come closer, so I can hear you over the sleigh bells.	
+L016	greetings	P47	Peace on earth, and kindness to everyone you meet.	
+L017	greetings	P15	I hope your holidays are filled with laughter and good food.	
+L018	greetings	P10	Goodnight, little one. Sweet dreams, and sleep tight.	
+L019	greetings	P03	Until next year, be good, be kind, and be brave.	
+L020	greetings	P01	It's always a pleasure, my dear friend.	
+L021	greetings	P20	Wishing you a bright and happy new year.	
+L022	greetings	P12	Bundle up tight before you head back out into the snow.	
+L023	greetings	P32	Oh, you brought me a drawing? That's wonderful. I'll hang it in my office.	
+L024	greetings	P30	Tell your grandmother that Santa says hello.	
+L025	greetings	P18	Remember, the best gifts are the ones we give to others.	
+L026	phonetic	P05	The quick brown fox jumped over the sleepy old dog by the barn.	
+L027	phonetic	P11	A thick fog rolled over the frozen pond just before dawn.	
+L028	phonetic	P31	She thought the thirty thin threads would hold the heavy box.	
+L029	phonetic	P12	Judge the value of the jewel by its weight, not its shine.	
+L030	phonetic	P38	The cheerful child chose a cherry cheesecake for dessert.	
+L031	phonetic	P39	Ships sail through the choppy sea when the wind shifts north.	
+L032	phonetic	P02	Measure the beige fabric twice before you cut the garage curtains.	
+L033	phonetic	P39	Rows of yellow lanterns glowed along the winding river road.	
+L034	phonetic	P27	Whales and wolves were both hunting near the rocky shore.	
+L035	phonetic	P29	Please put the purple pencils back in the plastic cup.	
+L036	phonetic	P30	Big bright bubbles bounced across the bathtub.	
+L037	phonetic	P40	The teacher told ten tall tales about tiny turtles.	
+L038	phonetic	P04	Dozens of ducks dove down into the deep dark water.	
+L039	phonetic	P41	Kevin keeps the kettle in the kitchen cupboard.	
+L040	phonetic	P09	Go get the green gloves from the gray garden shed.	
+L041	phonetic	P42	Fresh fish and fried potatoes filled the little cafe.	
+L042	phonetic	P13	Vivid violets grew beside the village fountain.	
+L043	phonetic	P12	Sally sat on the sunny steps and sang a simple song.	
+L044	phonetic	P14	Zachary's zipper got stuck on the fuzzy blue jacket.	
+L045	phonetic	P07	Nine new neighbors knocked on the door at noon.	
+L046	phonetic	P27	Mice made a messy nest inside the middle drawer.	
+L047	phonetic	P20	The singer was thinking of a long, slow, ringing note.	
+L048	phonetic	P29	Lovely little lambs leaped through the lush green field.	
+L049	phonetic	P19	Red roses rambled over the rusty garden gate.	
+L050	phonetic	P37	He heard the horses hurrying home through the hail.	
+L051	phonetic	P01	The boy enjoyed the noisy toy coins in the oyster shell.	
+L052	phonetic	P24	Out on the cloudy mountain, the owls were howling loudly.	
+L053	phonetic	P25	I'd like to buy a kite and fly it high in the sky.	
+L054	phonetic	P08	Wait, the train to the bay is late again today.	
+L055	phonetic	P33	Go slowly over the snowy road, and hold the rope.	
+L056	phonetic	P13	Clean the green sheets and leave them on the bean bag.	
+L057	phonetic	P32	Put the good book on the wooden hook by the door.	
+L058	phonetic	P36	Blue boots and new shoes were waiting in the room.	
+L059	phonetic	P28	The cat sat on a flat mat and had a nap.	
+L060	phonetic	P41	Bob got a hot pot of soup from the shop on top of the hill.	
+L061	phonetic	P34	Her nurse served thirty bowls of warm turnip soup.	
+L062	phonetic	P42	The fair-haired bear stared at the pear on the chair.	
+L063	phonetic	P01	Here's a clear, near view of the deer by the pier.	
+L064	phonetic	P15	Tour the moor in the morning, before the storm.	
+L065	phonetic	P22	Jack bought six exotic plants and a box of wax.	
+L066	phonetic	P19	The quiet queen quickly requested a quilted jacket.	
+L067	phonetic	P35	Squirrels scramble up the sprawling spruce tree.	
+L068	phonetic	P17	Splashing streams spread through the strange, steep valley.	
+L069	phonetic	P37	Three shrill whistles echoed through the thick forest.	
+L070	phonetic	P18	The judge's badge gleamed as he nudged the ledge.	
+L071	phonetic	P10	Months of strenuous work left the crafts expert exhausted.	
+L072	phonetic	P43	Twelve fifths of the sixth batch went to the next table.	
+L073	phonetic	P03	The usual pleasure of treasure is in the measuring.	
+L074	phonetic	P16	Gentle giants gathered gingerly at the edge of the gym.	
+L075	phonetic	P44	Crisp crackers crunched as the crowd cheered.	
+L076	phonetic	P23	Plump plums and purple grapes sat on the plate.	
+L077	phonetic	P20	A brave brown bird built a nest under the bridge.	
+L078	phonetic	P21	Flora flipped the fluffy flapjacks on the flat griddle.	
+L079	phonetic	P43	Glowing glass globes glittered in the gloomy hall.	
+L080	phonetic	P45	Through the window, the woman watched the wild white waves.	
+L081	phonetic	P46	Each evening, the eager eagle eyed the empty field.	
+L082	phonetic	P15	Oliver often orders oatmeal with orange slices.	
+L083	phonetic	P26	Under the umbrella, the uncle hummed an upbeat tune.	
+L084	phonetic	P18	Isaac's idea was to ice the entire island cake.	
+L085	phonetic	P03	The awful autumn wind tossed the awning across the lawn.	
+L086	phonetic	P06	Our hour of joy came when the choir sang out.	
+L087	phonetic	P05	A yellow yo-yo rolled under the yard's young yew tree.	
+L088	phonetic	P46	With a whoosh and a whir, the wheel spun away.	
+L089	phonetic	P23	Change the channel, then check the chimney for chips.	
+L090	phonetic	P45	The sixth sheikh's sixth sheep was sick.	
+L091	phonetic	P21	Unique antique clocks ticked quietly in the hallway.	
+L092	phonetic	P47	She seldom saw such smooth, soft, silver sand.	
+L093	phonetic	P40	A dog named Rufus guards the farm through the frosty night.	
+L094	phonetic	P38	Everybody brought something different to the potluck supper.	
+L095	phonetic	P34	Ivy climbed the old brick wall behind the library.	
+L096	questions	P27	And what would you like for Christmas this year?	
+L097	questions	P47	Have you been helping out around the house?	
+L098	questions	P03	What's your favorite thing about winter?	
+L099	questions	P13	Did you remember to say thank you to your teacher?	
+L100	questions	P35	Are you ready for the big day?	
+L101	questions	P26	How old are you now? Seven? Eight?	
+L102	questions	P39	Do you know how many reindeer pull my sleigh?	
+L103	questions	P29	Would you like a candy cane before you go?	
+L104	questions	P42	What did you learn in school this week?	
+L105	questions	P36	Is that a new tooth missing? Well, how about that!	
+L106	questions	P19	Who's that hiding behind your mom's coat?	
+L107	questions	P44	Why do you think the snow is so sparkly tonight?	
+L108	questions	P12	Where would you go if you could ride in the sleigh?	
+L109	questions	P45	When do you think the first snow will fall this year?	
+L110	questions	P25	Can you keep a secret?	
+L111	questions	P30	Have you ever built a snowman taller than you?	
+L112	questions	P08	Which cookies do you think I like best?	
+L113	questions	P10	Could you leave a carrot out for the reindeer?	
+L114	questions	P34	Isn't it wonderful when the whole family is together?	
+L115	questions	P18	Do you think you can be extra kind to your little brother?	
+L116	questions	P46	What's the nicest thing someone did for you this year?	
+L117	questions	P24	How do you spell your name, so I get it just right?	
+L118	questions	P22	Shall we check the list together?	
+L119	questions	P11	Would you like to hear a story about the workshop?	
+L120	questions	P23	Are you sure that's everything on your list?	
+L121	exclamations	P33	Merry Christmas to all!	
+L122	exclamations	P34	What a wonderful surprise!	
+L123	exclamations	P46	Oh my goodness, look at all that snow!	
+L124	exclamations	P27	Well, I never! That's the biggest snowman I've ever seen!	
+L125	exclamations	P47	Hooray! The sleigh is ready to fly!	
+L126	exclamations	P36	Bravo! What a beautiful song!	
+L127	exclamations	P24	Goodness gracious, these cookies are delicious!	
+L128	exclamations	P20	Oh dear, I nearly forgot my hat!	
+L129	exclamations	P39	There it is! The first star of the night!	
+L130	exclamations	P25	Splendid! Simply splendid!	
+L131	exclamations	P37	Bundle up, everyone! Here we go!	
+L132	exclamations	P11	Off we go, into the starry night!	
+L133	exclamations	P22	Whoa there, easy now!	
+L134	exclamations	P44	Oh, you made my whole year!	
+L135	exclamations	P10	Happy New Year, everyone!	
+L136	exclamations	P32	That's the spirit!	
+L137	exclamations	P31	Well done, my friend! Well done!	
+L138	exclamations	P40	Oh, how lovely!	
+L139	exclamations	P16	Look out below! Snowball coming!	
+L140	exclamations	P28	Wonderful, wonderful, wonderful!	
+L141	numbers	P33	I have exactly one hundred and twenty-three letters left to read tonight.	
+L142	numbers	P35	The sleigh leaves at eleven forty-five, sharp.	
+L143	numbers	P06	Only twelve more days until Christmas!	
+L144	numbers	P23	We baked two thousand four hundred cookies this season.	
+L145	numbers	P17	Christmas Eve is on the twenty-fourth of December.	
+L146	numbers	P43	My workshop is about three thousand miles north of here.	
+L147	numbers	P24	One, two, three, four, five, six, seven, eight, nine, ten.	
+L148	numbers	P12	Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen.	
+L149	numbers	P05	Eighteen, nineteen, twenty, thirty, forty, fifty, sixty.	
+L150	numbers	P04	Seventy, eighty, ninety, one hundred, one thousand, one million.	
+L151	numbers	P22	You're the first in line, and your sister is second.	
+L152	numbers	P13	This is my third cup of cocoa, and my fourth cookie.	
+L153	numbers	P15	The fifth, sixth, and seventh gifts go under the big tree.	
+L154	numbers	P26	It's ten degrees below zero at the workshop today.	
+L155	numbers	P07	That toy train costs nineteen dollars and ninety-nine cents.	
+L156	numbers	P42	Half of the elves are wrapping, and a quarter are painting.	
+L157	numbers	P11	The year was nineteen ninety-four, and the snow was very deep.	
+L158	numbers	P36	It's twenty twenty-six, and the list is longer than ever.	
+L159	numbers	P28	Please be home by six thirty for dinner.	
+L160	numbers	P38	Room number four hundred and two is on the left.	
+L161	numbers	P39	We have a hundred percent of the presents ready.	
+L162	numbers	P09	Sixty seconds make a minute, and sixty minutes make an hour.	
+L163	numbers	P02	Seven hundred and seventy-seven bells rang at midnight.	
+L164	numbers	P37	Two plus two is four, and four plus four is eight.	
+L165	numbers	P16	The phone number is five five five, zero one nine eight.	
+L166	names	P30	Merry Christmas, Emma!	
+L167	names	P39	Hello, Liam! I got your letter.	
+L168	names	P17	Sophia, you've been very kind this year.	
+L169	names	P02	Noah, did you share your toys with your friends?	
+L170	names	P41	Ho ho ho, Aaliyah! How are you?	
+L171	names	P36	Mateo, I hear you've been practicing the piano.	
+L172	names	P22	Priya, thank you for helping your grandmother.	
+L173	names	P25	Kenji, that was a very brave thing you did.	
+L174	names	P38	Oluwaseun, I loved the drawing of the reindeer.	
+L175	names	P34	Siobhan, your letter made me laugh out loud.	
+L176	names	P06	Muhammad, Merry Christmas and happy holidays!	
+L177	names	P26	Isabella and Jacob, you two make a great team.	
+L178	names	P07	Zoe, are you still learning to ride your bike?	
+L179	names	P43	Diego, your little sister says you're the best.	
+L180	names	P18	Hana, the elves are working on something special for you.	
+L181	names	P01	Xavier, I'm proud of how hard you worked at school.	
+L182	names	P05	Chloe and Amir, don't forget to brush your teeth!	
+L183	names	P31	Nia, I can't wait to see that big smile.	
+L184	names	P16	Dmitri, thank you for shoveling your neighbor's walk.	
+L185	names	P15	Ava, Merry Christmas from the whole workshop.	
+L186	names	P42	Ethan, what a fine snow fort you built!	
+L187	names	P12	Mei, your kindness hasn't gone unnoticed.	
+L188	names	P40	Santiago, have a wonderful holiday with your cousins.	
+L189	names	P10	Leilani, your singing is lovely.	
+L190	names	P33	Tobias, keep reading those wonderful books.	
+L191	names	P14	Fatima, I wish you a happy and peaceful new year.	
+L192	names	P09	Malik, you were such a good friend this year.	
+L193	names	P08	Ingrid, I hope you enjoy the snow!	
+L194	names	P27	Jamal and Rosa, Santa is very proud of you both.	
+L195	names	P29	Aiden, Grace, and Yusuf, Merry Christmas to all three of you!	
+L196	holiday	P25	The elves have been busy in the workshop all year long.	
+L197	holiday	P28	Mrs. Claus baked gingerbread and sugar cookies this morning.	
+L198	holiday	P16	The reindeer are munching on hay and resting up for the big night.	
+L199	holiday	P24	I read my list very carefully, and then I read it once more.	
+L200	holiday	P17	Our stockings are lined up along the mantel, one for each of us.	
+L201	holiday	P31	Snowflakes are falling softly on the rooftops.	
+L202	holiday	P43	The sleigh is packed with presents, ribbons, and bows.	
+L203	holiday	P01	A wreath of holly and pine hangs on the front door.	
+L204	holiday	P19	Candy canes, cocoa, and marshmallows, my favorite treats!	
+L205	holiday	P21	The Christmas tree twinkles with a thousand tiny lights.	
+L206	holiday	P45	Carolers are singing on the corner, right outside.	
+L207	holiday	P07	Mistletoe hangs above the doorway in the kitchen.	
+L208	holiday	P14	Each present is wrapped with care and a little love.	
+L209	holiday	P18	Down the chimney I go, quiet as a mouse.	
+L210	holiday	P06	I always leave a thank-you note for the cookies and milk.	
+L211	holiday	P26	The North Pole is beautiful under the northern lights.	
+L212	holiday	P29	Sleigh bells jingle as we fly across the moonlit sky.	
+L213	holiday	P04	Peppermint, cinnamon, and nutmeg fill the air.	
+L214	holiday	P40	Nice list, naughty list. I believe everyone can do better.	
+L215	holiday	P03	Toy soldiers, wooden trains, and teddy bears line the shelves.	
+L216	holiday	P08	The workshop smells like sawdust, paint, and pine.	
+L217	holiday	P35	Let's light the candles and gather around the table.	
+L218	holiday	P02	Winter is my favorite season, of course.	
+L219	holiday	P13	A warm scarf, a woolly hat, and mittens, that's all I need.	
+L220	holiday	P09	Christmas Eve is the busiest night of my whole year.	
+L221	everyday	P41	The weather forecast says it will rain later this afternoon.	
+L222	everyday	P14	Please remember to turn off the lights when you leave the room.	
+L223	everyday	P09	Your appointment has been moved to Thursday morning.	
+L224	everyday	P16	The library closes early on Sundays.	
+L225	everyday	P17	Take the second exit at the roundabout, then turn right.	
+L226	everyday	P28	Water the plants once a week, and don't forget the ones on the porch.	
+L227	everyday	P30	The package should arrive sometime between noon and four.	
+L228	everyday	P04	I usually take a short walk after lunch.	
+L229	everyday	P25	Mix the flour and the butter, then add a pinch of salt.	
+L230	everyday	P29	The bus was crowded, so I stood near the back.	
+L231	everyday	P07	Thank you for calling. Someone will be with you shortly.	
+L232	everyday	P44	Your battery is running low. Please plug in your device.	
+L233	everyday	P31	The museum has a new exhibit about ancient Egypt.	
+L234	everyday	P02	Let's meet at the park near the big fountain.	
+L235	everyday	P03	Turn the oven down a little and let it bake for ten more minutes.	
+L236	everyday	P47	The meeting starts at nine, so please be on time.	
+L237	everyday	P26	He fixed the leaky faucet with a wrench and some tape.	
+L238	everyday	P20	The garden needs weeding before the tomatoes ripen.	
+L239	everyday	P22	I left my umbrella on the train again.	
+L240	everyday	P05	Remember to drink plenty of water today.	
+L241	everyday	P21	The children played tag until it got dark.	
+L242	everyday	P42	Our neighbors adopted a puppy named Biscuit.	
+L243	everyday	P32	The bridge is closed for repairs until next month.	
+L244	everyday	P06	She painted the fence a cheerful shade of blue.	
+L245	everyday	P45	Could you pass the salt and pepper, please?	
+L246	everyday	P23	Every morning, I read the news with a cup of coffee.	
+L247	everyday	P46	The concert was postponed because of the storm.	
+L248	everyday	P08	Fold the towels and put them in the hall closet.	
+L249	everyday	P19	Science helps us understand how the world works.	
+L250	everyday	P35	Kindness costs nothing, but it means everything.	
+L251	stories	P04	Long ago, on a night so cold that the stars seemed to shiver, a small elf named Pip decided to build the finest toy the workshop had ever seen.	
+L252	stories	P30	Every winter, when the first snow covers the hills, I take a long walk through the forest and listen to the quiet crunch of my boots.	
+L253	stories	P14	The reindeer love to race across the frozen lake in the morning, their breath puffing out like little clouds behind them.	
+L254	stories	P32	Mrs. Claus says that the secret to a good cookie is patience, a pinch of cinnamon, and a whole lot of love stirred into the bowl.	
+L255	stories	P10	When I was a young man, I could carry a sack of toys over each shoulder and still have room to tuck a teddy bear under my arm.	
+L256	stories	P33	Some nights the wind howls so loudly around the workshop that the elves sing their songs twice as loud just to hear themselves.	
+L257	stories	P34	If you ever wake up on Christmas morning and find a little soot on the carpet, just know that I tried my very best to be tidy.	
+L258	stories	P06	There once was a girl who wrote me a letter asking for nothing at all, except that her friend across the street would feel better soon.	
+L259	stories	P15	After the last present is delivered, I like to sit for a moment on a quiet rooftop and watch the sun rise over the sleeping town.	
+L260	stories	P21	The workshop never truly sleeps, because somewhere an elf is always painting a wheel, sanding a block, or tying one more ribbon.	
+L261	stories	P35	I keep every letter I've ever received in a giant wooden cabinet, and on snowy afternoons I like to read a few of the old ones again.	
+L262	stories	P01	It's not the size of the gift that matters, my friend, but the thought and the kindness that come wrapped up inside it.	
+L263	stories	P07	Far beyond the mountains, past the frozen river and the tall dark pines, there's a little cabin with a light that is always on.	
+L264	stories	P19	On the way home last year, we flew so close to the moon that one of the reindeer tried to take a bite of it, thinking it was cheese.	
+L265	stories	P38	So close your eyes, take a deep breath, and remember that tomorrow is a brand new day full of wonderful things.	
 L266	laughs	core	Ho ho ho!	
-L267	laughs	core	Ho, ho, ho! Merry Christmas!	
-L268	laughs	core	Ho ho ho! Ho ho ho!	
-L269	laughs	core	Ho ho... ho.	slow and soft, like a chuckle to yourself
+L267	laughs	P44	Ho, ho, ho! Merry Christmas!	
+L268	laughs	P47	Ho ho ho! Ho ho ho!	
+L269	laughs	P45	Ho ho... ho.	slow and soft, like a chuckle to yourself
 L270	laughs	core	Ha ha ha! Oh, that's a good one.	
-L271	laughs	core	Heh heh heh.	gentle chuckle
-L272	laughs	core	Ho ho ho, what have we here?	
-L273	laughs	core	Ho ho ho! Who's been good this year?	
-L274	laughs	core	Ha! Oh my, ha ha ha!	
-L275	laughs	core	Ho ho ho! Happy holidays!	
-L276	laughs	core	Mm-hmm. Ho ho. Yes, indeed.	
-L277	laughs	core	Ho ho ho ho!	big, long belly laugh
-L278	laughs	core	Oh ho ho! You found me!	
-L279	laughs	core	Ho ho ho, goodnight, everyone!	
-L280	laughs	core	Ha ha! Well, bless your heart.	
+L271	laughs	P21	Heh heh heh.	gentle chuckle
+L272	laughs	P08	Ho ho ho, what have we here?	
+L273	laughs	P27	Ho ho ho! Who's been good this year?	
+L274	laughs	P20	Ha! Oh my, ha ha ha!	
+L275	laughs	P11	Ho ho ho! Happy holidays!	
+L276	laughs	P13	Mm-hmm. Ho ho. Yes, indeed.	
+L277	laughs	P24	Ho ho ho ho!	big, long belly laugh
+L278	laughs	P46	Oh ho ho! You found me!	
+L279	laughs	P09	Ho ho ho, goodnight, everyone!	
+L280	laughs	P37	Ha ha! Well, bless your heart.	

@@ -24,8 +24,8 @@
 | Consistency | Same mic, room, distance, gain, and Santa voice across all sessions | | Coqui: keep tone and pitch consistent among clips. |
 
 ## Which lines you record
-The voice is a blend of many contributors. You record the **core set** (25 lines, the same for everyone) plus **at
-least one ~42-line pack** that we assign (`pack` column in `script/lines.tsv`). Extra packs are welcome.
+The voice is a blend of many contributors. You record the **core set** (3 lines, the same for everyone) plus **at
+least one 6-line pack** (5 lines in five of the packs) that we assign (`pack` column in `script/lines.tsv`). Extra packs are welcome.
 See `script/README.md` for details and the **reference performance guideline.**
 
 **Consistency matters even more for a blend.** Your clips will be compared and combined with other people's, so:

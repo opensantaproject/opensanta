@@ -7,7 +7,7 @@ The website progress bar is driven by [`status.json`](status.json). See the READ
 ## Stages
 
 1. **Formation** (current) — Establish the project, its ideals, consent process, docs, and public home. Create the project email and both forms before any public ask.
-2. **Recording** — Volunteers sign consent and record the shared script (core set plus one pack).
+2. **Recording** — Volunteers consent on the form and record the shared script (core set plus one pack).
 3. **Dataset** — Review, quality-check, and publish consented recordings under CC BY 4.0.
 4. **Training** — Train a high-quality blended classic American Santa voice. Compute waits until the recordings are in.
 5. **Release** — Release the free, open Santa voice under Apache-2.0 for anyone to use, for any lawful purpose, including commercially.

@@ -1,7 +1,7 @@
 # Contributor Consent and Rights Declaration
 
 **Project:** OpenSanta Project
-**Version:** 0.5 draft (project named OpenSanta Project; CC BY 4.0 dataset license; Apache-2.0 model license; required signed form + spoken consent clip). Not yet reviewed by a lawyer.
+**Version:** 0.6 draft (project named OpenSanta Project; CC BY 4.0 dataset license; Apache-2.0 model license; signed via the Google Form checkboxes + spoken consent clip). Not yet reviewed by a lawyer.
 **Contact for questions or withdrawal:** support@opensanta.org
 
 ## What this project is
@@ -18,7 +18,7 @@ don't contribute. That's completely fine.
 ## 1. Who can contribute
 
 - **You must be 18 or older.** Age is **self-declared**: you confirm it with the "I am 18 or older" checkbox
-  in the signed form and by saying it in your spoken consent clip. We don't ask for ID or any other age check.
+  on the form and by saying it in your spoken consent clip. We don't ask for ID or any other age check.
   There's no parent or guardian path: we don't accept recordings of anyone under 18, even with permission.
   If you're submitting someone else's voice under the exception below, that speaker must also be 18+ and
   self-declare in their own consent clip.
@@ -49,7 +49,7 @@ Only submit audio you recorded yourself for this project, or audio you fully own
 
 ## 3. What you're agreeing to
 
-By signing, you confirm or agree to each of the following:
+By checking the boxes on the form, you confirm or agree to each of the following:
 
 1. **Your voice, your rights.** You're the speaker, or section 1's exception applies. You have the right to grant everything below.
 2. **AI/TTS training.** We and others may use your recordings to train, test, and improve speech and TTS models.
@@ -98,11 +98,11 @@ You choose one:
 
 ## 6. Your personal information
 
-We keep your contact details, this signed form, and your spoken consent clip privately, only to verify consent and manage withdrawal requests.
+We keep your contact details, a record of the boxes you checked on the form, and your spoken consent clip privately, only to verify consent and manage withdrawal requests.
 - **Where your files go:** you upload through a Google Form, and Google stores the upload in the project's **private Google
-  Drive**, which only project maintainers can access. Reviewed script clips later move to the public dataset. Your consent
-  form, consent clip, and contact details never do.
-- **Where consent records are kept:** your signed form, spoken consent clip, and contact details are moved into a
+  Drive**, which only project maintainers can access. Reviewed script clips later move to the public dataset. Your form
+  consent, consent clip, and contact details never do.
+- **Where consent records are kept:** the record of the boxes you checked, your spoken consent clip, and your contact details are moved into a
   **private, access-restricted Google Drive folder** in the project's own Google account. Only the project lead can access it,
   and anyone else needs the project lead's explicit approval. It's kept separate from the upload folder and from anything public.
 - **Your Google account email:** uploading requires a Google sign-in, and the form records the email address of the account
@@ -112,12 +112,12 @@ None of this private information is ever published in the dataset. Public files 
 
 ---
 
-## Signature block
+## Required checkboxes on the Google Form
 
-Copy this block, fill it in, and submit it with your recordings.
+Checking these boxes on the upload form is your consent. There is no separate signed text file to save or send.
 
 ```
-OPENSANTA PROJECT: CONTRIBUTOR CONSENT (v0.5)
+OPENSANTA PROJECT: CONTRIBUTOR CONSENT (v0.6)
 
 Name or handle:            ______________________________
 Contact (kept private):    ______________________________
@@ -144,18 +144,16 @@ Tick each box to confirm:
 Credit preference (choose one):
 [ ] Credit me as: ______________________________
 [ ] Keep me anonymous (contributor ID only)
-
-Signature (typed name is fine): ______________________________
 ```
 
 ---
 
-## How we record consent (required: signed form + spoken consent clip)
+## How we record consent (required: Google Form checkboxes + spoken consent clip)
 
 Every contributor completes **both** steps below. We don't accept a submission that's missing either one.
 
-### Step 1: Signed form
-Fill in the signature block above and save it as `consent-<contributorID>.txt`.
+### Step 1: Check the boxes on the form
+On the upload form, check the required consent and rights boxes listed above.
 
 ### Step 2: Spoken consent clip (about 20 seconds)
 Before your first script line, in the same session, setup, and microphone, record this as its own file,
@@ -163,7 +161,7 @@ Before your first script line, in the same session, setup, and microphone, recor
 
 > "My name is [NAME OR HANDLE], contributor ID [ID]. Today is [DATE].
 > This is my own voice, and I'm 18 or older.
-> I've read the OpenSanta consent form, version 0.5, and I agree to it.
+> I've read the OpenSanta consent form, version 0.6, and I agree to it.
 > I consent to my recordings being used for AI and text-to-speech training,
 > and to their public release, along with a voice model that may sound like me, under the project terms."
 
@@ -171,19 +169,13 @@ The person reading this must be the speaker in the submitted recordings. If you'
 voice under section 1's exception, **that speaker** records this clip.
 
 ### How it all links together
-- **Contributor ID.** We assign one ID per contributor. It appears in the signed form's file name,
-  the consent clip's file name, and every audio file you submit.
-- **SHA-256 manifest.** Before you submit, you generate `manifest-<contributorID>.sha256`, a list of the SHA-256 hash
-  of each file, with `python tools/qc_check.py <folder> --pack <P#> --write-manifest` (see CONTRIBUTING.md).
-  We check it again when we receive your files.
-  It includes the hash of the consent clip and the signed form. This records exactly which files your consent covers.
-  If a file is changed later, its hash won't match.
+- **Contributor ID.** We assign one ID per contributor. It appears in the consent clip's file name
+  and every audio file you submit.
 - **Same-speaker check.** We may compare your consent clip with your submitted recordings, by listening and/or with an
   automated speaker-verification tool, to confirm they're the same person. This is used only to verify consent.
   Results aren't published.
 
 ### Kept private
-The signed form, the spoken consent clip, and your contact details are stored **privately** in the project's consent
+The record of the boxes you checked, the spoken consent clip, and your contact details are stored **privately** in the project's consent
 records, with access limited to maintainers. They're **never included in the public dataset** and never used for training.
-The public release may list each contributor ID with a "consent on file" flag and the hashes of the published audio files,
-but nothing else from your consent records.
+The public release may list each contributor ID with a "consent on file" flag, but nothing else from your consent records.

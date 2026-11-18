@@ -6,21 +6,25 @@ Record **one WAV per line**, named `<contributorID>_<line_id>.wav` (for example 
 ## How lines are assigned (blended voice)
 The Santa voice will be a **blend of many contributors**, so nobody records all 280 lines. You record:
 
-1. **The core set (required, 25 lines, `pack` = `core`):** all 15 laughs and "ho ho ho" lines, plus 10 shared
-   sentences (L001, L026, L032, L051, L096, L121, L141, L197, L221, L252). Everyone records the same core, so we can
+1. **The core set (required, 3 lines, `pack` = `core`):** L266 ("Ho ho ho!"), L270 ("Ha ha ha! Oh, that's a good one."),
+   and L001 ("Well, hello there! Come in, come in, and get warm by the fire."). Everyone records the same core, so we can
    compare contributors directly on delivery, pitch, pace, and audio quality.
-2. **At least one line pack (about 42 lines):** packs `P1` to `P6`. We assign you a pack. Pick up more packs
-   whenever you like. Each extra pack is just more lines, with no repeats.
+2. **One line pack (6 lines, or 5 in five of the packs):** packs `P01` to `P47`. We assign you a pack. Pick up more
+   packs whenever you like. Each extra pack is just more lines, with no repeats.
 
-**Every contributor's minimum: core + one pack, about 67 clips (roughly 20–40 minutes of recording).**
+**Every contributor's minimum: core + one pack, 9 script lines (8 if your pack has 5), roughly 2–4 minutes of recording,**
+plus a spoken consent clip. Nobody records more than 9 script lines. About **47 speakers, one per pack, cover the script once.**
 
-How the packs were built: lines from every section were dealt round-robin across the six packs. So each pack has a
-similar mix (about 11–12 phonetic, 4 each of greetings, questions, numbers, and holiday, 5 names, 4–5 everyday,
-3–4 exclamations, 2–3 stories) and 401–444 words. An espeak-ng (en-us) check shows the core set alone contains every
-General American consonant and vowel, so **core + any one pack covers them all.** The rarest sounds, /ʒ/ ("measure")
-and /ɔɪ/ ("boy"), are missing from some packs by themselves, which is why L032 and L051 are in the core.
+How the packs were built: the other 277 lines were dealt into 47 packs, balanced by section and word count. Each pack
+has 1 or 2 phonetic lines and a mix of the other sections (names, everyday, greetings, questions, numbers, holiday,
+exclamations, stories, and laughs), with no section stacked above one line. Packs are 45–74 words. An espeak-ng (en-us)
+check shows that **core + any one pack covers every General American consonant and vowel except a few rarer sounds.**
+/ʒ/ ("measure") appears in only 4 lines of the whole script, and /ɔɪ/ ("boy") in only 9, so they cannot be in every pack
+without writing new lines. Those lines were spread as far as they go: four packs include both sounds, five more include
+/ɔɪ/, and the other 38 packs miss both. /tʃ/ and /dʒ/ also appear in only 34 and 30 lines, so some packs miss those too.
+Recording a second pack helps fill those gaps.
 
-Pack sizes: core 25 · P1 43 · P2 43 · P3 43 · P4 42 · P5 42 · P6 42.
+Pack sizes: core 3 · 42 packs of 6 · 5 packs of 5 (P05, P14, P23, P32, P41).
 We'll assign packs so each one gets roughly equal numbers of speakers.
 
 ## Accent (v1)
@@ -102,6 +106,11 @@ A blended voice only works if contributors sound like **the same Santa.** Before
 
 ## Phoneme coverage check (draft)
 Ran the 280 lines through espeak-ng (en-us) to get IPA. Every General American consonant and vowel appears at least
-9 times. The rarest are /ʒ/ (9) and /ɔɪ/ (12); the rest mostly appear 40 or more times. That's only an automated
-estimate: a contributor's accent and actual pronunciation will differ.
+9 times in the full script. The rarest are /ʒ/ (9) and /ɔɪ/ (14); the rest mostly appear 40 or more times. That's only
+an automated estimate: a contributor's accent and actual pronunciation will differ.
+
+The 3-line core is mostly two short laughs plus one greeting, so **the core alone does not contain every phoneme.**
+Core + any one pack still covers all of them except /ʒ/ and /ɔɪ/ (and, in some packs, /tʃ/ or /dʒ/), which there are
+not enough lines to put in every pack (see "How lines are assigned" above).
+
 Lines run from 3 to 29 words (mean 9.6), a mix of short and long, as the Coqui TTS guide recommends.

@@ -27,7 +27,7 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 ## Ideals
 
 1. **Santa belongs to everyone.** He's part of our shared holiday traditions, so his voice should belong to the people: free, open, and owned by no one company.
-2. **Consent comes first.** Every contributor is an adult who signs a consent form and records a short spoken consent clip. We don't train on a voice without that.
+2. **Consent comes first.** Every contributor is an adult who checks the required consent boxes on the form and records a short spoken consent clip. We don't train on a voice without that.
 3. **Contributor-owned audio only.** We only accept recordings the contributor owns, made for this project (or fully owned, with the speaker's written consent).
 4. **Open licenses.** The dataset is planned for release under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATASET.md). The model is planned for release under [Apache-2.0](LICENSE-MODEL.md).
 5. **No cloning real people without consent.** Don't imitate a famous Santa, an actor, or anyone else. Use your own Santa voice.
@@ -50,7 +50,7 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
 | [TRAINING-PLAN.md](TRAINING-PLAN.md) | Technical training plan for the main voice |
 | [ROADMAP.md](ROADMAP.md) | Public stages and timeline |
-| [tools/qc_check.py](tools/qc_check.py) | Submission quality-check script |
+| [tools/qc_check.py](tools/qc_check.py) | Maintainer/intake quality-check script (optional self-check) |
 
 Placeholders such as `[SIGNUP FORM LINK]`, `[FORM LINK]`, and `[PROJECT CONTACT]` stay in the drafts until those things actually exist. Do not treat them as live links.
 

@@ -60,7 +60,7 @@ DOCS = [
         "out": "consent.pdf",
         "label": "Consent and rights",
         "cover_title": "Consent and rights",
-        "cover_meta": "Version 0.5 draft",
+        "cover_meta": "Version 0.6 draft",
     },
     {
         "key": "audio-spec",
@@ -466,9 +466,23 @@ def group_lines(rows: list[dict[str, str]], pack: str) -> list[tuple[str, list[d
     return groups
 
 
+def list_packs(rows: list[dict[str, str]]) -> list[str]:
+    """Core first, then P01..Pn in numeric order, then any other pack names."""
+    packs = {row["pack"] for row in rows if row.get("pack")}
+
+    def key(pack: str):
+        if pack == "core":
+            return (0, 0, pack)
+        if pack.startswith("P") and pack[1:].isdigit():
+            return (1, int(pack[1:]), pack)
+        return (2, 0, pack)
+
+    return sorted(packs, key=key)
+
+
 def render_script_lines() -> str:
     rows = load_script_lines()
-    packs = ["core"] + [f"P{i}" for i in range(1, 7)]
+    packs = list_packs(rows)
     parts = ['<section class="script-lines">', "<h2>Script lines</h2>"]
     for pack in packs:
         groups = group_lines(rows, pack)
