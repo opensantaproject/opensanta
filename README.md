@@ -1,79 +1,64 @@
 # OpenSanta Project
 
-**Free Santa voice for the masses.**
+**a free santa voice, for makers.**
 
-The OpenSanta Project is a volunteer effort to build a free, open, high-quality classic American Santa text-to-speech (TTS) voice. People contribute their own Santa voice recordings, with documented consent. Those recordings will be published as an open dataset and used to train a voice that anyone can use for stories, games, and other lawful projects, including commercial ones.
+you're building an ornament, a craft, a little holiday gadget. you need santa to say something. you don't want a license headache.
 
-This repository holds the project's public docs and a simple website (GitHub Pages, once a remote exists). **Nothing here has been published yet.** The project is just getting started.
+that's who this is for.
 
-## Current status: Formation
+## what it is
 
-We are establishing the project, its ideals, the consent process, and this public home. Voice submissions are **not open**. The project email is support@opensanta.org. The sign-up form and upload form still need to be created.
+opensanta is a volunteer project. real people record their own santa voice, with clear consent. we release those recordings as a free, open dataset, and the voice trained from it will be free too.
 
-The five stages are: **Formation** (now) → Recording → Dataset → Training → Release.
+- **dataset:** [CC BY 4.0](LICENSE-DATASET.md). use it, just give credit.
+- **model:** [Apache-2.0](LICENSE-MODEL.md).
+- **code and site:** [MIT](LICENSE).
+- **cost:** free. no sign-up to use it.
 
-The main recording window is planned for **December 1, 2026 through January 2027**. A good v1 is aimed at late winter or spring 2027. See [ROADMAP.md](ROADMAP.md) and the [website roadmap](roadmap.html).
+## honest expectations
 
-### How to update the progress tracker
+this is for makers, not for everyone.
 
-The site's status bar is driven by [`status.json`](status.json), at the repository root.
+- it's a hobbyist-tier voice: warm, friendly, classic american santa.
+- it won't sound like a big studio production.
+- it's made by volunteers, so it'll improve over time.
+- if "good enough for a kid's ornament" is your bar, you're in the right place.
 
-1. Set `"current"` to one of: `formation`, `recording`, `dataset`, `training`, `release`.
-2. Update `"updated"` (YYYY-MM-DD) and the short `"note"`.
-3. For visitors with JavaScript turned off, also edit the tracker markup in `index.html` and `roadmap.html`: move the `is-current` class and `aria-current="step"` to the new stage, mark earlier stages `is-done`, and later ones `is-upcoming`. Keep `data-current` in sync.
+## about professional voice actors
 
-The bar still shows the current stage if JavaScript is off, as long as those HTML classes match `status.json`.
+we know this matters, so here it is plainly.
 
-## Ideals
+- if you're hiring a pro for commercial work, keep doing that. pros bring skill, direction, and polish a dataset can't.
+- a free dataset doesn't take that gig. it means a kid's craft project doesn't need one.
+- we're the hobbyist tier, not a replacement for real talent.
+- we say this up front so contributors know what their voice is helping build, and what it isn't.
 
-1. **Santa belongs to everyone.** He's part of our shared holiday traditions, so his voice should belong to the people: free, open, and owned by no one company.
-2. **Consent comes first.** Every contributor is an adult who checks the required consent boxes on the form and records a short spoken consent clip. We don't train on a voice without that.
-3. **Contributor-owned audio only.** We only accept recordings the contributor owns, made for this project (or fully owned, with the speaker's written consent).
-4. **Open licenses.** The dataset is planned for release under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATASET.md). The model is planned for release under [Apache-2.0](LICENSE-MODEL.md).
-5. **No cloning real people without consent.** Don't imitate a famous Santa, an actor, or anyone else. Use your own Santa voice.
-6. **No scraped or ripped audio.** We never use audio taken from YouTube, TV, films, podcasts, hotlines, stock sites, or other sources that ban AI training (for example Pixabay, Uppbeat, Envato).
+## what v1 covers
 
-## Documents
+v1 has four parts. that's it.
 
-| File | What it is |
-|---|---|
-| [CONSENT.md](CONSENT.md) | Contributor consent and rights declaration (draft, not yet reviewed by a lawyer) |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to record and submit, once forms exist |
-| [AUDIO-SPEC.md](AUDIO-SPEC.md) | How to record (format, room, mic, phone tips) |
-| [script/README.md](script/README.md) | Recording script, packs, and performance guide |
-| [script/lines.tsv](script/lines.tsv) | The 280 script lines |
-| [LICENSE-DATASET.md](LICENSE-DATASET.md) | Dataset license: CC BY 4.0 |
-| [LICENSE-MODEL.md](LICENSE-MODEL.md) | Model license: Apache-2.0 |
-| [LICENSE-MODEL](LICENSE-MODEL) | Official Apache-2.0 license text |
-| [RESPONSIBLE-USE.md](RESPONSIBLE-USE.md) | Non-binding use requests (not license conditions) |
-| [LICENSE](LICENSE) | Website code and tools: MIT |
-| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
-| [TRAINING-PLAN.md](TRAINING-PLAN.md) | Technical training plan for the main voice |
-| [ROADMAP.md](ROADMAP.md) | Public stages and timeline |
-| [tools/qc_check.py](tools/qc_check.py) | Maintainer/intake quality-check script (optional self-check) |
+- **record:** contributors record a short script in their own santa voice.
+- **consent:** every contributor is 18+, checks the consent boxes, and records a spoken consent clip.
+- **dataset:** we check the clips and build one clean, consistent dataset.
+- **release:** we publish the dataset under CC BY 4.0.
 
-Placeholders such as `[SIGNUP FORM LINK]`, `[FORM LINK]`, and `[PROJECT CONTACT]` stay in the drafts until those things actually exist. Do not treat them as live links.
+recording opens **december 1, 2026**. see the [roadmap](ROADMAP.md).
 
-## Website
+## our rules
 
-The public site is plain HTML and CSS at the repository root (`index.html`, `how-it-works.html`, `roadmap.html`, `faq.html`, `licenses.html`, `donate.html`). The site uses a self-hosted copy of Figtree (SIL Open Font License 1.1; see [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt)). No external fonts, no analytics, no trackers.
+- we only take audio you own, or audio clearly licensed for AI training.
+- we never use scraped, ripped, or hotline audio, or audio from sites that ban AI training (like Pixabay, Uppbeat, or Envato).
+- we never clone a real person's voice without their consent. no famous santas and no impressions. just your own voice.
+- every contributor gives clear, recorded consent. no consent, no training.
 
-To preview locally:
+## want to help?
 
-```bash
-python3 -m http.server 8080
-```
+- read [CONTRIBUTING.md](CONTRIBUTING.md) and [CONSENT.md](CONSENT.md).
+- check the [audio spec](AUDIO-SPEC.md) and the [recording script](script/README.md).
+- questions: support@opensanta.org
 
-Then open <http://localhost:8080/>.
+## related
 
-When this repo is published, GitHub Pages can be set to serve from the root of the default branch. The official logo (hat, gold sound-wave beard, and the OpenSanta Project wordmark) and a circular icon are in [`assets/logo/`](assets/logo/). SVG masters are `opensanta-logo.svg` and `opensanta-icon.svg`, from the final approved package. Colors, type, and the centering rule are in [`assets/logo/README.md`](assets/logo/README.md).
+the finished voice may later be offered to the "hey santa!" gadget firmware project (the north pole santa communicator). that's handled separately.
 
-## License
-
-- Script lines and, when released, the dataset: [CC BY 4.0](LICENSE-DATASET.md).
-- Model weights: [Apache-2.0](LICENSE-MODEL.md). Official text: [LICENSE-MODEL](LICENSE-MODEL).
-- The consent form is a project document, not a software license.
-
-- Website code and tools: [MIT](LICENSE).
-
-Everyone taking part follows our [Code of Conduct](CODE_OF_CONDUCT.md).
+everyone taking part follows our [code of conduct](CODE_OF_CONDUCT.md). maintainer notes live in [MAINTAINERS.md](MAINTAINERS.md).
