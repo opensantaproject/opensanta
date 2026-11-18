@@ -1,6 +1,6 @@
 # OpenSanta Project
 
-**a free santa voice, for makers.**
+**A free Santa voice for makers.**
 
 you're building an ornament, a craft, a little holiday gadget. you need santa to say something. you don't want a license headache.
 
