@@ -1,0 +1,128 @@
+/* OpenSanta Project — light printable PDF overrides.
+   Loaded after styles.css. White page, dark type, brand red and gold
+   only as thin accents. Same layout and type sizes as the dark set. */
+
+:root {
+  --bg: #FFFFFF;
+  --card: #F4F3F0;
+  --band: #EEECE8;
+  --red: #D62828;
+  --gold: #B8862B;
+  --gold-deep: #B8862B;
+  --green-ui: #497D4B;
+  /* --white is the heading/emphasis color in the dark stylesheet. */
+  --white: #1A1A1A;
+  --text: #222222;
+  --line: rgba(0, 0, 0, 0.12);
+  --card-border: #D4D1CB;
+}
+
+html, body {
+  background: #FFFFFF;
+  color: var(--text);
+}
+
+@page {
+  size: letter portrait;
+  margin: 0.72in 0.75in 0.7in 0.75in;
+  background: #FFFFFF;
+  @top-left {
+    content: "OpenSanta Project";
+    font-family: Figtree, "Noto Sans", sans-serif;
+    font-weight: 800;
+    font-size: 8pt;
+    color: #1A1A1A;
+    letter-spacing: -0.03em;
+    padding-bottom: 6pt;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+  @top-right {
+    content: var(--doc-label);
+    font-family: Figtree, "Noto Sans", sans-serif;
+    font-weight: 650;
+    font-size: 8pt;
+    color: #444444;
+    padding-bottom: 6pt;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+  @bottom-left {
+    content: "support@opensanta.org";
+    font-family: Figtree, "Noto Sans", sans-serif;
+    font-weight: 450;
+    font-size: 8pt;
+    color: #444444;
+    padding-top: 8pt;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+  @bottom-center {
+    content: "opensanta.org";
+    font-family: Figtree, "Noto Sans", sans-serif;
+    font-weight: 650;
+    font-size: 8pt;
+    color: #B8862B;
+    padding-top: 8pt;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+  @bottom-right {
+    content: counter(page) "  /  " counter(pages);
+    font-family: Figtree, "Noto Sans", sans-serif;
+    font-weight: 450;
+    font-size: 8pt;
+    color: #444444;
+    padding-top: 8pt;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+  }
+}
+
+@page cover {
+  size: letter portrait;
+  margin: 0;
+  background: #FFFFFF;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-center { content: none; }
+  @bottom-right { content: none; }
+}
+
+.cover,
+.doc {
+  background: #FFFFFF;
+  color: var(--text);
+}
+
+/* Links read as body text; gold stays a thin accent (underline, rules, bullets). */
+a {
+  color: #1A1A1A;
+  text-decoration: underline;
+  text-decoration-color: #B8862B;
+  text-underline-offset: 0.15em;
+}
+
+blockquote {
+  color: var(--text);
+  background: var(--card);
+  border-left-color: #B8862B;
+}
+
+code,
+pre code {
+  color: #1A1A1A;
+}
+
+tbody tr:nth-child(even) {
+  background: #F7F6F3;
+}
+
+.line-direction {
+  color: #444444;
+}
+
+.line-direction .dir-label {
+  color: #B8862B;
+}

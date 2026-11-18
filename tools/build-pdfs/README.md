@@ -1,8 +1,8 @@
 # OpenSanta branded PDFs
 
-Builds print-quality, dark-branded PDFs from the project markdown docs.
-Nothing here is committed to the public site automatically; Gav reviews the
-PDFs before any HTML links change.
+Builds print-quality PDFs from the project markdown docs. The default
+build is the dark-branded set in `docs/pdf/`. Pass `--print` for the
+light printable set in `docs/pdf/print/`.
 
 ## Setup
 
@@ -26,7 +26,16 @@ tools/build-pdfs/.venv/bin/python tools/build-pdfs/build.py
 PDFs are written to `docs/pdf/`. Intermediate HTML is written to
 `tools/build-pdfs/_build/` (ignored by git).
 
+To rebuild the light printable versions:
+
+```bash
+tools/build-pdfs/.venv/bin/python tools/build-pdfs/build.py --print
+```
+
+Those PDFs are written to `docs/pdf/print/` with the same filenames.
+
 Optional flags:
 
 - `--only recording-script` (repeatable) to build one or more documents
 - `--preview-dir /path` to also rasterize page 1 and one inner page of each PDF
+- `--out-dir /path` to write PDFs somewhere other than the default

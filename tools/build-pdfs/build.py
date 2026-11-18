@@ -21,9 +21,11 @@ from bs4 import BeautifulSoup, NavigableString
 TOOLS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TOOLS_DIR.parent.parent
 STYLES_PATH = TOOLS_DIR / "styles.css"
+STYLES_PRINT_PATH = TOOLS_DIR / "styles-print.css"
 LOGO_SVG = REPO_ROOT / "assets" / "logo" / "opensanta-logo.svg"
 FIGTREE = REPO_ROOT / "assets" / "fonts" / "Figtree-Variable.ttf"
 DEFAULT_PDF_DIR = REPO_ROOT / "docs" / "pdf"
+PRINT_PDF_DIR = DEFAULT_PDF_DIR / "print"
 BUILD_DIR = TOOLS_DIR / "_build"
 
 NOTO_SANS = Path(
@@ -519,8 +521,16 @@ def render_script_lines() -> str:
     return "\n".join(parts)
 
 
-def wrap_document(title: str, label: str, body_html: str, cover_meta: str = "") -> str:
+def wrap_document(
+    title: str,
+    label: str,
+    body_html: str,
+    cover_meta: str = "",
+    print_theme: bool = False,
+) -> str:
     styles = STYLES_PATH.read_text(encoding="utf-8")
+    if print_theme:
+        styles += "\n" + STYLES_PRINT_PATH.read_text(encoding="utf-8")
     label_css = f"""
 :root {{ --doc-label: "{label}"; }}
 @page {{
@@ -566,7 +576,7 @@ def wrap_document(title: str, label: str, body_html: str, cover_meta: str = "") 
 """
 
 
-def build_html(spec: dict) -> tuple[str, Path]:
+def build_html(spec: dict, print_theme: bool = False) -> tuple[str, Path]:
     src = REPO_ROOT / spec["src"]
     text = normalize_markdown(src.read_text(encoding="utf-8"))
     fragment = md_to_html(text)
@@ -585,9 +595,11 @@ def build_html(spec: dict) -> tuple[str, Path]:
         spec["label"],
         body,
         cover_meta=spec.get("cover_meta", ""),
+        print_theme=print_theme,
     )
-    BUILD_DIR.mkdir(parents=True, exist_ok=True)
-    html_path = BUILD_DIR / f"{spec['key']}.html"
+    html_dir = BUILD_DIR / "print" if print_theme else BUILD_DIR
+    html_dir.mkdir(parents=True, exist_ok=True)
+    html_path = html_dir / f"{spec['key']}.html"
     html_path.write_text(html_doc, encoding="utf-8")
     return title, html_path
 
@@ -679,8 +691,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--out-dir",
         type=Path,
-        default=DEFAULT_PDF_DIR,
-        help="Directory for finished PDFs (default: docs/pdf)",
+        default=None,
+        help="Directory for finished PDFs (default: docs/pdf, or docs/pdf/print with --print)",
+    )
+    parser.add_argument(
+        "--print",
+        dest="print_theme",
+        action="store_true",
+        help="Build the light printable set (default output: docs/pdf/print)",
     )
     parser.add_argument(
         "--preview-dir",
@@ -698,6 +716,10 @@ def main() -> None:
         raise SystemExit(f"Missing logo: {LOGO_SVG}")
     if not STYLES_PATH.exists():
         raise SystemExit(f"Missing styles: {STYLES_PATH}")
+    if args.print_theme and not STYLES_PRINT_PATH.exists():
+        raise SystemExit(f"Missing print styles: {STYLES_PRINT_PATH}")
+    if args.out_dir is None:
+        args.out_dir = PRINT_PDF_DIR if args.print_theme else DEFAULT_PDF_DIR
 
     selected = DOCS
     if args.only:
@@ -711,7 +733,7 @@ def main() -> None:
     print(f"Using Chrome at {chrome}")
     results = []
     for spec in selected:
-        title, html_path = build_html(spec)
+        title, html_path = build_html(spec, print_theme=args.print_theme)
         pdf_path = args.out_dir / spec["out"]
         print(f"Building {spec['key']}: {title}")
         chrome_print(chrome, html_path, pdf_path)
