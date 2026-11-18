@@ -12,7 +12,7 @@ We are establishing the project, its ideals, the consent process, and this publi
 
 The five stages are: **Formation** (now) → Recording → Dataset → Training → Release.
 
-The main recording window is planned for **December 26, 2026 through January 2027**. A good v1 is aimed at late winter or spring 2027. See [ROADMAP.md](ROADMAP.md) and the [website roadmap](roadmap.html).
+The main recording window is planned for **December 1, 2026 through January 2027**. A good v1 is aimed at late winter or spring 2027. See [ROADMAP.md](ROADMAP.md) and the [website roadmap](roadmap.html).
 
 ### How to update the progress tracker
 
