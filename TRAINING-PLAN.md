@@ -106,10 +106,10 @@ works without it. This has to be verified technically, and it reduces cloning us
     scratch on 24 h (README).
   - Community fine-tunes report working with **30 min and 1 h** datasets ([discussion #128](https://github.com/yl4579/StyleTTS2/discussions/128))
     and a **5 h 50 min** dataset (#81).
-- **OpenSanta math:** one contributor (core + one pack) ≈ 4.7–6 min of speech, so **1 hour ≈ 10–13 contributors.**
+- **OpenSanta math:** one contributor (core + one pack, 12 or 13 lines) is about **31–32 seconds of speech** at ~2.5 words/sec, or about **43–45 seconds** in the recorded files once ~0.5 s of lead-in and tail silence is added to each line. So **1 hour of accepted speech ≈ 110–115 contributors** at the minimum load. An extra pack adds about **27–28 seconds** of speech (a 9- or 10-line pack).
 - **Suggested v1 range (a judgement extrapolated from those reports, not a published number):**
-  - **Minimum to start:** ~1 h accepted audio, about **12–15 speakers**, with every pack covered by at least 2 speakers.
-  - **Good v1:** ~**2–4 h**, about **25–50 speakers** (roughly 4–8 per pack). More speakers give better choices for the blend
+  - **Minimum to start:** ~1 h accepted audio, about **110–115 speakers** at the minimum load (or fewer people if some record extra packs), with every pack covered by at least 2 speakers.
+  - **Good v1:** ~**2–4 h**, about **220–460 speakers** at the minimum load (or fewer people if many record extra packs). More speakers give better choices for the blend
     and a more robust model.
   - Beyond ~5 h, gains are likely from better curation rather than more hours. Untested for this project.
 
@@ -142,7 +142,7 @@ works without it. This has to be verified technically, and it reduces cloning us
    - add a 1–5 "classic warm Santa" rating, and an AI-or-human question
    - aim for 20+ raters, report mean ± confidence interval, and compare model versions
 2. **Consistency against the core set:**
-   - synthesize all 25 core lines and check pronunciation (ASR WER with the `qc_check.py` normalizer)
+   - synthesize all 3 core lines and check pronunciation (ASR WER with the `qc_check.py` normalizer)
    - check prosody spread across lines and laughs
    - a human listens for "same Santa" across lines
 3. **Anti-cloning check (consent safeguard):**

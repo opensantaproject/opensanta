@@ -25,11 +25,11 @@
 
 ## Which lines you record
 The voice is a blend of many contributors. You record the **core set** (3 lines, the same for everyone) plus **at
-least one 6-line pack** (5 lines in five of the packs) that we assign (`pack` column in `script/lines.tsv`). Extra packs are welcome.
+least one 10-line pack** (9 lines in three of the packs) that we assign (`pack` column in `script/lines.tsv`). Extra packs are welcome.
 See `script/README.md` for details and the **reference performance guideline.**
 
 **Consistency matters even more for a blend.** Your clips will be compared and combined with other people's, so:
-- Record the core set first, and replay your L001 and L266 before every later session to match your own delivery.
+- Record the core set first, and replay your L002 and L013 before every later session to match your own delivery.
 - Keep the same mic, distance, gain, room, and Santa voice every time. Changing setup halfway through a pack is
   worse than a slightly imperfect setup kept the same.
 - If you change mic or room between packs, tell us when you submit.

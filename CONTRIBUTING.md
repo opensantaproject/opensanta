@@ -1,7 +1,7 @@
 # Contributing to the OpenSanta Project
 
 Thanks for lending your voice! 🎅 This guide takes you from "I'd like to help" to a finished submission.
-It takes about **2–4 minutes of recording**, plus setup.
+The finished script audio is under a minute, plus the spoken consent clip. Plan on a few minutes of recording, plus setup.
 
 **Read first:** [CONSENT.md](CONSENT.md) (what you're agreeing to) · [AUDIO-SPEC.md](AUDIO-SPEC.md) (how to record) ·
 [script/](script/) (the lines and the performance guide)
@@ -25,10 +25,10 @@ their written consent, impersonations of real people, or AI-generated or cloned 
 Fill in the short **sign-up form** at **[SIGNUP FORM LINK]**. It needs no Google sign-in and no files: just your name or
 handle, a contact email, and the eligibility checkboxes. A maintainer emails you:
 - a **contributor ID**, like `C0042`
-- a **pack** (`P01`–`P47`). We hand out the **least-covered pack first**, so every pack gets enough voices.
+- a **pack** (`P01`–`P10`). We hand out the **least-covered pack first**, so every pack gets enough voices.
 - your personal link to the **upload form** at **[FORM LINK]**, with your ID and pack already filled in.
 
-You always record the **core set** (3 lines, the same for everyone) plus your pack (6 lines, or 5 in five of the packs). That's 9 script lines, or 8 if your pack has 5. Nobody records more than 9 script lines.
+You always record the **core set** (3 lines, the same for everyone) plus your pack (10 lines, or 9 in three of the packs). That's 13 script lines, or 12 if your pack has 9.
 Finished and want to do more? Ask for another pack.
 
 ## 3. Read the consent form
@@ -42,10 +42,10 @@ and check that your peaks are around −6 to −3 dBFS with no clipping.
 
 ## 5. Record, in this order
 1. **Consent clip:** read the spoken consent script from CONSENT.md in your normal voice, saved as `C0042_consent.wav`.
-2. **Core set:** the three lines with `core` in the `pack` column of [script/lines.tsv](script/lines.tsv): L001, L266
-   ("Ho ho ho!"), and L270. Then listen back to L001 and L266. That's your reference delivery for the rest of the
+2. **Core set:** the three lines with `core` in the `pack` column of [script/lines.tsv](script/lines.tsv): L013
+   ("Ho ho ho!"), L002 ("Merry Christmas!"), and L014 ("Ho ho ho! Merry Christmas!"). Then listen back to L002 and L013. That's your reference delivery for the rest of the
    session and later ones.
-3. **Your pack:** every line with your pack number. If you're unsure how to say a name, skip that line and tell us.
+3. **Your pack:** every line with your pack number. Read each line as written, including reindeer names.
 
 One line per file. Read exactly what's written. Re-record mistakes instead of editing them.
 See the reference performance guide in [script/README.md](script/README.md).
@@ -57,7 +57,7 @@ Put your clips in one folder named after your ID:
 C0042/
   C0042_consent.wav        spoken consent clip (kept private)
   C0042_L001.wav           one file per script line: <contributorID>_<lineID>.wav
-  C0042_L266.wav
+  C0042_L013.wav
   ...
 ```
 
@@ -65,8 +65,8 @@ C0042/
 1. Open your upload form link (**[FORM LINK]**). **You'll need to sign in to a Google account.** Google requires this for
    file uploads. A free account works.
 2. Check the required **consent and rights boxes**. Checking those boxes is your consent.
-3. Check that your contributor ID and pack are filled in, then upload your **9 script clips** (8 if your pack has 5
-   lines) plus your **spoken consent clip**. The form accepts **at most 10 audio files, 10 MB each.** A clip recorded
+3. Check that your contributor ID and pack are filled in, then upload your **13 script clips** (12 if your pack has 9
+   lines) plus your **spoken consent clip**. A clip recorded
    to the audio spec is well under 10 MB.
 4. Submit. **Heads up:** the form records the email address of the Google account you're signed in with, along with your
    upload. We use it only to contact you about your submission. Your files go to the project's **private** Google Drive,

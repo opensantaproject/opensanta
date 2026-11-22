@@ -28,7 +28,7 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to record and submit, once forms exist |
 | [AUDIO-SPEC.md](AUDIO-SPEC.md) | How to record (format, room, mic, phone tips) |
 | [script/README.md](script/README.md) | Recording script, packs, and performance guide |
-| [script/lines.tsv](script/lines.tsv) | The 280 script lines |
+| [script/lines.tsv](script/lines.tsv) | The 100 script lines |
 | [LICENSE-DATASET.md](LICENSE-DATASET.md) | Dataset license: CC BY 4.0 |
 | [LICENSE-MODEL.md](LICENSE-MODEL.md) | Model license: Apache-2.0 |
 | [LICENSE-MODEL](LICENSE-MODEL) | Official Apache-2.0 license text |

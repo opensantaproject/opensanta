@@ -114,15 +114,14 @@ DOCS = [
 
 SECTION_ORDER = [
     "greetings",
-    "phonetic",
-    "questions",
-    "exclamations",
-    "numbers",
-    "names",
-    "holiday",
-    "everyday",
-    "stories",
     "laughs",
+    "questions",
+    "list",
+    "reindeer",
+    "workshop",
+    "christmas-eve",
+    "kindness",
+    "goodbyes",
 ]
 
 

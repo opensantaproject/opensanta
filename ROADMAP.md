@@ -18,7 +18,7 @@ The website progress bar is driven by [`status.json`](status.json). See the READ
 Build the public home and finish drafts. Before any public post: the project-owned email, the no-upload sign-up form, and the Google upload form need to exist, and the placeholders in the public drafts need to be replaced. A lawyer's review of the consent form and licenses is recommended before taking real submissions.
 
 **December 1, 2026 through January 2027 — main recording window.**
-Recording opens December 1. Record whenever suits you; many Santa performers will have more time after the holidays. First milestone: about **1 hour of accepted audio, from about 12–15 people**, with every pack covered by at least two speakers. That's the point the training plan gives for starting training experiments.
+Recording opens December 1. Record whenever suits you; many Santa performers will have more time after the holidays. First milestone: about **1 hour of accepted audio**, with every pack covered by at least two speakers. At the minimum load (core + one pack), that is about **110–115 contributors**; fewer people can reach it if some record extra packs. That's the point the training plan gives for starting training experiments.
 
 **December 15–24, 2026 — go easy.**
 This is many Santa performers' busiest week. Recording stays open, but we won't promote or chase people that week. A quiet listing of the sign-up link is enough, once it exists.
