@@ -21,20 +21,27 @@ The finished script audio is under a minute, plus the spoken consent clip. Plan 
 recordings, stock or "royalty-free" site audio (Pixabay, Uppbeat, Envato, and similar), anyone else's voice without
 their written consent, impersonations of real people, or AI-generated or cloned audio. Details are in CONSENT.md section 2.
 
-## 2. Get your contributor ID and pack
-Fill in the short **sign-up form** at **[SIGNUP FORM LINK]**. It needs no Google sign-in and no files: just your name or
-handle, a contact email, and the eligibility checkboxes. A maintainer emails you:
+## 2. Sign up, consent, and get your pack (one step)
+First read [CONSENT.md](CONSENT.md) (what you're agreeing to). If any part of it doesn't sit right with you, don't
+contribute.
+
+Then fill in the short **sign-up form** at **[SIGNUP FORM LINK]**. It needs no Google sign-in and no files: just your
+name or handle, a contact email, the eligibility checkboxes, and the **consent and audio-rights boxes**. Checking those
+boxes is your consent. The moment you submit, you're assigned, and emailed within a minute or so:
 - a **contributor ID**, like `C0042`
 - a **pack** (`P01`–`P10`). We hand out the **least-covered pack first**, so every pack gets enough voices.
 - your personal link to the **upload form** at **[FORM LINK]**, with your ID and pack already filled in.
 
+Your ID and pack arrive by email, not on the form's thank-you screen (Google Forms can't show them there). Check spam
+if it doesn't show up.
+
 You always record the **core set** (3 lines, the same for everyone) plus your pack (10 lines, or 9 in three of the packs). That's 13 script lines, or 12 if your pack has 9.
 Finished and want to do more? Ask for another pack.
 
-## 3. Read the consent form
-Read [CONSENT.md](CONSENT.md). When you submit, you'll check the required consent and rights boxes on the
-upload form, and you'll upload a spoken consent clip. Checking those boxes is your consent. There is no
-separate signed text file to save or send. If any part of the form doesn't sit right with you, don't contribute.
+## 3. Confirm consent again when you upload
+When you submit your audio, the upload form asks you to check the consent and rights boxes once more, and you upload a
+spoken consent clip. That ties your consent to the exact files you send. There is no separate signed text file to save
+or send.
 
 ## 4. Set up and test
 Follow [AUDIO-SPEC.md](AUDIO-SPEC.md): a quiet room, mic 15–20 cm away (phone 20–30 cm), no effects. Record a test line
@@ -64,7 +71,7 @@ C0042/
 ## 7. Submit (Google Form)
 1. Open your upload form link (**[FORM LINK]**). **You'll need to sign in to a Google account.** Google requires this for
    file uploads. A free account works.
-2. Check the required **consent and rights boxes**. Checking those boxes is your consent.
+2. Check the required **consent and rights boxes** again. This confirms your consent covers these exact files.
 3. Check that your contributor ID and pack are filled in, then upload your **13 script clips** (12 if your pack has 9
    lines) plus your **spoken consent clip**. A clip recorded
    to the audio spec is well under 10 MB.
