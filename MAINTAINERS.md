@@ -38,6 +38,7 @@ The bar still shows the current stage if JavaScript is off, as long as those HTM
 | [TRAINING-PLAN.md](TRAINING-PLAN.md) | Technical training plan for the main voice |
 | [ROADMAP.md](ROADMAP.md) | Public stages and timeline |
 | [tools/qc_check.py](tools/qc_check.py) | Maintainer/intake quality-check script (optional self-check) |
+| [tools/cut_longtake.py](tools/cut_longtake.py) | Splits a long-take WAV into one file per line and writes a review CSV |
 
 Placeholders such as `[SIGNUP FORM LINK]`, `[FORM LINK]`, and `[PROJECT CONTACT]` stay in the drafts until those things actually exist. Do not treat them as live links.
 

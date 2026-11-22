@@ -54,7 +54,8 @@ and check that your peaks are around −6 to −3 dBFS with no clipping.
    session and later ones.
 3. **Your pack:** every line with your pack number. Read each line as written, including reindeer names.
 
-One line per file. Read exactly what's written. Re-record mistakes instead of editing them.
+The recommended way is **one long take** of the core set and your pack (option A in [AUDIO-SPEC.md](AUDIO-SPEC.md)). You can also record **one file per line** (option B).
+Either way, read exactly what's written. Re-record mistakes instead of editing them.
 See the reference performance guide in [script/README.md](script/README.md).
 
 ## 6. Name and organize your files
@@ -63,7 +64,8 @@ Put your clips in one folder named after your ID:
 ```
 C0042/
   C0042_consent.wav        spoken consent clip (kept private)
-  C0042_L001.wav           one file per script line: <contributorID>_<lineID>.wav
+  C0042_P10_longtake.wav   one long take per pack (recommended): <contributorID>_<pack>_longtake.wav
+  C0042_L001.wav           or one file per script line: <contributorID>_<lineID>.wav
   C0042_L013.wav
   ...
 ```
@@ -72,9 +74,10 @@ C0042/
 1. Open your upload form link (**[FORM LINK]**). **You'll need to sign in to a Google account.** Google requires this for
    file uploads. A free account works.
 2. Check the required **consent and rights boxes** again. This confirms your consent covers these exact files.
-3. Check that your contributor ID and pack are filled in, then upload your **13 script clips** (12 if your pack has 9
-   lines) plus your **spoken consent clip**. A clip recorded
-   to the audio spec is well under 10 MB.
+3. Check that your contributor ID and pack are filled in, then upload your **spoken consent clip** plus either
+   **one long-take file** (recommended; and any core-set files you recorded separately) or your **13 script clips**
+   (12 if your pack has 9 lines). A one-line clip recorded to the audio spec is well under 10 MB; a long take is larger
+   but should still fit. The upload form takes up to 10 files.
 4. Submit. **Heads up:** the form records the email address of the Google account you're signed in with, along with your
    upload. We use it only to contact you about your submission. Your files go to the project's **private** Google Drive,
    which only maintainers can see.

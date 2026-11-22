@@ -8,7 +8,7 @@ Usage:
   python tools/qc_check.py SUBMISSION_DIR --pack P07 [--pack P18] [--write-manifest] [--asr] [--json report.json]
 
 SUBMISSION_DIR is named after the contributor ID (e.g. C0042/) and contains:
-  C0042_consent.wav, C0042_L001.wav, ...
+  C0042_consent.wav, C0042_L001.wav, ... and/or C0042_P10_longtake.wav
 
 Results: FAIL means the folder needs a fix. WARN does NOT block: a maintainer listens to that clip and decides.
 Exit code: 0 = no FAIL (warnings allowed), 1 = at least one FAIL, 2 = usage error.
@@ -26,6 +26,9 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
+
+# cut_longtake.py lives alongside this script (sys.path[0] is tools/ when run as a script)
+from cut_longtake import find_speech_segments
 
 # ---- Thresholds (see AUDIO-SPEC.md) -------------------------------------------------
 T = {
@@ -47,11 +50,19 @@ T = {
     "consent_dur_max_s": 45.0,
     "wer_warn": 0.20,
     "wer_fail": 0.40,
+    # Long takes: skip per-line duration; check a plausible total length.
+    # Pack-only and pack+core (3 extra lines) are both accepted.
+    "longtake_dur_min_per_line_s": 3.0,   # WARN below n_pack * this
+    "longtake_dur_max_per_line_s": 20.0,  # WARN above n_hi * this (n_hi includes core)
+    "longtake_dur_fail_min_gap_s": 1.0,   # FAIL if shorter than (n_pack-1) * this
+    "longtake_dur_fail_max_per_line_s": 40.0,
+    "longtake_min_gap_s": 1.5,            # count ~2 s inter-line silences
 }
 FRAME_S = 0.02
 ID_RE = re.compile(r"^C\d{4}$")
 LINE_RE = re.compile(r"^(C\d{4})_(L\d{3})\.wav$")
 CONSENT_WAV_RE = re.compile(r"^(C\d{4})_consent\.wav$")
+LONGTAKE_RE = re.compile(r"^(C\d{4})_(P\d{2})_longtake\.wav$")
 ORDER = {"PASS": 0, "WARN": 1, "FAIL": 2}
 
 
@@ -94,7 +105,8 @@ def sha256(path: Path) -> str:
 
 
 # ---- Audio analysis ------------------------------------------------------------------
-def analyze_audio(path: Path, res: FileResult, is_consent: bool, words: int | None, section: str | None):
+def analyze_audio(path: Path, res: FileResult, is_consent: bool, words: int | None, section: str | None,
+                  longtake_expected_counts: tuple[int, ...] | None = None):
     try:
         info = sf.info(str(path))
     except Exception as e:  # not a readable audio file
@@ -121,9 +133,25 @@ def analyze_audio(path: Path, res: FileResult, is_consent: bool, words: int | No
         x = data.mean(axis=1)
 
     dur = len(x) / sr
-    lo, hi = (T["consent_dur_min_s"], T["consent_dur_max_s"]) if is_consent else (T["dur_min_s"], T["dur_max_s"])
-    res.add("duration", "PASS" if lo <= dur <= hi else ("FAIL" if dur < lo else "WARN"),
-            f"{dur:.2f} s (expected {lo}-{hi} s)")
+    is_longtake = longtake_expected_counts is not None
+    if is_longtake:
+        n_lo, n_hi = min(longtake_expected_counts), max(longtake_expected_counts)
+        min_fail = max(3.0, (n_lo - 1) * T["longtake_dur_fail_min_gap_s"])
+        max_fail = n_hi * T["longtake_dur_fail_max_per_line_s"]
+        min_warn = n_lo * T["longtake_dur_min_per_line_s"]
+        max_warn = n_hi * T["longtake_dur_max_per_line_s"]
+        if dur < min_fail or dur > max_fail:
+            st = "FAIL"
+        elif dur < min_warn or dur > max_warn:
+            st = "WARN"
+        else:
+            st = "PASS"
+        expected = " or ".join(str(n) for n in longtake_expected_counts)
+        res.add("duration", st, f"{dur:.2f} s (plausible ~{min_warn:.0f}-{max_warn:.0f} s for {expected} lines)")
+    else:
+        lo, hi = (T["consent_dur_min_s"], T["consent_dur_max_s"]) if is_consent else (T["dur_min_s"], T["dur_max_s"])
+        res.add("duration", "PASS" if lo <= dur <= hi else ("FAIL" if dur < lo else "WARN"),
+                f"{dur:.2f} s (expected {lo}-{hi} s)")
     if len(x) < int(sr * 0.1):
         return x, sr
 
@@ -172,24 +200,41 @@ def analyze_audio(path: Path, res: FileResult, is_consent: bool, words: int | No
     idx = np.flatnonzero(speech)
     lead = idx[0] * FRAME_S
     trail = (len(speech) - 1 - idx[-1]) * FRAME_S
-    for label, v in (("lead_silence", lead), ("trail_silence", trail)):
-        if v < T["edge_sil_cut_s"]:
-            res.add(label, "FAIL", f"{v:.2f} s: speech may be cut off")
-        elif T["edge_sil_min_s"] <= v <= T["edge_sil_max_s"]:
-            res.add(label, "PASS", f"{v:.2f} s")
+    if is_longtake:
+        # ~2 s gaps between lines are expected; only flag speech cut off at the edges.
+        for label, v in (("lead_silence", lead), ("trail_silence", trail)):
+            if v < T["edge_sil_cut_s"]:
+                res.add(label, "FAIL", f"{v:.2f} s: speech may be cut off")
+            else:
+                res.add(label, "PASS", f"{v:.2f} s")
+        segs = find_speech_segments(x, sr, min_gap_s=T["longtake_min_gap_s"])
+        nseg = len(segs)
+        if nseg in longtake_expected_counts:
+            res.add("line_gaps", "PASS",
+                    f"{nseg} speech segments separated by ~2 s gaps (expected {', or '.join(str(n) for n in longtake_expected_counts)})")
         else:
-            res.add(label, "WARN", f"{v:.2f} s (accepted {T['edge_sil_min_s']}-{T['edge_sil_max_s']} s, target 0.3-0.5)")
-    gaps = np.diff(idx) - 1
-    longest = float(gaps.max() * FRAME_S) if len(gaps) else 0.0
-    res.add("internal_silence", "WARN" if longest > T["internal_sil_warn_s"] else "PASS",
-            f"longest pause {longest:.2f} s")
+            expected = " or ".join(str(n) for n in longtake_expected_counts)
+            res.add("line_gaps", "WARN",
+                    f"{nseg} speech segments, expected {expected} (pack, or pack + core); a maintainer should listen")
+    else:
+        for label, v in (("lead_silence", lead), ("trail_silence", trail)):
+            if v < T["edge_sil_cut_s"]:
+                res.add(label, "FAIL", f"{v:.2f} s: speech may be cut off")
+            elif T["edge_sil_min_s"] <= v <= T["edge_sil_max_s"]:
+                res.add(label, "PASS", f"{v:.2f} s")
+            else:
+                res.add(label, "WARN", f"{v:.2f} s (accepted {T['edge_sil_min_s']}-{T['edge_sil_max_s']} s, target 0.3-0.5)")
+        gaps = np.diff(idx) - 1
+        longest = float(gaps.max() * FRAME_S) if len(gaps) else 0.0
+        res.add("internal_silence", "WARN" if longest > T["internal_sil_warn_s"] else "PASS",
+                f"longest pause {longest:.2f} s")
 
-    # Speaking-rate sanity for script lines (not laughs)
-    if words and section not in ("laughs", None):
-        speech_s = (idx[-1] - idx[0] + 1) * FRAME_S
-        rate = words / max(speech_s, 0.1)
-        res.add("speech_rate", "PASS" if 0.7 <= rate <= 4.5 else "WARN",
-                f"{rate:.1f} words/s over {speech_s:.1f} s of speech")
+        # Speaking-rate sanity for script lines (not laughs)
+        if words and section not in ("laughs", None):
+            speech_s = (idx[-1] - idx[0] + 1) * FRAME_S
+            rate = words / max(speech_s, 0.1)
+            res.add("speech_rate", "PASS" if 0.7 <= rate <= 4.5 else "WARN",
+                    f"{rate:.1f} words/s over {speech_s:.1f} s of speech")
     return x, sr
 
 
@@ -290,13 +335,15 @@ def main(argv=None):
             general.add("asr", "WARN", f"ASR unavailable ({e}); install tools/requirements-asr.txt")
 
     seen_lines = set()
+    seen_longtakes = {}  # pack -> filename
     for p in sorted(folder.iterdir()):
         if p.is_dir() or p.name.startswith("."):
             continue
-        if p.name in (manifest_name, form_name, f"qc-report-{cid}.json"):
+        if p.name in (manifest_name, form_name, f"qc-report-{cid}.json") or p.name.endswith("_longtake_review.csv"):
             continue
         m = LINE_RE.match(p.name)
         c = CONSENT_WAV_RE.match(p.name)
+        lt = LONGTAKE_RE.match(p.name)
         if c:
             r = FileResult(p.name, "consent")
             if c.group(1) != cid:
@@ -304,9 +351,31 @@ def main(argv=None):
             analyze_audio(p, r, True, None, None)
             files.append(r)
             continue
+        if lt:
+            r = FileResult(p.name, "longtake")
+            fid, pack_id = lt.groups()
+            n_pack = sum(1 for row in script.values() if row["pack"] == pack_id)
+            if fid != cid:
+                r.add("name", "FAIL", f"contributor ID {fid} doesn't match {cid}")
+            elif pack_id not in known_packs:
+                r.add("name", "FAIL", f"{pack_id} isn't a pack in script/lines.tsv")
+            elif packs and pack_id not in packs:
+                r.add("name", "FAIL", f"{pack_id} is not one of your assigned pack(s)")
+            else:
+                r.add("name", "PASS", f"long take for {pack_id} ({n_pack} pack lines)")
+                seen_longtakes[pack_id] = {"file": p.name, "nseg": None, "n_pack": n_pack}
+            expected = (n_pack, n_pack + 3) if n_pack else None
+            analyze_audio(p, r, False, None, None, longtake_expected_counts=expected)
+            if pack_id in seen_longtakes:
+                nseg = next((int(c.detail.split()[0]) for c in r.checks if c.name == "line_gaps"), None)
+                seen_longtakes[pack_id]["nseg"] = nseg
+            files.append(r)
+            continue
         if not m:
             r = FileResult(p.name, "unknown")
-            r.add("name", "FAIL", "name must be <contributorID>_<lineID>.wav or <contributorID>_consent.wav")
+            r.add("name", "FAIL",
+                  "name must be <contributorID>_<lineID>.wav, <contributorID>_consent.wav, "
+                  "or <contributorID>_<pack>_longtake.wav")
             files.append(r)
             continue
         r = FileResult(p.name, "line")
@@ -341,13 +410,33 @@ def main(argv=None):
                 else "not required; consent is recorded on the Google Form")
     core = {k for k, r in script.items() if r["pack"] == "core"}
     miss_core = sorted(core - seen_lines)
-    general.add("core_set", "FAIL" if miss_core else "PASS",
-                f"missing {len(miss_core)}: {', '.join(miss_core)}" if miss_core else f"all {len(core)} lines")
+    core_in_lt = any(
+        v.get("nseg") == v["n_pack"] + 3
+        for v in seen_longtakes.values()
+    )
+    if not miss_core:
+        general.add("core_set", "PASS", f"all {len(core)} lines")
+    elif core_in_lt:
+        general.add("core_set", "PASS",
+                    "core set appears to be in the long take (check after cutting)")
+    elif seen_longtakes:
+        general.add("core_set", "WARN",
+                    f"missing individual files {', '.join(miss_core)}; may be in the long take — check after cutting")
+    else:
+        general.add("core_set", "FAIL", f"missing {len(miss_core)}: {', '.join(miss_core)}")
     if packs and not (packs - known_packs):
         pk_lines = {k for k, r in script.items() if r["pack"] in packs}
-        miss = sorted(pk_lines - seen_lines)
-        general.add("pack_lines", "WARN" if miss else "PASS",
-                    f"{len(pk_lines) - len(miss)}/{len(pk_lines)} recorded" + (f"; missing {', '.join(miss)}" if miss else ""))
+        covered_by_lt = {k for k, r in script.items() if r["pack"] in seen_longtakes}
+        miss = sorted(pk_lines - seen_lines - covered_by_lt)
+        lt_note = f"; long take: {', '.join(sorted(v['file'] for v in seen_longtakes.values()))}" if seen_longtakes else ""
+        if miss:
+            general.add("pack_lines", "WARN",
+                        f"{len(pk_lines) - len(miss)}/{len(pk_lines)} recorded; missing {', '.join(miss)}{lt_note}")
+        else:
+            n_as_files = len(pk_lines & seen_lines)
+            general.add("pack_lines", "PASS",
+                        f"{len(pk_lines)}/{len(pk_lines)} recorded"
+                        + (f" ({n_as_files} as individual files{lt_note})" if seen_longtakes else ""))
 
     # Manifest
     to_hash = sorted(p for p in folder.iterdir() if p.is_file() and not p.name.startswith(".")

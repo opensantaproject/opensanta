@@ -1,7 +1,7 @@
 # Recording script: OpenSanta Project
 
 **100 lines** in `lines.tsv` (tab-separated: `line_id`, `section`, `pack`, `text`, `direction`).
-Record **one WAV per line**, named `<contributorID>_<line_id>.wav` (for example `C0042_L017.wav`). See AUDIO-SPEC.md.
+Record **one long take per pack** (recommended), named `<contributorID>_<pack>_longtake.wav` (for example `C0042_P10_longtake.wav`), or **one WAV per line**, named `<contributorID>_<line_id>.wav` (for example `C0042_L017.wav`). See AUDIO-SPEC.md.
 
 ## How lines are assigned (blended voice)
 The Santa voice will be a **blend of many contributors**, so nobody records all 100 lines. You record:

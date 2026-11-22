@@ -1,11 +1,11 @@
 # Audio Spec: how to record for the OpenSanta Project
 
 ## The short version
-- **Quiet room, same setup every time, one clip per script line.**
+- **Quiet room, same setup every time.** Record **one long take per pack** (recommended), or **one clip per script line**.
 - **Record raw:** no effects, no cleanup, no "enhance" buttons.
 - **Not too loud:** the loudest parts should land around −6 to −3 dBFS, and must **never** hit 0 (clipping).
-- Leave **a short pause (about half a second)** before and after you speak.
-- Save as **WAV** named `<contributorID>_<lineID>.wav`. Your consent clip is `<contributorID>_consent.wav`.
+- For a long take, leave **about 2 seconds** of silence between lines. For one file per line, leave **a short pause (about half a second)** before and after you speak.
+- Save as **WAV**. Long take: `<contributorID>_<pack>_longtake.wav`. One file per line: `<contributorID>_<lineID>.wav`. Consent clip: `<contributorID>_consent.wav`.
 
 ## Technical table
 
@@ -15,7 +15,7 @@
 | Sample rate | **48 kHz** | 44.1 kHz (we'll resample) | VCTK is distributed at 48 kHz. Training usually downsamples (LJSpeech 22.05 kHz; Piper 16/22.05 kHz; Coqui suggests ~16–22.05 kHz for training), so recording higher keeps options open. |
 | Bit depth | **24-bit** | 16-bit | VCTK was recorded at 24-bit and distributed as 16-bit; LJSpeech is 16-bit PCM. |
 | Channels | **Mono** | Stereo with identical channels (we'll fold down) | LJSpeech and VCTK are single-channel. |
-| Clips | **One line per file**, exactly the script text | | LJSpeech: one clip per transcript, 1–10 s (mean 6.6 s). |
+| Clips | **One long take per pack** (recommended; cut into one-line files later), or **one line per file**. Read exactly the script text. | | LJSpeech: one clip per transcript, 1–10 s (mean 6.6 s). Long takes are split before training. |
 | Peaks | **−6 to −3 dBFS** on the loudest words or laughs | Anything below 0 dBFS, if not clipped | Adapted from ACX audiobook rules: peaks no higher than −3 dB; ACX suggests tracking with peaks around −7 dB. |
 | Clipping | **None.** Any sample at 0 dBFS means re-record. | | ACX: 0 dB peaks during recording mean lower the gain and re-record. |
 | Noise floor | **About −60 dBFS or quieter** (measured in a silent part) | Somewhat higher may pass QC case by case | ACX's maximum noise floor is −60 dB. Coqui: background noise hurts alignment and output quality. |
@@ -69,14 +69,31 @@ politely declined or kept out of v1 training, and we'll always tell you. See `sc
 **Not accepted:** headset or earbud mics, laptop built-in mics (fan noise), and video-call or messaging apps
 (they compress and process audio).
 
-## Recording each line
+## Recording: two options
+The recommended way is **one long take per pack** (option A). You can also record **one file per line** (option B). The format, room, mic, and peak rules are the same either way. The consent clip is always its own file.
+
+## Long take (option A, recommended)
+Record the core set and your pack as **one WAV per pack**, in the same format as the table above.
+
+1. Before each line, say its line ID in your normal voice (for example "L013"), pause, then read the line in your Santa voice.
+2. Leave about **2 seconds of silence** after each line, before the next ID.
+3. Record in this order: the core set first (L013, L002, L014), then your pack lines in the order they appear in `script/lines.tsv`. You can also record the core set as individual files (option B) and use a long take only for your pack.
+4. Save the file as `<contributorID>_<pack>_longtake.wav`, for example `C0042_P10_longtake.wav`.
+5. Leave the spoken IDs in the recording. A maintainer cuts the take at the silences and trims the IDs while checking the cuts. Don't edit them out yourself.
+
+Listen back with headphones: clipping, clicks, background noise, or wrong words mean re-record that stretch (or the whole take). Keep your mic distance steady. For loud lines, lean back. Don't turn the gain down mid-session. Take breaks and drink water. A tired voice drifts away from the character.
+
+## Recording each line (option B)
 1. Silence (about 0.5 s), then read the line, then silence (about 0.5 s). Stop.
 2. Listen back now and then with headphones: clipping, clicks, background noise, and wrong words all mean re-record.
 3. Keep your mic distance steady. For loud lines, lean back. Don't turn the gain down mid-session.
 4. Take breaks and drink water. A tired voice drifts away from the character.
 
+The upload form takes up to 10 files.
+
 ## File naming
-- Script lines: `<contributorID>_<lineID>.wav`, for example `C0042_L001.wav`. `lineID` comes from `script/lines.tsv`.
+- Long take (option A, recommended): `<contributorID>_<pack>_longtake.wav`, for example `C0042_P10_longtake.wav`.
+- Script lines (option B): `<contributorID>_<lineID>.wav`, for example `C0042_L001.wav`. `lineID` comes from `script/lines.tsv`.
 - Consent clip: `<contributorID>_consent.wav` (see CONSENT.md). It's kept private and never used for training.
 - Re-takes: send only your final take, using the same name.
 
