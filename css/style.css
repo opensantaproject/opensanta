@@ -314,8 +314,8 @@ main#content { flex: 1; }
   margin: 0;
   order: -1;
   justify-self: center;
-  width: 48%;
-  max-width: 161px;
+  width: 80%;
+  max-width: 300px;
 }
 
 @media (min-width: 840px) {
