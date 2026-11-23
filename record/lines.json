@@ -1,0 +1,527 @@
+{
+  "generatedFrom": "script/lines.tsv",
+  "core": [
+    {
+      "id": "L013",
+      "section": "laughs",
+      "text": "Ho ho ho!"
+    },
+    {
+      "id": "L002",
+      "section": "greetings",
+      "text": "Merry Christmas!"
+    },
+    {
+      "id": "L014",
+      "section": "laughs",
+      "text": "Ho ho ho! Merry Christmas!"
+    }
+  ],
+  "packs": {
+    "P01": [
+      {
+        "id": "L010",
+        "section": "greetings",
+        "text": "Hello there, and a very merry Christmas!"
+      },
+      {
+        "id": "L023",
+        "section": "questions",
+        "text": "What's on your Christmas list this year?"
+      },
+      {
+        "id": "L031",
+        "section": "questions",
+        "text": "Have you been helpful at home?"
+      },
+      {
+        "id": "L042",
+        "section": "list",
+        "text": "Now dash away! dash away! dash away all!"
+      },
+      {
+        "id": "L051",
+        "section": "reindeer",
+        "text": "The bells on the sleigh are ringing already."
+      },
+      {
+        "id": "L060",
+        "section": "workshop",
+        "text": "Mrs. Claus is the heart of the North Pole."
+      },
+      {
+        "id": "L074",
+        "section": "christmas-eve",
+        "text": "If there's no chimney, don't you worry."
+      },
+      {
+        "id": "L082",
+        "section": "kindness",
+        "text": "A little kindness goes a long way."
+      },
+      {
+        "id": "L086",
+        "section": "kindness",
+        "text": "We'll see what Christmas brings."
+      },
+      {
+        "id": "L093",
+        "section": "goodbyes",
+        "text": "Give my best to your family."
+      }
+    ],
+    "P02": [
+      {
+        "id": "L003",
+        "section": "greetings",
+        "text": "Happy holidays to you!"
+      },
+      {
+        "id": "L008",
+        "section": "greetings",
+        "text": "I've been hoping you'd stop by!"
+      },
+      {
+        "id": "L030",
+        "section": "questions",
+        "text": "Have you been kind this year?"
+      },
+      {
+        "id": "L040",
+        "section": "list",
+        "text": "I do love to bring surprises."
+      },
+      {
+        "id": "L052",
+        "section": "reindeer",
+        "text": "It's a long night for the reindeer, but they love it."
+      },
+      {
+        "id": "L054",
+        "section": "reindeer",
+        "text": "Now, Dasher! now, Dancer! now, Prancer and Vixen!"
+      },
+      {
+        "id": "L066",
+        "section": "workshop",
+        "text": "Everyone at the workshop is cheering you on."
+      },
+      {
+        "id": "L072",
+        "section": "christmas-eve",
+        "text": "Don't forget a carrot for the reindeer."
+      },
+      {
+        "id": "L080",
+        "section": "kindness",
+        "text": "Remember to listen to your parents."
+      },
+      {
+        "id": "L098",
+        "section": "goodbyes",
+        "text": "Bye for now, my friend!"
+      }
+    ],
+    "P03": [
+      {
+        "id": "L007",
+        "section": "greetings",
+        "text": "Welcome to my workshop!"
+      },
+      {
+        "id": "L027",
+        "section": "questions",
+        "text": "Do you have a favorite Christmas story?"
+      },
+      {
+        "id": "L028",
+        "section": "questions",
+        "text": "What kind of cookies will you leave for Santa?"
+      },
+      {
+        "id": "L033",
+        "section": "list",
+        "text": "I've been looking over my list."
+      },
+      {
+        "id": "L043",
+        "section": "reindeer",
+        "text": "The reindeer are almost ready to fly."
+      },
+      {
+        "id": "L057",
+        "section": "workshop",
+        "text": "The elves make the most wonderful toys."
+      },
+      {
+        "id": "L069",
+        "section": "christmas-eve",
+        "text": "Leave the cookies by the tree, if you like."
+      },
+      {
+        "id": "L090",
+        "section": "kindness",
+        "text": "Happy Christmas to all, and to all a good night!"
+      },
+      {
+        "id": "L099",
+        "section": "goodbyes",
+        "text": "He was chubby and plump, a right jolly old elf."
+      }
+    ],
+    "P04": [
+      {
+        "id": "L005",
+        "section": "greetings",
+        "text": "Hello, my friend!"
+      },
+      {
+        "id": "L018",
+        "section": "laughs",
+        "text": "A hearty ho ho ho from the North Pole!"
+      },
+      {
+        "id": "L029",
+        "section": "questions",
+        "text": "Will you leave a carrot for the reindeer?"
+      },
+      {
+        "id": "L036",
+        "section": "list",
+        "text": "Kindness always shines on my list."
+      },
+      {
+        "id": "L046",
+        "section": "reindeer",
+        "text": "Comet and Cupid never miss a turn."
+      },
+      {
+        "id": "L065",
+        "section": "workshop",
+        "text": "There's plenty of work still to do at the shop."
+      },
+      {
+        "id": "L067",
+        "section": "christmas-eve",
+        "text": "Christmas Eve is a busy, magical night."
+      },
+      {
+        "id": "L073",
+        "section": "christmas-eve",
+        "text": "Hang your stocking by the fireplace."
+      },
+      {
+        "id": "L087",
+        "section": "kindness",
+        "text": "Can I surprise you on Christmas morning?"
+      },
+      {
+        "id": "L091",
+        "section": "goodbyes",
+        "text": "Merry Christmas, and take care!"
+      }
+    ],
+    "P05": [
+      {
+        "id": "L004",
+        "section": "greetings",
+        "text": "It's so good to see you!"
+      },
+      {
+        "id": "L016",
+        "section": "laughs",
+        "text": "Ho ho! That made Santa chuckle."
+      },
+      {
+        "id": "L022",
+        "section": "questions",
+        "text": "What would you like for Christmas?"
+      },
+      {
+        "id": "L034",
+        "section": "list",
+        "text": "Your name is right here on my list."
+      },
+      {
+        "id": "L048",
+        "section": "reindeer",
+        "text": "Come along, my reindeer! It's time to fly!"
+      },
+      {
+        "id": "L056",
+        "section": "workshop",
+        "text": "Back at the North Pole, the workshop is buzzing."
+      },
+      {
+        "id": "L075",
+        "section": "christmas-eve",
+        "text": "Santa has a little magic to help him along."
+      },
+      {
+        "id": "L083",
+        "section": "kindness",
+        "text": "Share with your friends and family."
+      },
+      {
+        "id": "L085",
+        "section": "kindness",
+        "text": "Keep being helpful. That matters to Santa."
+      },
+      {
+        "id": "L095",
+        "section": "goodbyes",
+        "text": "Sweet dreams, and a merry Christmas!"
+      }
+    ],
+    "P06": [
+      {
+        "id": "L001",
+        "section": "greetings",
+        "text": "Well, hello there!"
+      },
+      {
+        "id": "L020",
+        "section": "laughs",
+        "text": "Bless my beard, that's wonderful!"
+      },
+      {
+        "id": "L024",
+        "section": "questions",
+        "text": "Did you write me a letter this year?"
+      },
+      {
+        "id": "L039",
+        "section": "list",
+        "text": "I'll make a note of that."
+      },
+      {
+        "id": "L045",
+        "section": "reindeer",
+        "text": "Prancer and Vixen are ready when we are."
+      },
+      {
+        "id": "L059",
+        "section": "workshop",
+        "text": "I couldn't do it without Mrs. Claus and the elves."
+      },
+      {
+        "id": "L077",
+        "section": "christmas-eve",
+        "text": "Be sure to get a good night's sleep on Christmas Eve."
+      },
+      {
+        "id": "L089",
+        "section": "kindness",
+        "text": "To the top of the porch! to the top of the wall!"
+      },
+      {
+        "id": "L092",
+        "section": "goodbyes",
+        "text": "Have a wonderful Christmas!"
+      }
+    ],
+    "P07": [
+      {
+        "id": "L009",
+        "section": "greetings",
+        "text": "Season's greetings!"
+      },
+      {
+        "id": "L026",
+        "section": "questions",
+        "text": "What does your family like to do together at Christmas?"
+      },
+      {
+        "id": "L035",
+        "section": "list",
+        "text": "I keep a list of kind and helpful children."
+      },
+      {
+        "id": "L049",
+        "section": "reindeer",
+        "text": "The sleigh is packed and waiting."
+      },
+      {
+        "id": "L053",
+        "section": "reindeer",
+        "text": "On, Comet! on, Cupid! on, Donder and Blitzen!"
+      },
+      {
+        "id": "L062",
+        "section": "workshop",
+        "text": "The North Pole is a busy place in December."
+      },
+      {
+        "id": "L068",
+        "section": "christmas-eve",
+        "text": "Milk and cookies are my favorite midnight snack."
+      },
+      {
+        "id": "L084",
+        "section": "kindness",
+        "text": "You don't have to be perfect. Just be kind."
+      },
+      {
+        "id": "L100",
+        "section": "goodbyes",
+        "text": "Merry Christmas to all, and to all a good night!"
+      }
+    ],
+    "P08": [
+      {
+        "id": "L011",
+        "section": "greetings",
+        "text": "What a joy to have you here!"
+      },
+      {
+        "id": "L017",
+        "section": "laughs",
+        "text": "Ha ha ha! Oh, that's a good one!"
+      },
+      {
+        "id": "L032",
+        "section": "questions",
+        "text": "What's been the happiest part of your year?"
+      },
+      {
+        "id": "L038",
+        "section": "list",
+        "text": "I've been checking my list very carefully."
+      },
+      {
+        "id": "L044",
+        "section": "reindeer",
+        "text": "Dasher and Dancer are warming up already."
+      },
+      {
+        "id": "L064",
+        "section": "workshop",
+        "text": "The elves asked me to say hello."
+      },
+      {
+        "id": "L071",
+        "section": "christmas-eve",
+        "text": "Why, Christmas cookies, of course!"
+      },
+      {
+        "id": "L078",
+        "section": "christmas-eve",
+        "text": "I'll tiptoe in so I don't wake anyone."
+      },
+      {
+        "id": "L088",
+        "section": "kindness",
+        "text": "I'm proud of the kindness you show."
+      },
+      {
+        "id": "L097",
+        "section": "goodbyes",
+        "text": "Good night, and happy holidays!"
+      }
+    ],
+    "P09": [
+      {
+        "id": "L012",
+        "section": "greetings",
+        "text": "Good to see you again!"
+      },
+      {
+        "id": "L019",
+        "section": "laughs",
+        "text": "Ho ho! I do love a good laugh."
+      },
+      {
+        "id": "L021",
+        "section": "questions",
+        "text": "Have you been good this year?"
+      },
+      {
+        "id": "L037",
+        "section": "list",
+        "text": "I love hearing about good deeds."
+      },
+      {
+        "id": "L047",
+        "section": "reindeer",
+        "text": "Donner and Blitzen lead us through the snow."
+      },
+      {
+        "id": "L061",
+        "section": "workshop",
+        "text": "The elves are wrapping gifts as we speak."
+      },
+      {
+        "id": "L063",
+        "section": "workshop",
+        "text": "Mrs. Claus baked something special today."
+      },
+      {
+        "id": "L070",
+        "section": "christmas-eve",
+        "text": "Chocolate chip cookies are always a treat."
+      },
+      {
+        "id": "L081",
+        "section": "kindness",
+        "text": "Help around the house when you can."
+      },
+      {
+        "id": "L094",
+        "section": "goodbyes",
+        "text": "I hope to see you next year."
+      }
+    ],
+    "P10": [
+      {
+        "id": "L006",
+        "section": "greetings",
+        "text": "What a wonderful surprise!"
+      },
+      {
+        "id": "L015",
+        "section": "laughs",
+        "text": "Ho ho ho! Yes, indeed!"
+      },
+      {
+        "id": "L025",
+        "section": "questions",
+        "text": "What's your favorite thing about Christmas?"
+      },
+      {
+        "id": "L041",
+        "section": "list",
+        "text": "The stockings were hung by the chimney with care."
+      },
+      {
+        "id": "L050",
+        "section": "reindeer",
+        "text": "Those reindeer do love a good carrot."
+      },
+      {
+        "id": "L055",
+        "section": "workshop",
+        "text": "The elves have been busy in the workshop."
+      },
+      {
+        "id": "L058",
+        "section": "workshop",
+        "text": "Mrs. Claus sends her love."
+      },
+      {
+        "id": "L076",
+        "section": "christmas-eve",
+        "text": "Thank you for thinking of milk and cookies."
+      },
+      {
+        "id": "L079",
+        "section": "kindness",
+        "text": "Being kind is the best gift of all."
+      },
+      {
+        "id": "L096",
+        "section": "goodbyes",
+        "text": "Until we meet again, be kind and be well."
+      }
+    ]
+  }
+}

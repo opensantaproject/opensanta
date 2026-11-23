@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Record your Santa voice — OpenSanta Project</title>
+  <meta name="description" content="Confirm your voice consent and record your OpenSanta lines right in your browser.">
+  <meta name="theme-color" content="#0E1110">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="icon" href="./icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./config.js" defer></script>
+  <script src="./wav.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#app-main">Skip to content</a>
+
+  <header class="app-header">
+    <div class="app-header-inner">
+      <a class="brand" href="../index.html" aria-label="OpenSanta Project home">
+        <img src="./icon.svg" width="36" height="36" alt="">
+        <span>OpenSanta</span>
+      </a>
+      <div class="header-meta">
+        <span class="step-badge" id="step-badge" aria-live="polite"></span>
+        <button type="button" class="btn btn-ghost btn-sm" id="btn-start-over" hidden>Start over</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-main" class="app-main">
+
+    <!-- 0. Closed (receiver off, unreachable, or not configured) -->
+    <section class="screen" id="screen-closed" aria-labelledby="closed-heading" hidden>
+      <p class="kicker">OpenSanta Project</p>
+      <h1 id="closed-heading">Recording opens soon</h1>
+      <p class="lead">We’re not taking recordings right now. Please check back soon.</p>
+      <div class="thumb-bar">
+        <a class="btn btn-primary btn-full" href="../index.html">Back to OpenSanta</a>
+      </div>
+    </section>
+
+    <!-- 1. Welcome -->
+    <section class="screen" id="screen-welcome" aria-labelledby="welcome-heading" hidden>
+      <p class="kicker">OpenSanta Project</p>
+      <h1 id="welcome-heading">Share your Santa voice</h1>
+      <p class="lead">We’re building a free, open Santa voice for makers. Record a short spoken consent and read your lines right here — no apps to install and no sign-in needed.</p>
+
+      <div class="card">
+        <ul class="plain-list">
+          <li><strong>Step 1:</strong> Quick mic check in a quiet room</li>
+          <li><strong>Step 2:</strong> Read a short voice consent out loud</li>
+          <li><strong>Step 3:</strong> Record your Santa lines in one relaxed take</li>
+          <li><strong>Step 4:</strong> Listen back and tap Send</li>
+        </ul>
+      </div>
+
+      <div class="notice is-warn" id="resume-banner" hidden>
+        <strong>You have a saved recording on this device.</strong>
+        <p id="resume-summary"></p>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary btn-sm" id="btn-resume">Resume where I left off</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-discard-saved">Start fresh</button>
+        </div>
+      </div>
+
+      <div class="thumb-bar">
+        <button type="button" class="btn btn-primary btn-full" id="btn-welcome-start">I want to take part</button>
+        <a class="btn btn-ghost btn-full" href="../how-it-works.html">How it works</a>
+      </div>
+    </section>
+
+    <!-- 2. Your ID -->
+    <section class="screen" id="screen-id" aria-labelledby="id-heading" hidden>
+      <p class="kicker">Step 1 · Your details</p>
+      <h1 id="id-heading">Check your ID and pack</h1>
+
+      <div class="card card-highlight" id="id-prefilled-card" hidden>
+        <p class="lead" id="id-prefilled-text"></p>
+        <p class="muted">From your sign-up email link. All set to go.</p>
+        <div>
+          <button type="button" class="btn btn-ghost btn-sm" id="btn-edit-id">Change ID or pack</button>
+        </div>
+      </div>
+
+      <div class="card" id="id-manual-card">
+        <p class="muted">Enter the contributor ID and pack from your OpenSanta sign-up email.</p>
+        <div class="field">
+          <label for="input-contributor-id">Contributor ID</label>
+          <input id="input-contributor-id" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" placeholder="C0042" maxlength="5">
+          <p class="field-error" id="error-contributor-id" hidden></p>
+        </div>
+        <div class="field">
+          <label for="input-pack">Line pack</label>
+          <select id="input-pack">
+            <option value="">Choose your pack…</option>
+          </select>
+          <p class="field-error" id="error-pack" hidden></p>
+        </div>
+      </div>
+
+      <p class="muted">Don’t have an ID yet? See <a href="../how-it-works.html">how sign-up works</a>.</p>
+
+      <div class="thumb-bar">
+        <button type="button" class="btn btn-primary btn-full" id="btn-id-continue">Continue</button>
+        <button type="button" class="btn btn-ghost btn-full" data-back="welcome">Back</button>
+      </div>
+    </section>
+
+    <!-- 3. Mic check -->
+    <section class="screen" id="screen-mic" aria-labelledby="mic-heading" hidden>
+      <p class="kicker">Step 2 · Microphone</p>
+      <h1 id="mic-heading">Check your microphone</h1>
+      <p class="lead">Find a quiet room with soft furnishings. Prop your phone about an arm’s length away, and avoid earbuds or headset mics.</p>
+
+      <div class="card" id="mic-prompt-card">
+        <p>Your browser will ask permission to use your microphone. Your voice stays on this device until you tap Send.</p>
+        <button type="button" class="btn btn-primary btn-full" id="btn-enable-mic">Turn on microphone</button>
+      </div>
+
+      <div class="notice is-err" id="mic-error-card" hidden>
+        <strong id="mic-error-title">Microphone access is blocked</strong>
+        <p id="mic-error-body"></p>
+        <ul class="plain-list" id="mic-help-steps">
+          <li><strong>iPhone / iPad Safari:</strong> tap <strong>aA</strong> (or the page icon) in the address bar → Website Settings → Microphone → Allow, then tap Try again.</li>
+          <li><strong>Android Chrome:</strong> tap the lock/tune icon next to the address → Permissions → Allow Microphone.</li>
+          <li><strong>Computer browser:</strong> click the microphone or lock icon in the address bar and allow microphone access.</li>
+        </ul>
+        <button type="button" class="btn btn-secondary btn-full" id="btn-retry-mic">Try again</button>
+      </div>
+
+      <div class="card" id="mic-live-card" hidden>
+        <div class="meter-wrap">
+          <div class="meter-track" aria-hidden="true">
+            <div class="meter-fill" id="mic-meter-fill"></div>
+          </div>
+          <p class="meter-label" id="mic-meter-label">Speak normally — aim for the green bar.</p>
+        </div>
+
+        <button type="button" class="btn btn-secondary btn-full" id="btn-mic-test">Record a 3-second test</button>
+        <div id="mic-test-playback" hidden>
+          <audio class="audio-player" id="mic-test-audio" controls preload="auto"></audio>
+        </div>
+      </div>
+
+      <div class="thumb-bar">
+        <button type="button" class="btn btn-primary btn-full" id="btn-mic-continue" disabled>Looks good, continue</button>
+        <button type="button" class="btn btn-ghost btn-full" data-back="id">Back</button>
+      </div>
+    </section>
+
+    <!-- 4. Voice consent -->
+    <section class="screen" id="screen-consent" aria-labelledby="consent-heading" hidden>
+      <p class="kicker">Step 3 · Voice consent (v0.6)</p>
+      <h1 id="consent-heading">Confirm and record your consent</h1>
+      <p>Please read what you’re agreeing to, check the box, and record the short statement below in your <strong>normal speaking voice</strong> (not your Santa voice).</p>
+
+      <div class="card">
+        <p><strong>What you’re agreeing to (OpenSanta Consent v0.6)</strong></p>
+        <ul class="plain-list">
+          <li>You are <strong>18 or older</strong>, and every recording is your own voice.</li>
+          <li>Your lines may be used to train AI speech models and published openly under <strong>CC BY 4.0</strong> (anyone may reuse them, including commercially).</li>
+          <li>A public Santa voice model trained partly on your recordings may sound like you.</li>
+          <li>This is volunteer work (no payment or royalties).</li>
+          <li>Your spoken consent clip is kept <strong>private</strong> only to verify consent — never published or used for training.</li>
+          <li>You can withdraw at any time for future releases by emailing <a href="mailto:support@opensanta.org">support@opensanta.org</a>.</li>
+        </ul>
+
+        <details class="consent-terms-details">
+          <summary>Read all 11 consent statements (v0.6)</summary>
+          <ol class="consent-terms-list">
+            <li>I am 18 or older.</li>
+            <li>I am the speaker in every recording I submit (or I hold all rights and attach the speaker’s written consent to every item below).</li>
+            <li>None of my audio is scraped, ripped, hotline/phone, stock-site, AI-generated, or an impersonation of a real person.</li>
+            <li>I consent to my recordings being used to train AI / TTS models.</li>
+            <li>I consent to my recordings being published publicly under CC BY 4.0.</li>
+            <li>I consent to the public release of a model that may produce a voice resembling mine.</li>
+            <li>I understand anyone may use the released dataset and model for any lawful purpose, including commercially.</li>
+            <li>I understand withdrawal only affects future releases and trainings, not versions already released.</li>
+            <li>I agree that credit via the project credit line + contributors list (in the dataset/model card and docs) is reasonable attribution; no per-clip credit is required.</li>
+            <li>I recorded the spoken consent clip myself, and I understand it may be compared to my recordings to confirm I’m the same speaker. It’s kept private.</li>
+            <li>I am not paid and this is not an endorsement.</li>
+          </ol>
+          <p class="muted" style="margin-top:0.5rem;">Full document: <a href="../docs/pdf/consent.pdf" target="_blank" rel="noopener">OpenSanta Consent Form (PDF)</a>.</p>
+        </details>
+
+        <div class="field">
+          <label for="input-credit-name">Your name or handle (optional — leave blank to stay anonymous)</label>
+          <input id="input-credit-name" type="text" autocomplete="name" placeholder="e.g. Kris Kringle or anonymous">
+        </div>
+
+        <label class="agree-label" for="consent-agree-checkbox">
+          <input type="checkbox" id="consent-agree-checkbox">
+          <span>I am 18 or older, and I agree to the OpenSanta consent terms (v0.6).</span>
+        </label>
+      </div>
+
+      <div class="card card-highlight">
+        <p class="kicker">Read aloud in your normal voice</p>
+        <blockquote class="consent-quote" id="consent-spoken-text"></blockquote>
+
+        <div class="rec-status-bar" id="consent-status-bar">
+          <span class="rec-badge"><span class="rec-dot" aria-hidden="true"></span> <span id="consent-rec-state">Ready to record</span></span>
+          <span class="rec-timer" id="consent-timer">0:00</span>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-track" aria-hidden="true">
+            <div class="meter-fill" id="consent-meter-fill"></div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-record btn-full" id="btn-consent-record">Record consent</button>
+
+        <div id="consent-playback-wrap" hidden>
+          <audio class="audio-player" id="consent-audio" controls preload="auto"></audio>
+          <div class="notice is-warn" id="consent-warn-box" hidden></div>
+        </div>
+      </div>
+
+      <div class="thumb-bar">
+        <p class="muted" id="consent-next-hint" aria-live="polite"></p>
+        <button type="button" class="btn btn-primary btn-full" id="btn-consent-continue" disabled>OK, continue to lines</button>
+        <button type="button" class="btn btn-ghost btn-full" data-back="mic">Back</button>
+      </div>
+    </section>
+
+    <!-- 5. Record lines -->
+    <section class="screen" id="screen-record" aria-labelledby="record-heading" hidden>
+      <p class="kicker" id="record-kicker">Step 4 · Record your lines</p>
+      <h1 id="record-heading">Record your Santa lines</h1>
+
+      <!-- Long take view (recommended main path) -->
+      <div id="longtake-view" style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card" id="longtake-tips">
+          <ol class="plain-list">
+            <li>Say the short line code out loud first (for example, <strong id="tip-first-id">L013</strong>).</li>
+            <li>Read the line in your warm, unhurried Santa voice.</li>
+            <li>Pause quietly for about <strong>2 seconds</strong>, then tap <strong>Next line</strong> while recording keeps running.</li>
+          </ol>
+          <div>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-switch-perline">Record one line at a time instead</button>
+          </div>
+        </div>
+
+        <div class="rec-status-bar" id="lt-status-bar">
+          <span class="rec-badge"><span class="rec-dot" aria-hidden="true"></span> <span id="lt-rec-state">Ready to record</span></span>
+          <span class="rec-timer" id="lt-timer">0:00</span>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-track" aria-hidden="true">
+            <div class="meter-fill" id="lt-meter-fill"></div>
+          </div>
+        </div>
+
+        <article class="script-card" aria-live="polite">
+          <div class="script-meta">
+            <span class="muted" id="lt-line-counter">Line 1 of 13</span>
+            <span class="line-say-pill" id="lt-say-pill">Say aloud: “L013”</span>
+          </div>
+          <p class="script-line-text" id="lt-line-text">Ho ho ho!</p>
+          <p class="script-pause-hint" id="lt-direction" hidden></p>
+          <p class="muted" id="lt-pause-hint">Say the code → read the line → pause ~2 seconds → tap Next line.</p>
+        </article>
+
+        <details class="consent-terms-details">
+          <summary>See all lines in this session</summary>
+          <ol class="line-queue" id="lt-line-queue"></ol>
+        </details>
+
+        <div class="thumb-bar">
+          <button type="button" class="btn btn-record btn-full" id="btn-lt-start">Start recording</button>
+
+          <div id="lt-live-controls" hidden style="display:flex;flex-direction:column;gap:0.6rem;">
+            <button type="button" class="btn btn-primary btn-full" id="btn-lt-next">Next line</button>
+            <div class="btn-row">
+              <button type="button" class="btn btn-secondary" id="btn-lt-prev">Previous line</button>
+              <button type="button" class="btn btn-stop" id="btn-lt-stop">Stop recording</button>
+            </div>
+          </div>
+
+          <div id="lt-done-controls" hidden style="display:flex;flex-direction:column;gap:0.6rem;">
+            <button type="button" class="btn btn-primary btn-full" id="btn-lt-review">Review and send</button>
+            <button type="button" class="btn btn-secondary btn-full" id="btn-lt-redo">Re-record long take</button>
+          </div>
+
+          <button type="button" class="btn btn-ghost btn-full" id="btn-record-back-consent">Back</button>
+        </div>
+      </div>
+
+      <!-- Per-line view (secondary option) -->
+      <div id="perline-view" hidden style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card">
+          <p class="muted">Recording one line at a time. Leave a short quiet pause before and after each line.</p>
+          <div>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-switch-longtake">Switch to one long take (recommended)</button>
+          </div>
+        </div>
+
+        <div class="line-pills" id="pl-pills" aria-label="Choose line"></div>
+
+        <article class="script-card" aria-live="polite">
+          <div class="script-meta">
+            <span class="muted" id="pl-line-counter">Line 1 of 13</span>
+            <span class="line-say-pill" id="pl-line-id">L013</span>
+          </div>
+          <p class="script-line-text" id="pl-line-text">Ho ho ho!</p>
+          <p class="script-pause-hint" id="pl-direction" hidden></p>
+        </article>
+
+        <div class="rec-status-bar" id="pl-status-bar">
+          <span class="rec-badge"><span class="rec-dot" aria-hidden="true"></span> <span id="pl-rec-state">Ready</span></span>
+          <span class="rec-timer" id="pl-timer">0:00</span>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-track" aria-hidden="true">
+            <div class="meter-fill" id="pl-meter-fill"></div>
+          </div>
+        </div>
+
+        <div id="pl-playback-wrap" hidden>
+          <audio class="audio-player" id="pl-audio" controls preload="auto"></audio>
+          <div class="notice is-warn" id="pl-warn-box" hidden></div>
+        </div>
+
+        <div class="thumb-bar">
+          <button type="button" class="btn btn-record btn-full" id="btn-pl-record">Record this line</button>
+          <div class="btn-row">
+            <button type="button" class="btn btn-secondary" id="btn-pl-prev">Previous</button>
+            <button type="button" class="btn btn-secondary" id="btn-pl-next">Next</button>
+          </div>
+          <button type="button" class="btn btn-primary btn-full" id="btn-pl-review" disabled>Review and send</button>
+          <button type="button" class="btn btn-ghost btn-full" id="btn-pl-back-consent">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Review -->
+    <section class="screen" id="screen-review" aria-labelledby="review-heading" hidden>
+      <p class="kicker">Step 5 · Review</p>
+      <h1 id="review-heading">Listen back before sending</h1>
+      <p class="muted">Play back your clips to make sure your voice is clear and nothing got cut off.</p>
+
+      <div id="review-list" style="display:flex;flex-direction:column;gap:0.9rem;"></div>
+
+      <div class="thumb-bar">
+        <button type="button" class="btn btn-primary btn-full" id="btn-review-send">Send recording</button>
+        <button type="button" class="btn btn-ghost btn-full" id="btn-review-back">Back to recording</button>
+      </div>
+    </section>
+
+    <!-- 7. Send -->
+    <section class="screen" id="screen-send" aria-labelledby="send-heading" hidden>
+      <p class="kicker">Step 6 · Sending</p>
+      <h1 id="send-heading">Sending your recording</h1>
+
+      <div class="card">
+        <p class="lead" id="send-status-text">Preparing your audio…</p>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="send-progressbar">
+          <div class="progress-fill" id="send-progress-fill"></div>
+        </div>
+        <p class="muted" id="send-subtext">Please keep this page open until it finishes.</p>
+      </div>
+
+      <div class="notice is-err" id="send-error-box" hidden>
+        <strong>Something went wrong while sending</strong>
+        <p id="send-error-message"></p>
+        <p class="muted">Your recordings are still safe on this device.</p>
+      </div>
+
+      <div class="thumb-bar">
+        <button type="button" class="btn btn-primary btn-full" id="btn-send-retry" hidden>Try sending again</button>
+        <button type="button" class="btn btn-ghost btn-full" id="btn-send-back-review" hidden>Back to review</button>
+      </div>
+    </section>
+
+    <!-- 8. Done -->
+    <section class="screen" id="screen-done" aria-labelledby="done-heading" hidden>
+      <p class="kicker">All done</p>
+      <h1 id="done-heading">Thank you! Your recording is in.</h1>
+      <div class="notice is-ok">
+        <strong id="done-summary-title">Received for contributor C0042</strong>
+        <p>Your voice consent and lines have been sent safely to the OpenSanta Project.</p>
+      </div>
+
+      <div class="card">
+        <p><strong>What happens next</strong></p>
+        <ul class="plain-list">
+          <li>Our volunteers will listen to your opening lines to check sound quality and delivery.</li>
+          <li>If anything needs another take, we’ll email you.</li>
+          <li>Your spoken consent stays private and is never published.</li>
+        </ul>
+      </div>
+
+      <div class="thumb-bar">
+        <a class="btn btn-primary btn-full" href="../index.html">Back to OpenSanta</a>
+        <button type="button" class="btn btn-secondary btn-full" id="btn-done-another">Record another session</button>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
