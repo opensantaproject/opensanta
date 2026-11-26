@@ -623,10 +623,7 @@
     const today = localIsoDate();
     $("consent-spoken-text").textContent =
       `“My name is ${spokenName}, contributor ID ${id}. Today is ${today}. ` +
-      `This is my own voice, and I’m 18 or older. ` +
-      `I’ve read the OpenSanta consent form, version ${CONFIG.CONSENT_VERSION || "0.6"}, and I agree to it. ` +
-      `I’m happy for my recordings to be used to train a free, open Santa voice, ` +
-      `and for the recordings and that voice to be shared publicly under the project terms.”`;
+      `I’ve read and agree to the OpenSanta consent form, version ${CONFIG.CONSENT_VERSION || "0.6"}.”`;
   }
 
   function refreshConsentUi() {
