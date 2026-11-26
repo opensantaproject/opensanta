@@ -320,6 +320,16 @@ p {
   background: var(--green-bg);
 }
 
+.agree-label.is-attention {
+  border-color: var(--gold);
+  animation: agree-pulse 0.6s ease-in-out 3;
+}
+
+@keyframes agree-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 180, 100, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(229, 180, 100, 0.45); }
+}
+
 .agree-label input[type="checkbox"] {
   width: 28px;
   height: 28px;
@@ -382,11 +392,12 @@ p {
   text-align: center;
 }
 
-.btn:active:not(:disabled) {
+.btn:active:not(:disabled):not([aria-disabled="true"]) {
   transform: scale(0.985);
 }
 
-.btn:disabled {
+.btn:disabled,
+.btn[aria-disabled="true"] {
   opacity: 0.45;
   cursor: not-allowed;
 }
@@ -396,7 +407,7 @@ p {
   color: #0E1110;
 }
 
-.btn-primary:hover:not(:disabled) {
+.btn-primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: #F0C47B;
 }
 

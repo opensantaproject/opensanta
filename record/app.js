@@ -33,6 +33,11 @@
     meterRaf: null,
     wakeLock: null,
 
+    // Upload state
+    isUploading: false,
+    uploadHidden: false, // page went hidden during the current upload
+    uploaded: {}, // itemKey -> fileId, for items the receiver confirmed
+
     // Long take navigation
     ltIndex: 0,
     plIndex: 0,
@@ -125,12 +130,43 @@
     });
   }
 
-  async function idbPutTake(key, take) {
+  const UPLOAD_STATUS_KEY = "upload-status";
+
+  function uploadStatusRow() {
+    return {
+      key: UPLOAD_STATUS_KEY,
+      contributorId: state.contributorId,
+      pack: state.pack,
+      uploaded: { ...state.uploaded },
+      updatedAt: Date.now()
+    };
+  }
+
+  async function idbSaveUploadStatus() {
     try {
       const db = await openDb();
       if (!db) return;
       await new Promise((resolve) => {
         const tx = db.transaction(DB_STORE, "readwrite");
+        tx.objectStore(DB_STORE).put(uploadStatusRow());
+        tx.oncomplete = resolve;
+        tx.onerror = resolve;
+      });
+      db.close();
+    } catch (_) {
+      // Ignore storage failures
+    }
+  }
+
+  async function idbPutTake(key, take) {
+    // A new take replaces anything sent earlier under this key, so it must be sent again.
+    delete state.uploaded[key];
+    try {
+      const db = await openDb();
+      if (!db) return;
+      await new Promise((resolve) => {
+        const tx = db.transaction(DB_STORE, "readwrite");
+        tx.objectStore(DB_STORE).put(uploadStatusRow());
         tx.objectStore(DB_STORE).put({
           key,
           contributorId: state.contributorId,
@@ -203,6 +239,7 @@
     state.consentTake = null;
     state.longtakeTake = null;
     state.lineTakes = {};
+    state.uploaded = {};
     state.ltIndex = 0;
     state.plIndex = 0;
   }
@@ -267,9 +304,26 @@
   }
 
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible" && state.isRecording) {
-      acquireWakeLock();
+    if (document.visibilityState === "visible") {
+      if (state.isRecording || state.isUploading) acquireWakeLock();
+      if (state.isUploading && state.uploadHidden) {
+        // Phone slept or tab was backgrounded mid-upload; the request may have been cut off.
+        $("send-subtext").textContent = "The upload was paused while the screen was off. Still trying… if it stops, tap Send to finish.";
+      }
+    } else if (state.isUploading) {
+      state.uploadHidden = true;
     }
+  });
+
+  window.addEventListener("beforeunload", (e) => {
+    if (!state.isUploading) return;
+    e.preventDefault();
+    e.returnValue = "Your recording is still sending. Leave anyway?";
+    return e.returnValue;
+  });
+
+  window.addEventListener("pagehide", () => {
+    if (state.isUploading) state.uploadHidden = true;
   });
 
   // ---- Microphone & Audio Pipeline ----
@@ -484,7 +538,7 @@
     clearInterval(state.timerInterval);
     state.timerInterval = null;
     cancelLevelMeter();
-    await releaseWakeLock();
+    if (!state.isUploading) await releaseWakeLock();
 
     if (statusBarEl) statusBarEl.classList.remove("is-live");
     if (stateTextEl) stateTextEl.textContent = "Saved";
@@ -626,6 +680,31 @@
       `I’ve read and agree to the OpenSanta consent form, version ${CONFIG.CONSENT_VERSION || "0.6"}.”`;
   }
 
+  // Uses aria-disabled (not the disabled attribute) so a tap on the
+  // not-yet-ready button can still point the person to the agreement box.
+  function setConsentContinueDisabled(isDisabled) {
+    $("btn-consent-continue").setAttribute("aria-disabled", isDisabled ? "true" : "false");
+  }
+
+  function handleConsentContinue() {
+    if ($("btn-consent-continue").getAttribute("aria-disabled") === "true") {
+      const checkbox = $("consent-agree-checkbox");
+      if (!checkbox.checked && !state.isRecording) {
+        const label = checkbox.closest(".agree-label");
+        label.scrollIntoView({ behavior: "smooth", block: "center" });
+        label.classList.remove("is-attention");
+        void label.offsetWidth; // restart the highlight animation
+        label.classList.add("is-attention");
+        setTimeout(() => label.classList.remove("is-attention"), 1800);
+        try {
+          checkbox.focus({ preventScroll: true });
+        } catch (_) {}
+      }
+      return;
+    }
+    showScreen("record");
+  }
+
   function refreshConsentUi() {
     updateConsentQuote();
     const agreed = $("consent-agree-checkbox").checked;
@@ -651,7 +730,7 @@
       $("btn-consent-record").textContent = state.isRecording ? "OK, done" : "Record consent";
     }
 
-    $("btn-consent-continue").disabled = !(agreed && hasClip) || state.isRecording;
+    setConsentContinueDisabled(!(agreed && hasClip) || state.isRecording);
 
     if (!hasClip && !agreed) {
       $("consent-next-hint").textContent = "Check the agreement box and record your voice consent to continue.";
@@ -671,7 +750,7 @@
       btn.classList.add("btn-stop");
       btn.textContent = "OK, done";
       $("consent-playback-wrap").hidden = true;
-      $("btn-consent-continue").disabled = true;
+      setConsentContinueDisabled(true);
       try {
         await beginCapture(
           { kind: "consent" },
@@ -1013,6 +1092,7 @@
     const items = [];
     if (state.consentTake) {
       items.push({
+        key: "consent",
         label: "voice consent",
         kind: "consent",
         lineId: "",
@@ -1021,6 +1101,7 @@
     }
     if (state.mode === "longtake" && state.longtakeTake) {
       items.push({
+        key: "longtake",
         label: "Santa lines",
         kind: "longtake",
         lineId: "",
@@ -1031,6 +1112,7 @@
       for (const l of lines) {
         if (state.lineTakes[l.id]) {
           items.push({
+            key: "line:" + l.id,
             label: `line ${l.id}`,
             kind: "line",
             lineId: l.id,
@@ -1051,15 +1133,27 @@
     return out;
   }
 
-  async function postJsonWithRetry(url, payload, maxAttempts) {
+  const REQUEST_TIMEOUT_MS = 180000;
+
+  // expectPartial: true for a non-final chunk (reply must say partial:true),
+  // false for a whole file or final chunk (reply must carry a fileId).
+  async function postJsonWithRetry(url, payload, maxAttempts, expectPartial) {
     let lastError = null;
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
       try {
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
+        const controller = window.AbortController ? new AbortController() : null;
+        const timer = controller ? setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS) : null;
+        let res;
+        try {
+          res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+            signal: controller ? controller.signal : undefined
+          });
+        } finally {
+          if (timer) clearTimeout(timer);
+        }
         const text = await res.text();
         let data = null;
         try {
@@ -1075,6 +1169,12 @@
             throw err;
           }
           throw err;
+        }
+        const confirmed = expectPartial
+          ? data.partial === true
+          : typeof data.fileId === "string" && data.fileId.length > 0;
+        if (!confirmed) {
+          throw new Error("The server did not confirm it saved your audio.");
         }
         return data;
       } catch (err) {
@@ -1096,7 +1196,21 @@
     if (subText) $("send-subtext").textContent = subText;
   }
 
+  function formatMb(bytes) {
+    const mb = bytes / (1024 * 1024);
+    return (mb < 0.1 ? 0.1 : mb).toFixed(1) + " MB";
+  }
+
+  function showSendError(message) {
+    $("send-error-box").hidden = false;
+    $("send-error-message").textContent = message || "";
+    $("btn-send-retry").hidden = false;
+    $("btn-send-back-review").hidden = false;
+    $("send-keep-open").hidden = true;
+  }
+
   async function runUpload() {
+    if (state.isUploading) return;
     showScreen("send");
     $("send-error-box").hidden = true;
     $("btn-send-retry").hidden = true;
@@ -1112,28 +1226,34 @@
     const threshold = CONFIG.CHUNK_THRESHOLD_BYTES || 6 * 1024 * 1024;
     const chunkSize = CONFIG.CHUNK_SIZE_BYTES || 4 * 1024 * 1024;
 
-    // Count total requests for smooth progress bar
-    const itemJobs = items.map((item) => {
-      const bytes = new Uint8Array(item.wavBuffer);
-      const totalChunks = bytes.byteLength > threshold ? Math.ceil(bytes.byteLength / chunkSize) : 1;
-      return { item, bytes, totalChunks };
-    });
+    // Skip anything the receiver already confirmed on an earlier try
+    const itemJobs = items
+      .map((item, i) => {
+        const bytes = new Uint8Array(item.wavBuffer);
+        const totalChunks = bytes.byteLength > threshold ? Math.ceil(bytes.byteLength / chunkSize) : 1;
+        return { item, bytes, totalChunks, position: i + 1 };
+      })
+      .filter((job) => !state.uploaded[job.item.key]);
+    const totalItems = items.length;
     const totalRequests = itemJobs.reduce((acc, j) => acc + j.totalChunks, 0);
     let completedRequests = 0;
 
+    state.isUploading = true;
+    state.uploadHidden = document.visibilityState === "hidden";
+    await acquireWakeLock();
+    $("send-keep-open").hidden = false;
     setProgress(5, "Starting upload…", "Please keep this page open until it finishes.");
 
     try {
       for (const job of itemJobs) {
-        const { item, bytes, totalChunks } = job;
+        const { item, bytes, totalChunks, position } = job;
         const uploadId = totalChunks > 1 ? randomUploadId() : "";
+        const baseLabel = `Sending ${position} of ${totalItems} (${formatMb(bytes.byteLength)})`;
 
         for (let chunkIndex = 0; chunkIndex < totalChunks; chunkIndex++) {
           const partLabel =
-            totalChunks > 1
-              ? `Sending your ${item.label} (part ${chunkIndex + 1} of ${totalChunks})…`
-              : `Sending your ${item.label}…`;
-          setProgress((completedRequests / totalRequests) * 95 + 5, partLabel);
+            totalChunks > 1 ? `${baseLabel} · part ${chunkIndex + 1} of ${totalChunks}` : baseLabel;
+          setProgress((completedRequests / totalRequests) * 95 + 5, partLabel, `Your ${item.label}`);
 
           const start = chunkIndex * chunkSize;
           const end = Math.min(bytes.byteLength, start + chunkSize);
@@ -1156,27 +1276,41 @@
             payload.totalChunks = totalChunks;
           }
 
-          await postJsonWithRetry(url, payload, 3);
+          const isFinalPart = chunkIndex === totalChunks - 1;
+          const data = await postJsonWithRetry(url, payload, 3, !isFinalPart);
           completedRequests++;
+          if (isFinalPart) {
+            state.uploaded[item.key] = data.fileId;
+            await idbSaveUploadStatus();
+          }
         }
       }
 
       setProgress(100, "Sent!", "Finishing up…");
+      state.isUploading = false;
+      await releaseWakeLock();
+      $("send-keep-open").hidden = true;
       await idbClearAll();
       clearMemoryTakes();
       stopMediaTracks();
       $("done-summary-title").textContent = `Received for contributor ${state.contributorId} · Pack ${state.pack}`;
       showScreen("done");
     } catch (err) {
+      state.isUploading = false;
+      await releaseWakeLock();
       if (err && err.message === "closed") {
+        $("send-keep-open").hidden = true;
         showScreen("closed");
         return;
       }
-      $("send-error-box").hidden = false;
-      $("send-error-message").textContent = (err && err.message) || "Could not reach the upload receiver.";
-      $("btn-send-retry").hidden = false;
-      $("btn-send-back-review").hidden = false;
-      setProgress(0, "Upload paused", "Nothing was lost.");
+      const detail =
+        err && err.name === "AbortError"
+          ? "The connection timed out."
+          : (err && err.message) || "Could not reach the upload receiver.";
+      showSendError(detail);
+      setProgress(0, "Upload paused, tap Send to finish", "Nothing was lost. Anything already sent won't be sent twice.");
+    } finally {
+      state.isUploading = false;
     }
   }
 
@@ -1241,7 +1375,7 @@
     $("input-credit-name").addEventListener("input", updateConsentQuote);
     $("consent-agree-checkbox").addEventListener("change", refreshConsentUi);
     $("btn-consent-record").addEventListener("click", toggleConsentRecord);
-    $("btn-consent-continue").addEventListener("click", () => showScreen("record"));
+    $("btn-consent-continue").addEventListener("click", handleConsentContinue);
 
     // Long take controls
     $("btn-lt-start").addEventListener("click", startLongTake);
@@ -1354,7 +1488,9 @@
     parseUrlParams();
 
     // Check IndexedDB for saved takes
-    const saved = await idbLoadAll();
+    const allRows = await idbLoadAll();
+    const statusRow = allRows.find((r) => r.key === UPLOAD_STATUS_KEY) || null;
+    const saved = allRows.filter((r) => r.key !== UPLOAD_STATUS_KEY);
     if (saved.length > 0) {
       const sample = saved[0];
       const matchesUrl =
@@ -1378,6 +1514,13 @@
               state.lineTakes[row.lineId] = hydrateTake(row);
             }
           }
+          state.uploaded =
+            statusRow &&
+            statusRow.contributorId === state.contributorId &&
+            statusRow.pack === state.pack &&
+            statusRow.uploaded
+              ? { ...statusRow.uploaded }
+              : {};
           $("resume-banner").hidden = true;
           if (state.consentTake && (state.longtakeTake || Object.keys(state.lineTakes).length > 0)) {
             showScreen("review");

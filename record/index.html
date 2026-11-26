@@ -191,11 +191,6 @@
           <label for="input-credit-name">Your name or handle (optional — leave blank to stay anonymous)</label>
           <input id="input-credit-name" type="text" autocomplete="name" placeholder="e.g. Kris Kringle or anonymous">
         </div>
-
-        <label class="agree-label" for="consent-agree-checkbox">
-          <input type="checkbox" id="consent-agree-checkbox">
-          <span>I am 18 or older, and I agree to the OpenSanta consent terms (v0.6).</span>
-        </label>
       </div>
 
       <div class="card card-highlight">
@@ -221,9 +216,14 @@
         </div>
       </div>
 
+      <label class="agree-label" for="consent-agree-checkbox">
+        <input type="checkbox" id="consent-agree-checkbox">
+        <span>I am 18 or older, and I agree to the OpenSanta consent terms (v0.6).</span>
+      </label>
+
       <div class="thumb-bar">
         <p class="muted" id="consent-next-hint" aria-live="polite"></p>
-        <button type="button" class="btn btn-primary btn-full" id="btn-consent-continue" disabled>OK, continue to lines</button>
+        <button type="button" class="btn btn-primary btn-full" id="btn-consent-continue" aria-disabled="true">OK, continue to lines</button>
         <button type="button" class="btn btn-ghost btn-full" data-back="mic">Back</button>
       </div>
     </section>
@@ -359,6 +359,10 @@
       <p class="kicker">Step 6 · Sending</p>
       <h1 id="send-heading">Sending your recording</h1>
 
+      <div class="notice is-warn" id="send-keep-open" role="status" hidden>
+        <strong>Keep this screen open until you see Thank you</strong>
+      </div>
+
       <div class="card">
         <p class="lead" id="send-status-text">Preparing your audio…</p>
         <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="send-progressbar">
@@ -368,13 +372,13 @@
       </div>
 
       <div class="notice is-err" id="send-error-box" hidden>
-        <strong>Something went wrong while sending</strong>
+        <strong>Upload paused, tap Send to finish</strong>
         <p id="send-error-message"></p>
         <p class="muted">Your recordings are still safe on this device.</p>
       </div>
 
       <div class="thumb-bar">
-        <button type="button" class="btn btn-primary btn-full" id="btn-send-retry" hidden>Try sending again</button>
+        <button type="button" class="btn btn-primary btn-full" id="btn-send-retry" hidden>Send</button>
         <button type="button" class="btn btn-ghost btn-full" id="btn-send-back-review" hidden>Back to review</button>
       </div>
     </section>
