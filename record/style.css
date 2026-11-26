@@ -795,3 +795,40 @@ audio.audio-player {
   min-height: 40px;
   margin-top: 0;
 }
+
+/* Checkbox drawn by us, so iOS Safari can't render it over the text */
+.agree-label input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border: 3px solid #D3D9D6;
+  border-radius: 8px;
+  background: #0B0E0D;
+  display: grid;
+  place-content: center;
+  position: static;
+  transform: none;
+}
+.agree-label input[type="checkbox"]:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+.agree-label input[type="checkbox"]:checked::after {
+  content: "";
+  width: 12px;
+  height: 22px;
+  border: solid #0B0E0D;
+  border-width: 0 5px 5px 0;
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+.agree-label input[type="checkbox"]:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+.agree-label > span {
+  flex: 1 1 auto;
+  min-width: 0;
+}
