@@ -35,9 +35,12 @@
 
     <!-- 0. Closed (receiver off, unreachable, or not configured) -->
     <section class="screen" id="screen-closed" aria-labelledby="closed-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">OpenSanta Project</p>
       <h1 id="closed-heading">Recording opens soon</h1>
       <p class="lead">We’re not taking recordings right now. Please check back soon.</p>
+      </div>
+
       <div class="thumb-bar">
         <a class="btn btn-primary btn-full" href="../index.html">Back to OpenSanta</a>
       </div>
@@ -45,6 +48,7 @@
 
     <!-- 1. Welcome -->
     <section class="screen" id="screen-welcome" aria-labelledby="welcome-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">OpenSanta Project</p>
       <h1 id="welcome-heading">Share your Santa voice</h1>
       <p class="lead">Somewhere a dad is wiring up a talking ornament, or building a Santa his kid can actually talk to. Your voice helps give him one, free. Read a short consent and your Santa lines right here, with no apps to install and no sign-in.</p>
@@ -66,6 +70,7 @@
           <button type="button" class="btn btn-secondary btn-sm" id="btn-discard-saved">Start fresh</button>
         </div>
       </div>
+      </div>
 
       <div class="thumb-bar">
         <button type="button" class="btn btn-primary btn-full" id="btn-welcome-start">I want to take part</button>
@@ -75,6 +80,7 @@
 
     <!-- 2. Your ID -->
     <section class="screen" id="screen-id" aria-labelledby="id-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">Step 1 · Your details</p>
       <h1 id="id-heading">Check your ID and pack</h1>
 
@@ -103,6 +109,7 @@
       </div>
 
       <p class="muted">Don’t have an ID yet? See <a href="../how-it-works.html">how sign-up works</a>.</p>
+      </div>
 
       <div class="thumb-bar">
         <button type="button" class="btn btn-primary btn-full" id="btn-id-continue">Continue</button>
@@ -112,6 +119,7 @@
 
     <!-- 3. Mic check -->
     <section class="screen" id="screen-mic" aria-labelledby="mic-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">Step 2 · Microphone</p>
       <h1 id="mic-heading">Check your microphone</h1>
       <p class="lead">Find a quiet room with soft furnishings. Prop your phone about an arm’s length away, and avoid earbuds or headset mics.</p>
@@ -145,6 +153,7 @@
           <audio class="audio-player" id="mic-test-audio" controls preload="auto"></audio>
         </div>
       </div>
+      </div>
 
       <div class="thumb-bar">
         <button type="button" class="btn btn-primary btn-full" id="btn-mic-continue" disabled>Looks good, continue</button>
@@ -154,6 +163,7 @@
 
     <!-- 4. Voice consent -->
     <section class="screen" id="screen-consent" aria-labelledby="consent-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">Step 3 · Voice consent (v0.6)</p>
       <h1 id="consent-heading">Confirm and record your consent</h1>
       <p>Please read what you’re agreeing to, check the box, and record the short statement below in your <strong>normal speaking voice</strong> (not your Santa voice).</p>
@@ -220,6 +230,7 @@
         <input type="checkbox" id="consent-agree-checkbox">
         <span>I am 18 or older, and I agree to the OpenSanta consent terms (v0.6).</span>
       </label>
+      </div>
 
       <div class="thumb-bar">
         <p class="muted" id="consent-next-hint" aria-live="polite"></p>
@@ -235,6 +246,7 @@
 
       <!-- Long take view (recommended main path) -->
       <div id="longtake-view" style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="screen-scroll">
         <div class="card" id="longtake-tips">
           <ol class="plain-list">
             <li>Say the short line code out loud first (for example, <strong id="tip-first-id">L013</strong>).</li>
@@ -271,6 +283,7 @@
           <summary>See all lines in this session</summary>
           <ol class="line-queue" id="lt-line-queue"></ol>
         </details>
+        </div>
 
         <div class="thumb-bar">
           <button type="button" class="btn btn-record btn-full" id="btn-lt-start">Start recording</button>
@@ -294,6 +307,7 @@
 
       <!-- Per-line view (secondary option) -->
       <div id="perline-view" hidden style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="screen-scroll">
         <div class="card">
           <p class="muted">Recording one line at a time. Leave a short quiet pause before and after each line.</p>
           <div>
@@ -327,6 +341,7 @@
           <audio class="audio-player" id="pl-audio" controls preload="auto"></audio>
           <div class="notice is-warn" id="pl-warn-box" hidden></div>
         </div>
+        </div>
 
         <div class="thumb-bar">
           <button type="button" class="btn btn-record btn-full" id="btn-pl-record">Record this line</button>
@@ -342,13 +357,20 @@
 
     <!-- 6. Review -->
     <section class="screen" id="screen-review" aria-labelledby="review-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">Step 5 · Review</p>
       <h1 id="review-heading">Listen back before sending</h1>
       <p class="muted">Play back your clips to make sure your voice is clear and nothing got cut off.</p>
 
       <div id="review-list" style="display:flex;flex-direction:column;gap:0.9rem;"></div>
+      </div>
 
       <div class="thumb-bar">
+        <label class="agree-label" for="review-agree-checkbox" id="review-agree-label" hidden>
+          <input type="checkbox" id="review-agree-checkbox">
+          <span>I am 18 or older, and I agree to the OpenSanta consent terms (v0.6).</span>
+        </label>
+        <p class="muted" id="review-consent-note" hidden>✓ Consent agreed at the start (v0.6)</p>
         <button type="button" class="btn btn-primary btn-full" id="btn-review-send">Send recording</button>
         <button type="button" class="btn btn-ghost btn-full" id="btn-review-back">Back to recording</button>
       </div>
@@ -356,6 +378,7 @@
 
     <!-- 7. Send -->
     <section class="screen" id="screen-send" aria-labelledby="send-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">Step 6 · Sending</p>
       <h1 id="send-heading">Sending your recording</h1>
 
@@ -376,6 +399,7 @@
         <p id="send-error-message"></p>
         <p class="muted">Your recordings are still safe on this device.</p>
       </div>
+      </div>
 
       <div class="thumb-bar">
         <button type="button" class="btn btn-primary btn-full" id="btn-send-retry" hidden>Send</button>
@@ -385,6 +409,7 @@
 
     <!-- 8. Done -->
     <section class="screen" id="screen-done" aria-labelledby="done-heading" hidden>
+      <div class="screen-scroll">
       <p class="kicker">All done</p>
       <h1 id="done-heading">Thank you! Your recording is in.</h1>
       <p class="lead">You just helped give Santa a voice that any maker can use, for free.</p>
@@ -400,6 +425,7 @@
           <li>If anything needs another take, we’ll email you.</li>
           <li>Your spoken consent stays private and is never published.</li>
         </ul>
+      </div>
       </div>
 
       <div class="thumb-bar">

@@ -45,7 +45,11 @@
     // Recorded takes (each: { kind, lineId, wavBuffer, stats, url, warnings })
     consentTake: null,
     longtakeTake: null,
-    lineTakes: {} // lineId -> take
+    lineTakes: {}, // lineId -> take
+
+    // True only if the consent-step box was checked during this page lifetime.
+    // Not persisted — a reload or Resume starts over with this false.
+    consentAgreedThisSession: false
   };
 
   // ---- DOM helper ----
@@ -90,6 +94,12 @@
     $("step-badge").textContent = STEP_LABELS[name] || "";
     $("btn-start-over").hidden = name === "welcome" || name === "done" || name === "send" || name === "closed";
     window.scrollTo({ top: 0, behavior: "auto" });
+    const screenEl = $("screen-" + name);
+    if (screenEl) {
+      screenEl.querySelectorAll(".screen-scroll").forEach((el) => {
+        el.scrollTop = 0;
+      });
+    }
 
     if (name === "consent") refreshConsentUi();
     if (name === "record") refreshRecordUi();
@@ -708,6 +718,7 @@
   function refreshConsentUi() {
     updateConsentQuote();
     const agreed = $("consent-agree-checkbox").checked;
+    state.consentAgreedThisSession = agreed;
     const hasClip = Boolean(state.consentTake);
 
     if (hasClip) {
@@ -1079,12 +1090,66 @@
       });
     }
 
-    const hasAudio =
+    refreshReviewSend();
+  }
+
+  function reviewHasAudio() {
+    return (
       Boolean(state.consentTake) &&
       (state.mode === "longtake"
         ? Boolean(state.longtakeTake)
-        : Object.keys(state.lineTakes).length > 0);
-    $("btn-review-send").disabled = !hasAudio;
+        : Object.keys(state.lineTakes).length > 0)
+    );
+  }
+
+  function refreshReviewSend() {
+    const hasAudio = reviewHasAudio();
+    const needsBox = !state.consentAgreedThisSession;
+    const box = $("review-agree-checkbox");
+    const agreedHere = box && box.checked;
+    const note = $("review-consent-note");
+    const label = $("review-agree-label");
+    const btn = $("btn-review-send");
+    const version = CONFIG.CONSENT_VERSION || "0.6";
+
+    if (label) label.hidden = !needsBox;
+    if (note) {
+      note.textContent = `✓ Consent agreed at the start (v${version})`;
+      note.hidden = needsBox;
+    }
+
+    const canSend = hasAudio && (!needsBox || agreedHere);
+    if (needsBox && hasAudio && !agreedHere) {
+      // Tappable so a tap can scroll to and highlight the box.
+      btn.disabled = false;
+      btn.setAttribute("aria-disabled", "true");
+    } else {
+      btn.removeAttribute("aria-disabled");
+      btn.disabled = !canSend;
+    }
+  }
+
+  function handleReviewSend() {
+    const btn = $("btn-review-send");
+    if (btn.getAttribute("aria-disabled") === "true") {
+      const checkbox = $("review-agree-checkbox");
+      if (checkbox && !checkbox.checked) {
+        const label = checkbox.closest(".agree-label");
+        if (label) {
+          label.scrollIntoView({ behavior: "smooth", block: "center" });
+          label.classList.remove("is-attention");
+          void label.offsetWidth;
+          label.classList.add("is-attention");
+          setTimeout(() => label.classList.remove("is-attention"), 1800);
+        }
+        try {
+          checkbox.focus({ preventScroll: true });
+        } catch (_) {}
+      }
+      return;
+    }
+    if (btn.disabled) return;
+    runUpload();
   }
 
   // ---- Screen 7: Send ----
@@ -1433,7 +1498,8 @@
     $("btn-pl-back-consent").addEventListener("click", () => showScreen("consent"));
 
     // Review & Send
-    $("btn-review-send").addEventListener("click", runUpload);
+    $("review-agree-checkbox").addEventListener("change", refreshReviewSend);
+    $("btn-review-send").addEventListener("click", handleReviewSend);
     $("btn-review-back").addEventListener("click", () => showScreen("record"));
     $("btn-send-retry").addEventListener("click", runUpload);
     $("btn-send-back-review").addEventListener("click", () => showScreen("review"));
@@ -1448,6 +1514,8 @@
       await idbClearAll();
       stopMediaTracks();
       $("consent-agree-checkbox").checked = false;
+      $("review-agree-checkbox").checked = false;
+      state.consentAgreedThisSession = false;
       $("mic-prompt-card").hidden = false;
       $("mic-live-card").hidden = true;
       $("mic-error-card").hidden = true;
@@ -1457,6 +1525,8 @@
 
     $("btn-done-another").addEventListener("click", () => {
       $("consent-agree-checkbox").checked = false;
+      $("review-agree-checkbox").checked = false;
+      state.consentAgreedThisSession = false;
       $("mic-prompt-card").hidden = false;
       $("mic-live-card").hidden = true;
       $("btn-mic-continue").disabled = true;
@@ -1506,6 +1576,9 @@
           state.creditName = sample.creditName || "";
           $("input-credit-name").value = state.creditName;
           state.mode = sample.mode || "longtake";
+          state.consentAgreedThisSession = false;
+          $("consent-agree-checkbox").checked = false;
+          $("review-agree-checkbox").checked = false;
 
           for (const row of saved) {
             if (row.key === "consent") state.consentTake = hydrateTake(row);

@@ -2,7 +2,7 @@
  * Caches only the static app shell and bundled script lines.
  * Never caches audio recordings or upload requests.
  */
-const CACHE_NAME = "opensanta-record-v6";
+const CACHE_NAME = "opensanta-record-v9";
 const SHELL_ASSETS = [
   "./",
   "./index.html",

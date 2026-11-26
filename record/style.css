@@ -54,6 +54,9 @@ body {
   font-size: 1.125rem; /* 18px minimum */
   line-height: 1.5;
   min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -93,6 +96,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 20;
+  flex-shrink: 0;
   background: rgba(14, 17, 16, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -148,12 +152,14 @@ a:hover {
 /* Main container */
 .app-main {
   flex: 1;
+  min-height: 0;
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  padding: 1.25rem 1rem 2rem;
+  padding: 1.25rem 1rem 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .screen {
@@ -161,6 +167,33 @@ a:hover {
   flex-direction: column;
   gap: 1.15rem;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Content above a sticky thumb-bar scrolls in this pane so the bar never covers it. */
+.screen-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding-bottom: 0.5rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+#longtake-view,
+#perline-view {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#longtake-view > .screen-scroll,
+#perline-view > .screen-scroll {
+  gap: 1rem;
 }
 
 .screen[hidden] {
@@ -479,7 +512,8 @@ p {
   padding-top: 1rem;
   position: sticky;
   bottom: 0;
-  background: linear-gradient(to top, var(--bg) 78%, rgba(14, 17, 16, 0));
+  flex-shrink: 0;
+  background: var(--bg);
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
@@ -728,4 +762,36 @@ audio.audio-player {
 
 [hidden] {
   display: none !important;
+}
+
+/* Consent screen: stronger contrast and a bigger checkbox (Gav's C0003 feedback) */
+#screen-consent,
+#screen-consent .card,
+#screen-consent .plain-list,
+#screen-consent .consent-terms-list {
+  color: #F4F6F5;
+}
+
+#screen-consent .muted {
+  color: #D3D9D6;
+}
+
+#screen-consent .card {
+  background: #0B0E0D;
+  border-color: #4A5550;
+}
+
+.agree-label {
+  font-size: 1.15rem;
+  padding: 1.1rem;
+  border: 3px solid #8F9995;
+  align-items: center;
+}
+
+.agree-label input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  margin-top: 0;
 }
