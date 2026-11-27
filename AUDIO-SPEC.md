@@ -1,11 +1,11 @@
 # Audio Spec: how to record for the OpenSanta Project
 
 ## The short version
-- **Quiet room, same setup every time.** Record **one long take per pack** (recommended), or **one clip per script line**.
-- **Record raw:** no effects, no cleanup, no "enhance" buttons.
-- **Not too loud:** the loudest parts should land around −6 to −3 dBFS, and must **never** hit 0 (clipping).
-- For a long take, leave **about 2 seconds** of silence between lines. For one file per line, leave **a short pause (about half a second)** before and after you speak.
-- Save as **WAV**. Long take: `<contributorID>_<pack>_longtake.wav`. One file per line: `<contributorID>_<lineID>.wav`. Consent clip: `<contributorID>_consent.wav`.
+- **Use the recording page** at [opensanta.org/record/](https://opensanta.org/record/). It records one clip at a time, saves mono 16-bit PCM WAV at 48 kHz (or 44.1 kHz), names the files, and sends them for you. You just need a quiet room and the button.
+- **Quiet room, same setup every time.** Keep the mic or phone about **15–20 cm (6–8 in)** from your mouth (phone: **20–30 cm / 8–12 in**), slightly off to the side.
+- **Kill steady noise:** turn off fans, AC or heating if you can, nearby fridge hum, and notifications. Close windows. The room should sound quiet on headphones.
+- **Record raw, and not too loud:** no effects, no cleanup, no "enhance" buttons. The loudest parts should land around −6 to −3 dBFS, and must **never** hit 0 (clipping). The page will warn you if a clip is too loud or too quiet.
+- **Uploading files yourself?** See the technical table and file naming below. The recording page already handles format and names.
 
 ## Technical table
 
@@ -22,6 +22,8 @@
 | Lead-in / tail silence | **About 0.3–0.5 s** of room silence at the start and end | 0.2–1.0 s | **Project choice**, not a published standard. Enough room tone to trim cleanly. VCTK clips were "manually end-pointed"; Piper Recording Studio's exporter trims silence automatically. |
 | Processing | **None.** No EQ, compression, limiting, reverb, noise reduction, normalization, or pitch or speed changes. | | Coqui: dataset quality and consistency drive model quality, and "what it sees is all it learns". Processing can't be undone, and any needed processing is applied evenly later. |
 | Consistency | Same mic, room, distance, gain, and Santa voice across all sessions | | Coqui: keep tone and pitch consistent among clips. |
+
+The recording page produces **mono 16-bit PCM WAV at 48 kHz or 44.1 kHz**, which is in the accepted column. You don't need to set these yourself.
 
 ## Which lines you record
 The voice is a blend of many contributors. You record the **core set** (3 lines, the same for everyone) plus **at
@@ -55,13 +57,14 @@ politely declined or kept out of v1 training, and we'll always tell you. See `sc
 - Turn off any "auto gain", "AGC", "voice enhancement", or "noise suppression" in the mic's app or your OS.
 
 **Phone (accepted for v1 if you follow these tips)**
-- **Export uncompressed WAV**, or the highest-quality lossless option your recorder app offers. Many built-in voice-memo
-  apps save compressed audio (for example AAC/M4A) by default. Check your app's settings, and if it can't save WAV or
-  lossless, use a different recorder app. We don't accept compressed voice-memo files.
+- **If you use the recording page**, skip the export and naming steps — it saves uncompressed WAV and names the files.
+  If you record in a separate app, **export uncompressed WAV**, or the highest-quality lossless option your recorder app
+  offers. Many built-in voice-memo apps save compressed audio (for example AAC/M4A) by default. We don't accept compressed
+  voice-memo files.
 - Turn off **auto gain (AGC), noise suppression, "enhance", or voice-processing** options wherever your app or phone lets
   you. Some phones don't let you turn all of these off. That's OK, just switch off what you can and keep it the same every session.
 - Put the phone on a stand or a pile of books, mic end toward you, about **20–30 cm** away. Don't hold it (handling noise).
-- Turn on airplane mode or do-not-disturb so calls and notifications don't interrupt.
+  Turn on airplane mode or do-not-disturb so calls and notifications don't interrupt.
 - Do a test clip first. Phone mics clip easily on loud laughs, so back off a little for the laughs section.
 - **The same spec and quality checks apply to phone clips as to any other mic:** format, sample rate, peaks, no clipping,
   noise floor, silence, and consistency (see the table above).
@@ -70,7 +73,9 @@ politely declined or kept out of v1 training, and we'll always tell you. See `sc
 (they compress and process audio).
 
 ## Recording: two options
-The recommended way is **one long take per pack** (option A). You can also record **one file per line** (option B). The format, room, mic, and peak rules are the same either way. The consent clip is always its own file.
+The usual way is the **recording page** at [opensanta.org/record/](https://opensanta.org/record/). It records one line at a time, checks levels, and names and sends the files for you.
+
+If you're recording in your own app and uploading files yourself, the recommended way is **one long take per pack** (option A). You can also record **one file per line** (option B). The format, room, mic, and peak rules are the same either way. The consent clip is always its own file.
 
 ## Long take (option A, recommended)
 Record the core set and your pack as **one WAV per pack**, in the same format as the table above.
@@ -92,6 +97,7 @@ Listen back with headphones: clipping, clicks, background noise, or wrong words 
 The upload form takes up to 10 files.
 
 ## File naming
+Skip this if you use the recording page — it names the files for you.
 - Long take (option A, recommended): `<contributorID>_<pack>_longtake.wav`, for example `C0042_P10_longtake.wav`.
 - Script lines (option B): `<contributorID>_<lineID>.wav`, for example `C0042_L001.wav`. `lineID` comes from `script/lines.tsv`.
 - Consent clip: `<contributorID>_consent.wav` (see CONSENT.md). It's kept private and never used for training.
