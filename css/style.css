@@ -124,6 +124,7 @@ p { margin: 0; }
 }
 .wordmark:hover { color: var(--white); }
 .wordmark img { width: 40px; height: 40px; flex: none; }
+.wordmark img.wordmark-lockup { width: auto; height: 40px; }
 .wordmark-name { font-size: 1.15rem; color: var(--white); }
 
 .desktop-nav { display: none; }
@@ -248,8 +249,9 @@ main#content { flex: 1; }
 .hero-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 1.75rem 1.25rem 0;
+  padding: 1.25rem 1.25rem 0;
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1.15rem;
   align-items: center;
 }
@@ -276,6 +278,16 @@ main#content { flex: 1; }
   font-size: clamp(2.15rem, 8vw, 3.5rem);
   max-width: 11.5em;
 }
+.hero-title { display: flow-root; }
+.hero-santa {
+  float: right;
+  width: 44%;
+  max-width: 190px;
+  height: auto;
+  margin: -0.6rem -0.5rem 0 0.4rem;
+  shape-outside: circle(48%);
+}
+.hero-break { display: none; }
 .hero .lead,
 .lede {
   margin-top: 0.85rem;
@@ -320,11 +332,34 @@ main#content { flex: 1; }
 
 @media (min-width: 840px) {
   .hero-inner {
-    grid-template-columns: minmax(0, 1fr) 432px;
-    padding: 4rem 1.5rem 0;
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem 0;
     gap: 0.85rem;
   }
+  .hero-inner > div { text-align: center; }
+  .hero-inner .kicker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .hero h1 { font-size: 3.75rem; }
+  .hero h1.hero-title {
+    max-width: none;
+    width: fit-content;
+    font-size: 4.25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-santa {
+    width: 230px;
+    max-width: none;
+    margin: -1.4rem 0 0 1.25rem;
+  }
+  .hero-title .hero-break { display: block; }
+  .hero .lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .hero-logo {
     order: 0;
     width: min(100%, 432px);
@@ -332,6 +367,10 @@ main#content { flex: 1; }
     justify-self: start;
   }
   .hero-logo img { width: 100%; height: auto; }
+  .cta-row {
+    justify-content: center;
+    gap: 1rem;
+  }
   .cta-btn {
     display: inline-flex;
     width: auto;
